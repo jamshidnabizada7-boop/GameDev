@@ -1,0 +1,32 @@
+﻿# Unreal Engine GitIgnore
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+.idea/
+.vs/
+.vscode/
+*.VC.db
+*.opendb
+*.sln
+*.xcodeproj
+*.xcworkspace
+*.tmp
+*.log
+*.bak
+CrashReportClient/
+
+# OS / IDE noise
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.suo
+*.sdf
+*.opensdf
+*.user
+*.pdb
+
+# Per-project plugin build output
+Plugins/*/Binaries/
+Plugins/*/Intermediate/
