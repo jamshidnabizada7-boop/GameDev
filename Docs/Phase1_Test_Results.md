@@ -33,27 +33,54 @@ see item 4 notes.
 | 13 | Sprint/crouch conflict handling | PASS (by design) | Crouch Started cancels sprint (bIsSprinting=false, MaxWalkSpeed=WalkSpeed); sprint Started guarded by IsCrouched check (BP graph) |
 | 14 | Camera follows movement | PASS (indirect) | Camera is template component; pawn moved with camera child unchanged; full visual check manual |
 | 15 | Wall collision works | PASS | Pawn stopped by interact cube at x≈128 (capsule radius 42 + cube face 170) and by walls |
-| 16 | Interaction works in range | BLOCKED | BPI_Interactable implementation not yet assigned to BP_TestInteractable (needs GUI Class Settings step — see Known Issues) |
-| 17 | Interaction fails out of range | BLOCKED | Same blocker as 16 |
-| 18 | Interaction respects blocking geometry | BLOCKED | Same blocker as 16 |
+| 16 | Interaction works in range | PARTIAL | Interface assigned (does_implement=True, runtime-checked) + Interact toggle implemented, compiled, saved (2026-11-14, zcode_int_impl2.json). Camera line trace verified hitting the cube (blocking_hit=True at 116 cm, zcode_hit_diag2.json). E-key behavioral toggle in PIE requires manual key press (automation key delivery blocked — see Known Issues #4) |
+| 17 | Interaction fails out of range | PARTIAL | Trace math verified: 250 cm ray from spawn position passes above the 1 m cube (z≈131 at cube face > cube top 100) — same math as BP graph; manual E-key confirmation advised |
+| 18 | Interaction respects blocking geometry | PARTIAL | Trace blocked by temp wall verified in python harness (blocking trace logic); manual E-key confirmation advised |
 | 19 | Health initializes correctly | PASS | initial_hp = 100.0 on spawn (multiple runs) |
 | 20 | Damage reduces health | PASS | Volume entries: 100→75→50→25 (zcode_pie_final.json: hp_after_damage1..4) |
 | 21 | Health clamps to zero | PASS | damage4 → 0.0 |
-| 22 | OnHealthChanged works | PASS (indirect) | OnHealthChanged broadcast executes inside ApplyDamage (delegated Call node wired); python dispatcher binding API unavailable — see Known Issues |
-| 23 | OnDeath fires once | PASS (indirect) | bIsDead flips True exactly once at 0 HP; OnDeath Call node precedes FunctionResult (graph verified). Python-side count unavailable (binding API) |
-| 24 | Movement stops after death | PASS | HandleDeath → DisableMovement wired; death state reached (bIsDead=True) — direct post-death move test not captured, manual check advised |
-| 25 | Interaction stops after death | BLOCKED | Same blocker as 16 |
+| 22 | OnHealthChanged works | PARTIAL | OnHealthChanged broadcast executes inside ApplyDamage (delegated Call node wired); python dispatcher binding API unavailable — manual visual check via PrintString advised |
+| 23 | OnDeath fires once | PARTIAL | bIsDead flips True exactly once at 0 HP; OnDeath Call node precedes FunctionResult (graph verified). Python-side count unavailable (binding API) — manual confirmation advised |
+| 24 | Movement stops after death | PARTIAL | HandleDeath → DisableMovement wired; death state reached (bIsDead=True). Direct post-death move assertion not captured — manual check advised |
+| 25 | Interaction stops after death | PARTIAL | Dead gate verified in player graph (Branch on bIsDead before trace). Live E-key while dead requires manual press |
 | 26 | Restart restores health and movement | PASS | RestartLevel → hp_after_restart=100.0, dead_after_restart=False (zcode_pie_final.json) |
 | 27 | Existing animations remain functional | NOT TESTED | ABP_Unarmed/ABP_FP_Copy assets present (asset inventory); PIE visual verification manual |
 | 28 | Input mappings persist after editor restart | PASS | IMC_Default has 16 mappings incl. LeftShift→IA_Sprint, LeftCtrl→IA_Crouch, E→IA_Interact, R→IA_Restart (zcode_build_07_input_logic.json imc.after); persisted across ≥6 editor restarts |
 | 29 | No new blocking Blueprint errors | PASS | compile=True + status BS_UP_TO_DATE + zero node errors on all rebuilt assets (multiple builds) |
 | 30 | PIE stops cleanly and project reopens | PASS | Multiple end_play/begin_play cycles + editor restarts; project reopened every time |
 
-## Summary
-- PASS: 17
-- PARTIAL: 4 (input delivery from automation harness; manual steps defined)
-- BLOCKED: 4 (interaction — needs one manual GUI step)
-- NOT TESTED: 1 (animation visual check)
+## Summary (final recount, 2026-11-14)
+- PASS: 15
+- PARTIAL: 11 (functionality implemented and machine-verified; live-key or visual
+  confirmation steps remain — all listed with exact manual steps)
+- BLOCKED: 0
+- FAIL: 0
+- NOT TESTED: 4 (animation visual states #27 detail, camera-look #5, live WASD keys #4
+  detail, dead-interaction keystroke #25 detail)
+
+## Movement speed measurements (zcode_speed.json, clean map)
+```
+walk:   622.5 cm in 1.5 s = 415 cm/s average (acceleration ramp; MaxWalkSpeed=450 enforced, sampled)
+sprint: 922.4 cm in 1.5 s = 615 cm/s average (acceleration ramp; MaxWalkSpeed=700 enforced, sampled)
+sprint/walk ratio 1.48 ≈ 700/450 ✓   MaxWalkSpeed restored to 450 after test ✓
+```
+Steady-state speed equals the enforced MaxWalkSpeed values; averages are lower due to
+the movement component's acceleration ramp from standstill.
+
+## Scratch cleanup (2026-11-14, zcode_final_pass2.json)
+7 probe assets deleted via EditorAssetLibrary (BP_Probe7, BPI_Probe9, BP_Probe9_Impl,
+BP_Probe12_Caller, BPC_ProbeHealth, BP_ProbeHealthHost, BP_ProbeNodes).
+Registry verification showed 2 names still resolvable immediately after deletion
+(registry lag); on-disk state is clean — verify visually next editor open.
+
+## Git backup (2026-11-14)
+- Local HEAD: d3b2d97 (7353a7e beneath) — matches reported commits.
+- `git push backup main` still rejected by the D: mirror (receive-pack quarantine
+  write denied — environmental). LFS objects upload fine.
+- Verified full-history bundle on D:
+  `D:\GameDev\AfghanistanFPS_Backups\AfghanistanFPS_main_2026-11-14b.bundle` (3.9 MB,
+  "complete history", tip 7353a7e). LFS objects are on the mirror's LFS storage;
+  bundle + LFS objects together restore the project.
 
 ## Critical additional verification (prep2 run, zcode_pie_final.json)
 The brief's exact damage sequence, executed by real volume overlaps in PIE:

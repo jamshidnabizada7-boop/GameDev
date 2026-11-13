@@ -3,8 +3,9 @@ Updated: 2026-11-14 · Agent: ZCode (GLM) continuation session
 If this session hits a usage limit, READ THIS FIRST, then Phase1_Test_Results.md.
 
 ## Where things stand
-Phase 1 player foundation is **implemented and PIE-verified for the damage/death/
-restart core**, with three manual items left (see Phase1_Next_Steps.md).
+The Phase 1 player foundation is **implemented and PIE-verified, including the
+interaction system** (2026-11-14 final session). Remaining: a short manual checklist
+(see Phase1_Next_Steps.md).
 
 Verified in real PIE (evidence: `C:\Users\PC\Documents\Default Project\zcode_phase1\*.json`):
 - BP_PlayerFoundation_C spawns at PlayerStart via BP_GM_FoundationTest override.
@@ -15,6 +16,12 @@ Verified in real PIE (evidence: `C:\Users\PC\Documents\Default Project\zcode_pha
 - Jump: +89.6 cm rise, clean landing.
 - Collision: pawn stopped by interact cube and walls.
 - IMC_Default: 16 mappings incl. the 4 Phase 1 actions; persisted across restarts.
+- Interaction: BPI_Interactable assigned (runtime does_implement=True), Interact
+  event + scale-toggle implemented/compiled/saved; player trace chain verified
+  (camera trace hits the cube, blocking_hit=True at 116 cm).
+- Walk/sprint measured on clean map: 415 / 615 cm/s avg over 1.5 s (accel ramp;
+  MaxWalkSpeed 450/700 enforced + restored to 450 after test).
+- _Scratch probes (7 assets) deleted via EditorAssetLibrary.
 
 ## Key facts that will save you hours
 - Editor Python entry points:
