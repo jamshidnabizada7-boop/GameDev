@@ -34,11 +34,25 @@ Date: 2026-11-13/14
    nodes from iterative builds; compiler drops them). Optional manual tidy.
 7. **`Content/AfghanFPS/Interaction/` contained empty Door/JumpPad/Materials/Test
    folders** (origin unclear — not created by this session). Safe to delete in editor.
-8. **_Scratch assets** (8 probe BPs) still present. No production references found;
-   delete via editor asset tools after the recovery snapshot is confirmed current.
+8. **_Scratch assets** (8 probe BPs) still present, intentionally left OUT of the
+   Phase1-01 commit. No production references found; delete via editor asset tools
+   after confirming the recovery snapshot is current.
 9. **OnHealthChanged/OnDeath python-side verification** limited (DelegateBase lacks
    add_callable in 5.8). Both dispatchers ARE wired and called in BPC_Health's graphs;
    death state transition verified end-to-end in PIE.
+
+## Backup remote failure (worked around)
+10. **`git push backup main` fails**: the bare mirror on
+    `D:/GameDev/AfghanistanFPS_Backups/GitMirror/AfghanistanFPS.git` rejects pushes —
+    `git receive-pack` / fetch gets "Permission denied" writing objects into its
+    quarantine (`objects/tmp_objdir-incoming-*`), on varying object paths. Manual
+    PowerShell writes to the exact same paths succeed → environmental (likely AV/EDR
+    intercepting git.exe child-process writes to D:). LFS objects DID upload (11/11).
+    **Workaround applied**: full-history git bundle
+    `D:\GameDev\AfghanistanFPS_Backups\AfghanistanFPS_main_2026-11-14.bundle`
+    (3.8 MB, verified "complete history", tip 7353a7e). Restore with
+    `git clone <bundle> <dir>` or `git fetch <bundle> main`. Retry `git push backup`
+    next session — if still failing, investigate the machine's AV/exclusion list.
 
 ## Environment notes (for the next agent)
 - Shell on this machine is **cmd.exe** (no head/unix tools); PowerShell available.
