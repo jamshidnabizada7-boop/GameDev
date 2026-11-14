@@ -4,9 +4,18 @@ If this session hits a usage limit, READ THIS FIRST, then Phase1_Test_Results.md
 
 ## Where things stand
 The Phase 1 player foundation is **implemented and PIE-verified, including the
-interaction system** (2026-11-14 final autonomous session). Git HEAD: 99c78f3
-(+ any Phase1-02 commits). Remaining: a short **manual acceptance pass** (see
-Phase1_Next_Steps.md) — everything machine-verifiable has been verified.
+interaction system AND the input-mapping persistence fix** (2026-11-14 final
+autonomous session). Git HEAD: 9f2d97e. Remaining: a short **manual acceptance pass**
+with the on-screen debug display (see Phase1_Next_Steps.md) — everything
+machine-verifiable has been verified.
+
+**CRITICAL FIX (2026-11-14, commit 9fa95ae)**: the 4 Phase 1 key mappings
+(LeftShift/LeftCtrl/E/R) were never persisted to IMC_Default — `imc.map_key()` +
+`save_asset()` silently fails to serialize them (three sessions hit this). Fixed via
+`imc.set_editor_property("mappings", full_16_entry_list)` — verified persisting in a
+fresh editor session (zcode_final_verify.json: 16 mappings on disk). **A debug
+display (10 on-screen prints) was added to BP_PlayerFoundation** — pressing
+W/Space/Shift/Ctrl/E/R during PIE now prints "INPUT: <event> fired" on screen.
 
 Verified in real PIE (evidence: `C:\Users\PC\Documents\Default Project\zcode_phase1\*.json`):
 - BP_PlayerFoundation_C spawns at PlayerStart via BP_GM_FoundationTest override.
@@ -16,7 +25,8 @@ Verified in real PIE (evidence: `C:\Users\PC\Documents\Default Project\zcode_pha
 - Crouch: bIsCrouched True, capsule 96→40, crouch-move ~190 cm/s; uncrouch restores 96.
 - Jump: +89.6 cm rise, clean landing.
 - Collision: pawn stopped by interact cube and walls.
-- IMC_Default: 16 mappings incl. the 4 Phase 1 actions; persisted across restarts.
+- IMC_Default: **16 mappings on disk, verified in a fresh editor session**
+  (zcode_final_verify.json).
 - Interaction: BPI_Interactable assigned (runtime does_implement=True), Interact
   event + scale-toggle (1.0 → 1.25 → 1.0 per user spec) implemented/compiled/saved;
   verified in PIE via interface call (zcode_tog_test.json:
