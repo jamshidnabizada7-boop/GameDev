@@ -253,7 +253,7 @@ Statuses: `I&T` = IMPLEMENTED AND TESTED · `IBU` = IMPLEMENTED BUT UNVERIFIED �
 **P0 · NI · Medium · Video: YES (feature 1)**
 - Description: weapon parented to hand socket; muzzle socket for FX/traces.
 - Systems: socket setup on arms/weapon; attachment node chain; muzzle socket convention `Muzzle`.
-- Anim: n/a. Audio/VFX: n/a (enables L-1/L-2). Input: none. Dependencies: C-1.
+- Anim: n/a. Audio/VFX: n/a (enables L-1/L-2). Input: none. Dependencies: none (sockets defined on BP_Weapon_Base itself).
 - Acceptance: weapon follows arm through all anims without offset drift. PASS evidence: [PIE] socket transform samples.
 
 #### B-8 — Left-hand IK on weapon
@@ -267,7 +267,7 @@ Statuses: `I&T` = IMPLEMENTED AND TESTED · `IBU` = IMPLEMENTED BUT UNVERIFIED �
 **P1 · NI · High · Video: (implicit)**
 - Description: locomotion lower body + aim/weapon upper body layered by stance/state.
 - Systems: Layered blend per bone; state enum (Hip/ADS/Reload/Sprint) shared with weapon system.
-- Anim: layering graph. Audio/VFX: none. Input: none. Dependencies: B-3, B-6, C-3.
+- Anim: layering graph. Audio/VFX: none. Input: none. Dependencies: B-3, B-6.
 - Acceptance: sprint + turn + aim transitions without pose snapping. PASS evidence: [USER] visual.
 
 ### Category C — Weapon handling (10 actions)
@@ -306,7 +306,7 @@ Statuses: `I&T` = IMPLEMENTED AND TESTED · `IBU` = IMPLEMENTED BUT UNVERIFIED �
 **P1 · NI · Medium · Video: YES (feature 8, switching implies)**
 - Description: timed draw/holster when switching weapons; fire blocked during transition.
 - Systems: equip state + timer. Anim: MM_*_Equip assets exist. Audio/VFX: draw foley placeholder.
-- Input: part of switch. Dependencies: C-6, B-9. Acceptance: switch shows draw time; fire gated.
+- Input: part of switch. Dependencies: B-9, C-1. Acceptance: switch shows draw time; fire gated.
 - PASS evidence: [PIE] state timing + [USER] visual.
 
 #### C-6 — Weapon switching (1/2 keys, scroll)
@@ -321,7 +321,7 @@ Statuses: `I&T` = IMPLEMENTED AND TESTED · `IBU` = IMPLEMENTED BUT UNVERIFIED �
 **P1 · NI · Medium · Video: YES (implied)**
 - Description: data-driven loadout (2 slots graybox → expandable): weapon class, ammo type, reserve.
 - Systems: struct array + save-friendly data. Anim: n/a. Audio/VFX: n/a. Input: none.
-- Dependencies: C-6, D-8. Acceptance: adding a third weapon requires no logic rewrite (data only).
+- Dependencies: C-8, D-8. Acceptance: adding a third weapon requires no logic rewrite (data only).
 - PASS evidence: [STRUCT] config-driven switch test with 3 weapons.
 
 #### C-8 — Ammo state tracking (mag/reserve per weapon)
@@ -352,7 +352,7 @@ Statuses: `I&T` = IMPLEMENTED AND TESTED · `IBU` = IMPLEMENTED BUT UNVERIFIED �
 - Description: LMB fires: camera-center hitscan trace, damage application to hit actor, muzzle FX, shell, sound, recoil.
 - Systems: fire function on `BP_Weapon_Base` (trace ByChannel Bullet; ignore owner), damage via F-7 typing → BPC_Health on targets.
 - Anim: fire anim exists (body). Audio/VFX: L-1/L-2/L-5 placeholders. Input: IA_Fire (LMB, hold = auto).
-- Dependencies: C-1, C-8, B-7, F-2 (for reaction), D-3.
+- Dependencies: C-1, C-8, B-7, D-3.
 - Acceptance: trace hits dummy at N m; dummy HP drops by damage; all feedback fires same frame.
 - PASS evidence: [PIE] damage values + hit actor + [USER] visual/audio pass.
 
@@ -415,7 +415,7 @@ Statuses: `I&T` = IMPLEMENTED AND TESTED · `IBU` = IMPLEMENTED BUT UNVERIFIED �
 - Description: RMB hold: weapon to eye, FOV/camera shift, reduced spread, sensitivity scale.
 - Systems: ADS state on weapon+player; camera FOV interp; weapon transform target poses (hip↔ADS).
 - Anim: `AO_Rifle`/ADS idle assets exist (body-level). Audio/VFX: ADS foley optional.
-- Input: IA_ADS (RMB hold). Dependencies: C-1, B-7, B-6, K-8, E-4, E-6, E-5.
+- Input: IA_ADS (RMB hold). Dependencies: C-1, B-7, B-6, E-4, E-6.
 - Acceptance: smooth hip↔ADS ≤ 0.25 s, crosshair hidden, spread near-zero, no pose snapping.
 - PASS evidence: [PIE] FOV + weapon transform samples + [USER] visual.
 
@@ -423,7 +423,7 @@ Statuses: `I&T` = IMPLEMENTED AND TESTED · `IBU` = IMPLEMENTED BUT UNVERIFIED �
 **P0 · NI · Medium · Video: YES (feature 3)**
 - Description: per-shot camera pitch/yaw pattern + weapon kick-back, recovery over time.
 - Systems: recoil data table (per weapon); camera add-rotation with recovery; weapon spring kick.
-- Anim: weapon anim kick. Audio/VFX: none. Input: none. Dependencies: D-1, K-5.
+- Anim: weapon anim kick. Audio/VFX: none. Input: none. Dependencies: D-1.
 - Acceptance: sustained fire climbs then recovers; pattern reproducible; ADS reduces climb.
 - PASS evidence: [PIE] control rotation samples across a 10-shot burst.
 
@@ -536,7 +536,7 @@ Statuses: `I&T` = IMPLEMENTED AND TESTED · `IBU` = IMPLEMENTED BUT UNVERIFIED �
 **P1 · NI · Medium · Video: no (dummies are static)**
 - Description: AI sight sense (cone + LOS) detecting player.
 - Systems: AIPerception component (sight config) on AI controller.
-- Anim: n/a. Audio/VFX: alert sound optional. Input: none. Dependencies: G-4 (controller).
+- Anim: n/a. Audio/VFX: alert sound optional. Input: none. Dependencies: G-1 (AIController exists).
 - Acceptance: detection at spec range/FOV; broken by walls; debug draws verified.
 - PASS evidence: [PIE] perception-state sampling with/without LOS.
 
@@ -955,18 +955,18 @@ Statuses: `I&T` = IMPLEMENTED AND TESTED · `IBU` = IMPLEMENTED BUT UNVERIFIED �
 
 ## PART 5 — PRIORITIZED IMPLEMENTATION ORDER
 
-Totals: **124 actions** — 15 IMPLEMENTED AND TESTED · 8 PARTIALLY IMPLEMENTED · 1 IMPLEMENTED BUT UNVERIFIED (gamepad O-7) · 100 NOT IMPLEMENTED. Priority split: **P0 = 47 · P1 = 32 · P2 = 29 · P3 = 16** (count includes every card; crosshair consolidated in E-5 and damage vignette in K-6, no duplicate cards).
+Totals: **124 actions** — 14 IMPLEMENTED AND TESTED · 8 PARTIALLY IMPLEMENTED · 1 IMPLEMENTED BUT UNVERIFIED (gamepad O-7) · 101 NOT IMPLEMENTED. Priority split: **P0 = 47 · P1 = 32 · P2 = 29 · P3 = 16**. Complexity split: **Low = 39 · Low-Medium = 31 · Medium = 42 · Medium-High = 7 · High = 5 · Very High = 0** (counted from the 124 action cards; crosshair consolidated in E-5 and damage vignette in K-6, no duplicate cards).
 
 ### Development order — waves (reusable systems before isolated demos; Blueprint-first unless C++ has a clear advantage; every wave = compile → PIE → owner physical pass → commit/push)
 
-**Wave F2.0 — "Weapon core + dummies" (the reference-video graybox loop; P0, est. 3–5 agent sessions)**
+**Wave F2.0 — "Weapon core + dummies" (the reference-video graybox loop; P0, est. 3–5 agent sessions) — IMPLEMENTED AS SEPARATE TASKS, NEVER ALL AT ONCE**
 A-1..A-4, A-8, J-1, J-3, F-1, K-1, K-2, M-1, N-1, O-1 are DONE. New:
-1. C-1 + B-7 + B-1 (graybox rifle + arms visibility) — the enabling trio.
-2. D-1 + D-3 + D-8 + D-9 (fire, ROF, ammo, gating) — one weapon state machine.
-3. E-1 + E-3 + E-5 (+E-2, K-5) — ADS, spread, crosshair, recoil, shake.
-4. G-1 + G-2 + F-2 + F-3 + M-7 hitmarker — dummies react and die.
-5. M-2 + M-3 + M-4 — real HUD (health + ammo + crosshair).
-6. L-1 + L-2 + L-3 + L-4 + L-5 — placeholder FX/SFX pack.
+1. **F2.0.1 — Weapon visual foundation (DONE 2026-11-14):** B-7 + B-1 + C-1 graybox trio — `BP_Weapon_Base` (root/4 meshes/3 sockets, no collision) + `FP_WeaponMount` + `FP_WeaponHolder` child-actor on the camera. No firing, no ammo, no anims. See `Docs/Foundation/F2_0_1_Weapon_Visual_Foundation.md`.
+2. **F2.0.2 — Fire/ammo/gating (separate task):** D-1 + D-3 + D-8 + D-9 — one weapon state machine.
+3. **F2.0.3 — ADS/spread/recoil/crosshair (separate task):** E-1 + E-3 + E-5 + E-2 + K-5.
+4. **F2.0.4 — Target dummies (separate task):** G-1 + G-2 + F-2 + F-3 + M-7 hitmarker.
+5. **F2.0.5 — Real HUD (separate task):** M-2 + M-3 + M-4.
+6. **F2.0.6 — Placeholder FX/SFX pack (separate task):** L-1 + L-2 + L-3 + L-4 + L-5.
 Gate: full reference-loop acceptance (fire→hit→react→die→HUD→reload→switch).
 
 **Wave F2.1 — Weapon handling completeness (P0/P1)**
@@ -995,9 +995,9 @@ N-2 save/checkpoint, N-3/N-4 game state + pause, O-2/O-3 options, A-5 prone, A-6
 
 Dependency map (→ = depends on):
 
-- **Weapon render stack:** B-1 → B-7 → C-1 → C-2; C-5/C-6 → C-7 → C-8.
+- **Weapon render stack (acyclic):** B-7 (sockets on weapon) → C-1 (render/equip) → {B-1 (arms visible), C-2}; C-8/C-7 → C-6 (switching) → C-5 (equip transition).
 - **Firing stack:** D-1 → {D-3, D-4→E-3, D-8, D-9}; E-2 → D-1; K-5 → E-2; L-1/L-2 → B-7 sockets; L-5 → D-1.
-- **ADS stack:** E-1 → {B-6, B-7, E-4, E-5, E-6, K-8, E-3-spread}.
+- **ADS stack (acyclic):** E-1 → {E-4, E-6, K-8, E-5 crosshair}; E-3 spread → D-4.
 - **Target stack:** G-1 → G-2 (BPC_Health reuse) → {F-2 → G-7; F-3 → G-8}; M-7 hitmarker → D-1 + M-2.
 - **HUD stack:** M-2 → {M-3, M-4, E-5 crosshair, M-5, M-7, F-5, K-6 vignette}; M-6 inventory → C-7/C-8 → J-4 pickups → {F-8 health, C-9}.
 - **Melee/takedown stack:** H-2 → D-9 gating; H-1 → G-1/F-3 + B-1 (+H-3 optional); H-3 → B-8; H-4 → B-1/B-7.
@@ -1084,9 +1084,9 @@ Every action's gate (from STEP 5), applied on top of the per-action acceptance l
 
 **Single recommended next task (after owner/ChatGPT approves this register):**
 
-> **Task F2.0.1 — "Weapon foundation trio": create `BP_Weapon_Base` (graybox rifle: mesh + Muzzle/hand sockets), equip it on `BP_PlayerFoundation` with visible placeholder arms (B-1/B-7/C-1), and implement hitscan fire with ammo tracking and the fire-state gate (D-1/D-3/D-8/D-9), verified by PIE JSON evidence + owner physical pass.**
+> ~~Task F2.0.1 — "Weapon foundation trio"~~ → **COMPLETED 2026-11-14** (see Part 5, Wave F2.0 step 1 and `Docs/Foundation/F2_0_1_Weapon_Visual_Foundation.md`).
 
-Why this first: it unlocks ADS, recoil, reload, dummies, hitmarker, and half the FX stack (everything hangs off the weapon system); it is a self-contained, testable increment that touches exactly one new BP + one existing BP + one new IA — the smallest change with the largest unlock. Note for the owner: the new IA_Fire (LMB) mapping is created with the persistence-safe `set_editor_property("mappings",…)` method from Phase 1 (the `map_key` silent-failure pitfall).
+**Next single task: F2.0.2 — Fire/ammo/gating (D-1 + D-3 + D-8 + D-9)** — add hitscan fire, rate-of-fire, ammo tracking and the fire-state gate on top of the completed weapon foundation, as its own reviewed task. The remaining F2.0 items (F2.0.3–F2.0.6) are likewise implemented ONE TASK AT A TIME, each with its own acceptance gate, per the owner's one-system-at-a-time directive. Note for the owner: the new IA_Fire (LMB) mapping is created with the persistence-safe `set_editor_property("mappings",…)` method from Phase 1 (the `map_key` silent-failure pitfall).
 
 ---
 
@@ -1097,9 +1097,9 @@ Why this first: it unlocks ADS, recoil, reload, dummies, hitmarker, and half the
 - این یک **بررسی فقط-خواندنی** بود؛ هیچ سیستم بازی، هیچ Blueprint، هیچ مپ و هیچ ورودی عوض نشد. فقط اسناد ساخته/به‌روز شد.
 - پروژه: UE 5.8، کامیت پایه `04bf7cd`، فاز ۱ تأییدشده، همه سیستم‌های فاز ۱ دست‌نخورده باقی‌اند.
 - **مجموع اعمال شناسه‌شده: ۱۲۴ عمل** در ۱۶ دسته (A تا P).
-  - **۱۵ عمل اجرا و تست‌شده** (راه‌رفتن، دویدن، خم‌شدن، پرش، برخورد با سقف کوتاه، سیستم سلامگی/آسیب، تعامل با E، دوربین، HUD اشکال‌زدایی، ری‌استارت، پایه ورودی، هارنس آزمایش PIE، مدیریت پیام‌های اشکال‌زدایی).
+  - **۱۴ عمل اجرا و تست‌شده** (راه‌رفتن، دویدن، خم‌شدن، پرش، برخورد با سقف کوتاه، سیستم سلامگی/آسیب، تعامل با E، دوربین، HUD اشکال‌زدایی، ری‌استارت، پایه ورودی، هارنس آزمایش PIE، مدیریت پیام‌های اشکال‌زدایی).
   - **۸ عمل نیمه‌اجراشده** (انیمیشن بدن، حالت مرگ بازیکن، موانع فیزیکی، نمایش سلامگی، تست خودکار).
-  - **۱ عمل اجراشده ولی تأییدنشده** (گیم‌پد) و **۱۰۰ عمل موجود نیست** — همه بخش‌های اسلحه، تیراندازی، دشمنان، منفجره‌ها، HUD اصلی، ذخیره و تنظیمات از صفر شروع می‌شوند.
+  - **۱ عمل اجراشده ولی تأییدنشده** (گیم‌پد) و **۱۰۱ عمل موجود نیست** — همه بخش‌های اسلحه، تیراندازی، دشمنان، منفجره‌ها، HUD اصلی، ذخیره و تنظیمات از صفر شروع می‌شوند.
 - کشف مهم: کتابخانه انیمیشن «منکن» UE 5.8 در پروژه موجود است (شلیک/ری‌لود/ADS/واکنش ضربه/مرگ/۸ جهت راه‌رفتن) — به‌عنوان جانگهدار برای دشمنان و بدن استفاده می‌شود؛ اما **انیمیشن دست اول‌شخص وجود ندارد** و برای فاز خاکستری از حرکت پروسیجرال استفاده خواهد شد.
 - **اولویت‌ها:** ۴۷ عمل P0 (حلقه کامل ویدیوی مرجع)، ۳۲ عمل P1، ۲۹ عمل P2، ۱۶ عمل P3.
 - **ترتیب پیشنهادی:** موج F2.0 (اسلحه + دشمن‌های خاکستری + HUD + افکت‌ها) → F2.1 (ری‌لود/تعویض سلاح) → F2.2 (نبرد نزدیک + نارنجک) → F2.3 (هوش مصنوعی پایه) → F2.4 (دنیا و صدا) → F2.5 (ذخیره/توقف/تنظیمات و پولیش).
