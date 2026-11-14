@@ -152,3 +152,9 @@ Date: 2026-11-14 (input-chain repair session + final autonomous session)
   measure UnCrouch in open space, not wedged against geometry.
 - Direct BPC function calls (`comp.call_method("ApplyDamage", (25.0,))`) return
   None on success — check the HP change, not the return value.
+- **`set_pin_value` does NOT mark the package dirty** → `EditorAssetLibrary.save_asset`
+  silently no-ops (returns True, writes nothing, mtime unchanged). After pin-only
+  edits, force with `unreal.EditorAssetLibrary.save_loaded_asset(bp, only_if_is_dirty=False)`
+  and CONFIRM the write by checking the file mtime afterward (this bit the
+  BP_TestInteractable 1.25 fix — three save_asset calls returned True with zero
+  bytes written).
