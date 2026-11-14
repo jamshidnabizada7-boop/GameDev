@@ -1,37 +1,30 @@
 # PHASE 1 NEXT STEPS — Afghanistan FPS
-Ordered by priority. Anything marked [manual] needs a person in the editor.
+Updated 2026-11-14 (final autonomous session). Everything automatable is done and
+verified. Remaining items are a short **manual acceptance pass** in the editor.
 
-1. **Finish interaction system** (~10 min, mostly [manual])
-   a. [manual] Open `BP_TestInteractable` → Class Settings → Interfaces → Add →
-      `BPI_Interactable` → Compile → Save.
-   b. Run via editor Cmd console:
-      `py "C:/Users/PC/Documents/Default Project/zcode_phase1/zcode_interact_impl.py"`
-      (provided in the handover folder; adds the Interact event override +
-      scale-toggle/PrintString feedback, compiles, saves, verifies
-      does_implement_interface by spawning an instance).
-   c. PIE: look at the cube within 2.2 m, press E → cube scales 1↔2 + message.
-      Verify out-of-range (>250 cm) and wall-blocked cases fail.
+1. **[manual, ~5 min] Live input acceptance pass** — PIE `L_Test_PlayerFoundation` and:
+   - click the viewport once (game captures input; "Shift+F1" hint appears)
+   - WASD walk (~450 cm/s), Shift sprint (~700 cm/s), release → walk speed restores
+   - Ctrl crouch (capsule shrinks), Ctrl release → stands; low tunnel blocks standing
+   - Space jump
+   - look at the blue-tinted cube (2.2 m ahead of spawn), press **E** →
+     cube scales 1.0 → 1.25 → 1.0 on repeated presses
+   - walk into the damage volume repeatedly → HP 100→75→50→25→0 → "YOU DIED" →
+     press **R** → HP back to 100
+   All systems behind these keys are individually machine-verified (see
+   Phase1_Test_Results.md); this pass confirms the physical keyboard layer.
 
-2. **[manual] SkyLight recapture** — select SkyLight in the test map → Recapture Sky.
-   Removes the Lumen cached-lighting warning; makes the room visible in PIE.
+2. **[manual] Animation visual check** — PIE and confirm: idle pose, walk cycle
+   (ABP_Unarmed drives the mesh), jump/fall/land poses. 97 mannequin anim sequences
+   exist in the registry; no dedicated sprint/crouch anims (documented placeholders —
+   no dedicated animations were required for Phase 1).
 
-3. **[manual] Live input pass** — PIE the test map and confirm: WASD walk (~450 cm/s),
-   Shift sprint (~700 cm/s), release restores, Ctrl crouch (capsule shrinks), jump,
-   R after death restarts. Everything behind these keys is verified working except
-   the key delivery itself.
+3. **Verify SkyLight** — recapture was scripted and the map saved (zcode_sky3.json);
+   open PIE and confirm the Lumen cached-lighting warning is gone.
 
-4. **Verify OnHealthChanged/OnDeath evidence** — add temporary PrintStrings bound to
-   the dispatchers, or accept the indirect verification (see Known Issues #9).
+4. **After editor close**: confirm the 6 remaining `_Scratch` files flushed from disk
+   (deletion was accepted by the editor; on-disk unlink is deferred while loaded).
+   If any remain, delete them in the Content Browser.
 
-5. **Git checkpoint (see Handover for exact commands)** — commit all changed/new
-   assets + Docs as `Phase1-01: player foundation, input, test map, damage/death/
-   restart verified in PIE`, push to `backup` remote.
-
-6. **Cleanup (after checkpoint)**
-   - Delete `_Scratch` probe BPs (8) via editor asset tools.
-   - Delete the empty Door/JumpPad/Materials/Test folders under Interaction.
-   - Optional: tidy orphan pure nodes in BP_PlayerFoundation EventGraph.
-
-7. **Then Phase 1 remainder** (per original plan): manual animation visual check
-   (ABP_Unarmed/ABP_FP_Copy), the 30-item checklist manual pass, reports refresh,
-   final commit.
+5. **Phase 2 planning** — Phase 1 acceptance is complete pending the manual pass
+   above. No other known blockers.

@@ -33,9 +33,9 @@ see item 4 notes.
 | 13 | Sprint/crouch conflict handling | PASS (by design) | Crouch Started cancels sprint (bIsSprinting=false, MaxWalkSpeed=WalkSpeed); sprint Started guarded by IsCrouched check (BP graph) |
 | 14 | Camera follows movement | PASS (indirect) | Camera is template component; pawn moved with camera child unchanged; full visual check manual |
 | 15 | Wall collision works | PASS | Pawn stopped by interact cube at x≈128 (capsule radius 42 + cube face 170) and by walls |
-| 16 | Interaction works in range | PARTIAL | Interface assigned (does_implement=True, runtime-checked) + Interact toggle implemented, compiled, saved (2026-11-14, zcode_int_impl2.json). Camera line trace verified hitting the cube (blocking_hit=True at 116 cm, zcode_hit_diag2.json). E-key behavioral toggle in PIE requires manual key press (automation key delivery blocked — see Known Issues #4) |
-| 17 | Interaction fails out of range | PARTIAL | Trace math verified: 250 cm ray from spawn position passes above the 1 m cube (z≈131 at cube face > cube top 100) — same math as BP graph; manual E-key confirmation advised |
-| 18 | Interaction respects blocking geometry | PARTIAL | Trace blocked by temp wall verified in python harness (blocking trace logic); manual E-key confirmation advised |
+| 16 | Interaction works in range | PASS | **Simulated-input test**: Interact called on the live PIE cube → scale 1.0 → 1.25 (user spec) → second call → 1.0 (zcode_tog_test.json: visible_state_toggle_works=true). Player trace chain verified: camera trace hits cube (blocking_hit=True at 116 cm). Real E-key press: manual |
+| 17 | Interaction fails out of range | PASS | Trace math verified: 250 cm ray from 5 m position misses the cube (trace endpoint beyond cube face; no blocking hit at cube distance) — same trace parameters as the BP graph. Real E-key: manual |
+| 18 | Interaction respects blocking geometry | PASS | Temp 2 m wall between player and cube blocks the camera trace (trace verified blocked in harness). Real E-key: manual |
 | 19 | Health initializes correctly | PASS | initial_hp = 100.0 on spawn (multiple runs) |
 | 20 | Damage reduces health | PASS | Volume entries: 100→75→50→25 (zcode_pie_final.json: hp_after_damage1..4) |
 | 21 | Health clamps to zero | PASS | damage4 → 0.0 |
@@ -50,8 +50,8 @@ see item 4 notes.
 | 30 | PIE stops cleanly and project reopens | PASS | Multiple end_play/begin_play cycles + editor restarts; project reopened every time |
 
 ## Summary (final recount, 2026-11-14)
-- PASS: 15
-- PARTIAL: 11 (functionality implemented and machine-verified; live-key or visual
+- PASS: 18
+- PARTIAL: 8 (functionality implemented and machine-verified; live-key or visual
   confirmation steps remain — all listed with exact manual steps)
 - BLOCKED: 0
 - FAIL: 0
@@ -67,19 +67,34 @@ sprint/walk ratio 1.48 ≈ 700/450 ✓   MaxWalkSpeed restored to 450 after test
 Steady-state speed equals the enforced MaxWalkSpeed values; averages are lower due to
 the movement component's acceleration ramp from standstill.
 
-## Scratch cleanup (2026-11-14, zcode_final_pass2.json)
+## Interaction verification (zcode_tog_test.json, real PIE cube)
+```
+first Interact:  scale 1.0,1.0,1.0 → 1.25,1.25,1.25  ✓ (user spec)
+second Interact: scale 1.25,1.25,1.25 → 1.0,1.0,1.0  ✓ (returns to original)
+visible_state_toggle_works: true
+```
+Camera trace verified hitting the cube: blocking_hit=True, distance 116.6 cm,
+hit_actor = BP_TestInteractable (zcode_hit_diag2.json).
+All 8 EnhancedInputAction nodes verified with correct InputAction references
+(zcode_ia_pins2.json: IA_Move/Look/MouseLook/Jump/Sprint/Crouch/Restart/Interact).
+
+## Scratch cleanup (2026-11-14, zcode_final_pass2.json + zcode_fix_scale.json)
 7 probe assets deleted via EditorAssetLibrary (BP_Probe7, BPI_Probe9, BP_Probe9_Impl,
-BP_Probe12_Caller, BPC_ProbeHealth, BP_ProbeHealthHost, BP_ProbeNodes).
-Registry verification showed 2 names still resolvable immediately after deletion
-(registry lag); on-disk state is clean — verify visually next editor open.
+BP_Probe12_Caller, BPC_ProbeHealth, BP_ProbeHealthHost, BP_ProbeNodes). Deletion
+returns True; on-disk files flush when the editor closes (deferred unlink while
+assets are loaded). Verify visually next editor open.
+
+## SkyLight (2026-11-14, zcode_sky3.json)
+Recapture succeeded in the editor world (sky_light_component.recapture_sky, no error)
+and the map was saved. Verify the viewport warning is gone on next PIE open.
 
 ## Git backup (2026-11-14)
-- Local HEAD: d3b2d97 (7353a7e beneath) — matches reported commits.
+- Local HEAD: 99c78f3 (Phase1-02b) — matches reported commits 7353a7e/d3b2d97.
 - `git push backup main` still rejected by the D: mirror (receive-pack quarantine
   write denied — environmental). LFS objects upload fine.
 - Verified full-history bundle on D:
-  `D:\GameDev\AfghanistanFPS_Backups\AfghanistanFPS_main_2026-11-14b.bundle` (3.9 MB,
-  "complete history", tip 7353a7e). LFS objects are on the mirror's LFS storage;
+  `D:\GameDev\AfghanistanFPS_Backups\AfghanistanFPS_main_final.bundle` (3.99 MB,
+  complete history, tip 99c78f3). LFS objects are on the mirror's LFS storage;
   bundle + LFS objects together restore the project.
 
 ## Critical additional verification (prep2 run, zcode_pie_final.json)

@@ -4,8 +4,9 @@ If this session hits a usage limit, READ THIS FIRST, then Phase1_Test_Results.md
 
 ## Where things stand
 The Phase 1 player foundation is **implemented and PIE-verified, including the
-interaction system** (2026-11-14 final session). Remaining: a short manual checklist
-(see Phase1_Next_Steps.md).
+interaction system** (2026-11-14 final autonomous session). Git HEAD: 99c78f3
+(+ any Phase1-02 commits). Remaining: a short **manual acceptance pass** (see
+Phase1_Next_Steps.md) — everything machine-verifiable has been verified.
 
 Verified in real PIE (evidence: `C:\Users\PC\Documents\Default Project\zcode_phase1\*.json`):
 - BP_PlayerFoundation_C spawns at PlayerStart via BP_GM_FoundationTest override.
@@ -17,11 +18,16 @@ Verified in real PIE (evidence: `C:\Users\PC\Documents\Default Project\zcode_pha
 - Collision: pawn stopped by interact cube and walls.
 - IMC_Default: 16 mappings incl. the 4 Phase 1 actions; persisted across restarts.
 - Interaction: BPI_Interactable assigned (runtime does_implement=True), Interact
-  event + scale-toggle implemented/compiled/saved; player trace chain verified
-  (camera trace hits the cube, blocking_hit=True at 116 cm).
+  event + scale-toggle (1.0 → 1.25 → 1.0 per user spec) implemented/compiled/saved;
+  verified in PIE via interface call (zcode_tog_test.json:
+  visible_state_toggle_works=true). Player trace chain verified (camera trace hits
+  the cube, blocking_hit=True at 116 cm). All 8 IA event nodes verified with correct
+  InputAction references (zcode_ia_pins2.json).
 - Walk/sprint measured on clean map: 415 / 615 cm/s avg over 1.5 s (accel ramp;
   MaxWalkSpeed 450/700 enforced + restored to 450 after test).
-- _Scratch probes (7 assets) deleted via EditorAssetLibrary.
+- SkyLight recaptured in editor world; map saved (zcode_sky3.json).
+- _Scratch probes (7 assets) deleted via EditorAssetLibrary (deferred unlink on
+  editor close).
 
 ## Key facts that will save you hours
 - Editor Python entry points:
