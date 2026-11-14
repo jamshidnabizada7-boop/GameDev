@@ -226,3 +226,42 @@ also proved teleport-in and walk-in both deal 25).
 
 **Unresolved**: physical-key confirmation only (next manual pass). Debug prints now sit
 IN SERIES (event→print→gameplay) so they cannot mask behavior.
+
+
+## INTERACT TRACE FIX + BLACK SCREEN ROOT CAUSE (2026-11-14 video session)
+
+User recorded ~72 s of physical gameplay (L_Test_PlayerFoundation). Frame-by-frame
+analysis (vidframes/sheet_*.png, dense_*.png) + graph dump produced TWO root causes:
+
+1. **E interaction ALWAYS failed with "INTERACT: cast FAILED"** — even staring at the
+   cube. Root cause #3: the trace END was built as
+   `CameraWorldLocation + CameraForwardVector * MakeVector(0,0,0)` — the MakeVector
+   node's X/Y/Z defaults were never set (0.0 each), so End == Start: a **ZERO-LENGTH
+   ray from the camera** that can never hit anything -> hit_actor None -> Cast fails.
+   Every earlier "trace verified" evidence was python-side with explicit endpoints —
+   the BP chain itself was never exercised end-to-end until the user's physical test.
+   **FIX**: MakeVector set to (250,250,250) — identical to scalar Forward*250 because
+   the camera forward vector is normalized (zcode_interact_fix.json). DrawDebugType
+   set to ForDuration so every E press now draws the visible trace ray + hit marker.
+   **Verified fresh-session** (zcode_interact_verify.json): disk pins (250,250,250);
+   PIE 250 cm trace from camera (self NOT ignored) hits BP_TestInteractable_C,
+   blocking=True at 205.4 cm — no self-capsule interference.
+
+2. **Black screen 44-55 s** — camera entered the **floating** interact cube's mesh:
+   the cube sat at z 0..100 while the floor top is -100 (it was placed before the
+   floor was lowered), so it floated ~1 m; a CROUCHED player fits under it (capsule
+   top -20 < 0) and the crouched camera (z ~ 9-20) clips INSIDE the cube -> pitch
+   black until they walked out. **FIX**: cube lowered to (220,-800,-50) — it now sits
+   on the floor; camera (76 standing / ~9 crouched) can never enter it; map saved.
+   Note: the cube now being floor-level means the user aims slightly DOWN at it —
+   natural for a ground object; the debug ray makes aim errors visible.
+
+**Debug HUD added** (7 DisplayAll console commands chained on the free
+InitializeHealth.then pin — event->debug->gameplay order preserved, zero wires
+touched): bIsSprinting, bIsCrouched, CurrentHealth, bIsDead, MaxWalkSpeed, Velocity,
+CapsuleHalfHeight. Values update live on screen during PIE (expected for DisplayAll).
+
+Verification after fixes (fresh PIE session): trace hit BP_TestInteractable_C at
+205.4 cm; toggle 1.0->1.25->1.0; volume damage still 25 (HP 100->75). Sprint/crouch/
+jump physical behavior remains as measured in zcode_final_run2.json (700/450 cm/s,
+96-40 capsule, +89.6 cm jump); the new on-screen HUD lets the user confirm live.

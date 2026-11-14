@@ -1,36 +1,30 @@
 # PHASE 1 NEXT STEPS — Afghanistan FPS
-Updated 2026-11-14 (input-chain repair session). Both root causes are fixed:
-(1) IMC mappings persisted, (2) the input chains rewired after the debug prints
-severed them. All gameplay chains are machine-verified end-to-end with runtime
-measurements (zcode_final_run2.json). What remains is a short **manual
-acceptance pass** — key delivery to PIE is not automatable in this environment.
+Updated 2026-11-14 (video-analysis session). Fixed this session: the E-interaction
+zero-length trace, the floating-cube camera clip (black screen), plus a live debug
+HUD. What remains is the user's manual acceptance pass.
 
-1. **[manual, ~5 min] Live input acceptance pass** — PIE `L_Test_PlayerFoundation` and:
-   - click the viewport once (game captures input; "Shift+F1" hint appears)
-   - WASD walk (~450 cm/s), Shift sprint (~700 cm/s), release → walk speed restores
-   - Ctrl crouch (capsule shrinks), Ctrl release → stands; low tunnel blocks standing
-     (don't test UnCrouch while wedged against the interact cube — UE blocks it
-     correctly there; step away first)
-   - Space jump
-   - look at the blue-tinted cube (2.2 m ahead of spawn), press **E** →
-     cube scales 1.0 → 1.25 → 1.0 on repeated presses
-   - walk into the damage volume repeatedly → HP 100→75→50→25→0 → "YOU DIED" →
-     press **R** → HP back to 100
-   The debug prints are wired IN SERIES (event → print → gameplay), so every
-   keypress prints its "INPUT: ..." message AND performs the action. If any
-   action fails while its print appears, report which.
+1. **[manual, ~5 min] Live input acceptance pass** — open
+   Content/AfghanFPS/TestMaps/L_Test_PlayerFoundation, PIE, click the viewport:
+   - W walk (~450 cm/s on the Velocity readout), Shift+W sprint (~700), release restores
+   - Ctrl crouch (CapsuleHalfHeight 96 -> 40 on the readout), release -> 96
+   - Space jump (clear space, not under the tunnel slab)
+   - Look at the cube ON THE FLOOR ~2 m ahead (aim slightly down), press E:
+     the blue debug ray is drawn each press; cube scales 1.0 -> 1.25 -> 1.0
+   - Walk into the damage volume at the far side repeatedly: HP readout 100->75->50->25->0,
+     "YOU DIED" prints; movement/interaction stop; press R -> HP back to 100
+   - R while alive does nothing by design (restart branch is gated on bIsDead)
+   - Health/death readouts come from the new DisplayAll HUD (updates every frame;
+     lines persist until editor restart — that is normal DisplayAll behavior)
 
-2. **[manual] Animation visual check** — PIE and confirm: idle pose, walk cycle,
-   jump/fall/land poses (ABP_FP_Copy + SKM_Manny_Simple verified wired). No
-   dedicated sprint/crouch anims (documented placeholders).
+2. **[manual] Animation visual check** — arms visible and animating in idle/walk/jump
+   (ABP_FP_Copy + SKM_Manny_Simple verified wired). Sprint/crouch have no dedicated
+   anims (documented placeholders).
 
-3. **Verify SkyLight** — recapture was scripted and the map saved (zcode_sky3.json);
-   open PIE and confirm the Lumen cached-lighting warning is gone.
+3. **[manual] SkyLight warning** — confirm the Lumen cached-lighting warning is gone
+   on PIE open (recaptured + saved earlier).
 
-4. **After editor close**: confirm the `_Scratch` files flushed from disk
-   (deletion was accepted by the editor; on-disk unlink is deferred while loaded).
-   BPC_ProbeHealth.uasset and BP_ProbeHealthHost.uasset were still on disk at the
-   last check — delete them in the Content Browser if they remain.
+4. **Cleanup after editor close** — confirm _Scratch folder stays empty (leftovers
+   were removed from the repo in commit 8798cb7).
 
-5. **Phase 2 planning** — Phase 1 acceptance is complete pending the manual pass
-   above. No other known blockers.
+5. **Phase 2 planning** — Phase 1 acceptance complete pending the manual pass above.
+   Do not begin Phase 2 before it.

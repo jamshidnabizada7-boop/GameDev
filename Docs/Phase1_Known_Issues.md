@@ -158,3 +158,18 @@ Date: 2026-11-14 (input-chain repair session + final autonomous session)
   and CONFIRM the write by checking the file mtime afterward (this bit the
   BP_TestInteractable 1.25 fix — three save_asset calls returned True with zero
   bytes written).
+
+
+## RESOLVED (video session, 2026-11-14 later)
+- ~~E interaction always "cast FAILED"~~ — **ROOT CAUSE #3: zero-length trace.** The
+  chain built End = CameraLoc + Forward * MakeVector(X=0,Y=0,Z=0) (defaults never
+  set). Fixed to (250,250,250); DrawDebugType=ForDuration (visible ray); fresh-PIE
+  verified hit BP_TestInteractable_C at 205.4 cm with self NOT ignored (the template
+  capsule does not block the visibility ray). **Pattern to remember: verify pure-math
+  node pin VALUES, not just their links — an unset literal silently zeroes the math.**
+- ~~Black screen 44-55 s during physical play~~ — camera clipped inside the FLOATING
+  interact cube (placed at z=50 before the floor was lowered to -100; crouched camera
+  z ~9-20 entered the mesh). Cube lowered to the floor (220,-800,-50); map saved;
+  no stance can clip the camera into it now.
+- ~~set_pin_value not dirtying the package~~ — save_asset silently no-ops after
+  pin-only edits; use save_loaded_asset(bp, only_if_is_dirty=False) and verify mtime.

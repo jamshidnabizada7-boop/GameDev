@@ -123,3 +123,29 @@ Verified in real PIE (evidence: `C:\Users\PC\Documents\Default Project\zcode_pha
 - Recovery snapshot: `D:\GameDev\AfghanistanFPS_Backups\MilestoneSnapshots\Phase1_Recovery_2026-11-13`
   (pre-change state, 3032 files verified)
 - Reports: `C:\GameDev\AfghanistanFPS\Docs\Phase1_*.md`
+
+
+## SESSION ADDENDUM 2 (2026-11-14, video analysis): E-trace + black screen fixed
+
+The user's 72 s gameplay video showed (1) "INTERACT: cast FAILED" on every E press
+even at the cube, (2) full-black viewport 44-55 s. Frame-by-frame ffmpeg analysis +
+graph dump root-caused both:
+1. Trace End = CameraLoc + Forward*MakeVector(0,0,0) — the multiplier's literal pins
+   were NEVER set, so the ray had zero length and could never hit anything. Set to
+   (250,250,250) (= scalar 250; forward is normalized). DrawDebugType=ForDuration so
+   each E press draws the ray. Fresh-PIE verified: trace from camera (self NOT ignored)
+   hits BP_TestInteractable_C at 205.4 cm — the template capsule does not self-block.
+2. The interact cube floated ~1 m above the floor (placed before the floor was lowered
+   to -100). A crouched player fits under it and the crouched camera (~z 9-20) entered
+   the mesh (z 0..100) -> black. Cube lowered to (220,-800,-50); map saved.
+
+Also added: 7 ExecuteConsoleCommand DisplayAll nodes chained on the FREE
+InitializeHealth.then pin (bIsSprinting, bIsCrouched, CurrentHealth, bIsDead,
+MaxWalkSpeed, Velocity, CapsuleHalfHeight) — a live gameplay HUD with zero changes to
+existing wires. Evidence: zcode_interact_fix.json, zcode_interact_verify.json;
+video frames in vidframes/ (sheet_*, dense_*).
+
+**New pitfalls**: (a) pure-math node literals default to 0 — verify pin VALUES not
+just links; (b) set_pin_value does not dirty the package — force-save with
+save_loaded_asset(bp, False) and check the file mtime; (c) pin export_text/import_text
+round-trips the whole node — never digit-replace it.
