@@ -13,22 +13,27 @@ Date: 2026-11-14 (final autonomous session)
   confirm the Lumen warning is gone on next PIE open.
 - ~~_Scratch probe deletion~~ — all 7 probe assets deleted via EditorAssetLibrary
   (delete returned True). Note below on deferred on-disk unlink.
+- ~~E/Shift/Ctrl dead in PIE~~ — **ROOT CAUSE: the 4 Phase 1 key mappings were never
+  persisted to IMC_Default.** `imc.map_key()` + `EditorAssetLibrary.save_asset()`
+  modifies the in-memory IMC (verification showed 16 rows) but silently fails to
+  serialize the added mappings — the .uasset on disk kept only the 12 template
+  mappings (confirmed: fresh-session read showed 12; git never showed IMC_Default as
+  modified; file size stayed 7787 B across three separate map_key attempts by two
+  agents). **FIX**: build the full 16-entry EnhancedActionKeyMapping list and write it
+  via `imc.set_editor_property("mappings", full_list)` — this DOES serialize (file
+  grew 7787→14736 B; git shows IMC_Default modified; commit 9fa95ae). Debug display
+  (10 PrintStrings on all input events + E-chain diagnostics) added to
+  BP_PlayerFoundation for the user's confirmation pass (zcode_debug_display.json).
 
 ## Open (manual items remaining)
-1. **Live keyboard acceptance pass** [manual, conclusively BLOCKED for automation].
-   Four key-delivery mechanisms attempted against the PIE viewport: default pressKey,
-   click-capture + pressKey, event-strategy pressKey, and foreground-activated
-   pressKey. All either fail with "could not be brought to the foreground" (OS
-   focus-stealing prevention) or deliver keys to editor panels instead of the game
-   (pawn telemetry confirms zero movement from injected keys in every attempt). All
-   systems behind the keys are machine-verified via simulated input (call_method on
-   the pawn's own Move/Crouch/Jump functions; the interaction trace+call chain). One
-   manual WASD/Shift/Ctrl/E/R pass in PIE completes the acceptance list (recipe in
-   Phase1_Next_Steps.md).
-2. **Damage volume re-arm chain removed.** The SetActorEnableCollision(false)→Delay→
-   enable chain was removed after repeated automation failures; per-entry damage
-   (walk in/out) satisfies Phase 1 ("not every frame"). If a cooldown is wanted, add
-   it manually in the volume BP (Delay 2 → gate variable).
+1. **Live keyboard acceptance pass** [manual — key injection from automation
+   conclusively blocked; 4 mechanisms attempted, see RESOLVED note on the root cause
+   for why the keys were dead before]. With the IMC mappings now persisted, PIE the
+   test map and: WASD walk, Shift sprint, Ctrl crouch, E interact (cube 2.2 m ahead
+   of spawn), R after death. **Debug display added**: pressing W/Space/Shift/Ctrl/E/R
+   now prints "INPUT: <event> fired" on screen — if a print appears, the input event
+   fired; if sprint/crouch/interact still misbehave with prints showing, the issue is
+   in the gameplay logic (report which prints appeared).
 
 ## Low
 3. **BP_PlayerFoundation EventGraph contains cosmetic orphans** (unconnected pure math
