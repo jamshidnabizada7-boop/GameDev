@@ -60,6 +60,8 @@ Date: 2026-11-14 (final autonomous session)
    on the mirror's LFS storage (11/11 uploaded) — bundle + LFS together restore the
    project fully. Retry `git push backup` next session; if still failing,
    investigate the machine's AV/exclusion list for git.exe.
+   **Final bundle**: `D:\...\AfghanistanFPS_Backups\AfghanistanFPS_main_v4.bundle`
+   (3.81 MB, verified complete history, tip c2868cb, 2026-11-14).
 
 ## Environment notes (for the next agent)
 - Shell on this machine is **cmd.exe** (no head/unix tools); PowerShell available.
