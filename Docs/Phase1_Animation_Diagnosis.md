@@ -127,3 +127,44 @@ arms-only SkeletalMeshComponent (mesh: SKM_Manny_Simple upper-body or a dedicate
 AnimBP — the current full-body locomotion keeps animating independently of it.
 
 **Git**: commit 5e00e5f (diagnosis) -> <fix1 commit> on main; pushed to GitHub.
+
+
+## ANIMATION ERROR REPAIR (2026-11-14, final session — HEAD 7144254-era work, final commit 10668b9+)
+
+**"Accessed None — CallFunc_GetPlayerController_ReturnValue" root cause**: NOT
+ABP_Unarmed (its 36-node EventGraph, fully dumped, contains no GetPlayerController —
+its chain is GetOwningActor -> CastToCharacter -> MovementComponent -> Velocity/
+GroundSpeed/Direction/IsFalling). The warning came from **ABP_Copycat** running on
+**Lvl_IntroRoom** (the DemoTemplate level that was the project's editor startup map):
+`ABP_Copycat_C /Game/DemoTemplate/_Core/Lvl_IntroRoom...BP_Anim_C...SkeletalMesh.ABP_Copycat_C_0`
+— its EventGraph calls GetPlayerController, which is None in the editor world (no PIE
+controller) — firing once at every editor boot.
+
+**Fix**: EditorStartupMap + GameDefaultMap in DefaultEngine.ini changed from
+Lvl_IntroRoom to **L_Test_PlayerFoundation** — the demo level no longer auto-loads,
+and the editor now boots directly into the test map.
+
+**Second fix in the same pass (Fix 2, unblocked by Fix 1 verification)**:
+OwnerNoSee on the player mesh. The CDO-level edit did NOT propagate (the BP stores an
+instance-level override), so it was applied as a runtime node: SetOwnerNoSee(True)
+wired into the BeginPlay debug-HUD chain (mesh variable -> self, value True),
+compiled BS_UP_TO_DATE, saved. PIE now reads the real rendered component
+(owner_no_see=True) and the crouched/standing views show no body at all
+(brightness 128.5-130.2 across standing/midroom/crouched screenshots).
+
+**One duplicate SetOwnerNoSee node** (from repeated creation runs) was removed;
+final graph: 1 wired SetOwnerNoSee node. Zero errors/warnings during PIE (log scan).
+
+**Regression (fresh PIE)**: crouch flag True + capsule 40, damage -> dead=True hp=0,
+RestartLevel -> hp=100 dead=False ✓. Walk-cycle bone-delta evidence (previous run)
+unchanged: ABP_Unarmed animates (head bob 53.8->48.9->54.1, foot lift -82.7->-63.9->
+-91.4, arm swing) — the Accessed-None warning was cosmetic for the AnimGraph and its
+removal does not affect animation.
+
+**ABP_Unarmed state-machine read-only verification** (EventGraph + graphs dump):
+AnimGraph -> Main States -> Locomotion -> Idle(MM_Idle) / Walk-Run(Blendspace
+BS_Idle_Walk_Run by GroundSpeed) / Jump(MM_Jump) / Fall Loop(MM_Fall_Loop) / Land(MM_Land),
+transitions wired; EventGraph sets GroundSpeed/Direction/IsFalling/ShouldMove from
+the owning Character's MovementComponent (no controller dependency). Crouch and Death
+remain documented placeholders (no dedicated states; sequences exist on disk for
+future wiring).
