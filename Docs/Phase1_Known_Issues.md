@@ -173,3 +173,22 @@ Date: 2026-11-14 (input-chain repair session + final autonomous session)
   no stance can clip the camera into it now.
 - ~~set_pin_value not dirtying the package~~ — save_asset silently no-ops after
   pin-only edits; use save_loaded_asset(bp, only_if_is_dirty=False) and verify mtime.
+
+
+## RESOLVED (second video session)
+- ~~Black flicker during play~~ — SkyLight cubemap was BLACK: a prior recapture ran in
+  a headless -NullRHI session (nothing rendered -> black capture, saved to the map).
+  Rule: **SkyLight recapture requires a rendering editor session (no -NullRHI)**.
+  Recaptured properly; level-gaze brightness 78.7 -> 129.2. Residual dark bands at
+  wall bases are the sun's shadow, not a bug.
+- ~~"Can't crouch"~~ — user TAPPED Ctrl (print evidence) + template camera never
+  lowered = invisible crouch. Camera now lowers (rel z 69.4 -> 28.9) on crouch and
+  restores on uncrouch. Chain verified intact machine-side; HOLD Ctrl to stay crouched.
+- ~~"R not working"~~ — user was ALIVE (HUD: health never left 100). R restarts only
+  when dead, by design. New prints make both outcomes visible.
+- **New pitfall**: ge.create_node_from_name requires unreal.Vector2D for the position
+  (unreal.Vector raises TypeError). A SetRelativeLocation node with an unconnected
+  self pin compiles to BS_ERROR — always wire self (data pin via out_data, NOT the
+  exec-only out_exec helper). Direct call_method("Crouch") does NOT execute the BP
+  chain nodes downstream of the Crouch node — camera-lower effects can only be
+  verified via the physical chain or full event simulation.

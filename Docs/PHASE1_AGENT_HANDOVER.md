@@ -149,3 +149,17 @@ video frames in vidframes/ (sheet_*, dense_*).
 just links; (b) set_pin_value does not dirty the package — force-save with
 save_loaded_asset(bp, False) and check the file mtime; (c) pin export_text/import_text
 round-trips the whole node — never digit-replace it.
+
+
+## SESSION ADDENDUM 3 (2026-11-14, second video): crouch UX + skylight + restart clarity
+
+Second user video (post-fix4) + HUD readouts proved: crouch chain INTACT and Crouch()
+works — the user TAPPED Ctrl (momentary crouch) and the template camera never lowered,
+so crouching was invisible. Camera now lowers on crouch (rel z 69.4 -> 28.9, wired on
+the crouch chain's free MWS.then pin) and restores on uncrouch. The user was ALIVE the
+whole video (HUD health constant 100) — R did nothing BY DESIGN; prints now announce
+"RESTARTING LEVEL" vs "R ignored: you are still ALIVE". The black flicker = BLACK
+SKYLIGHT CUBEMAP from a -NullRHI recapture; recaptured with real rendering
+(brightness 78.7 -> 129.2). A mid-session BS_ERROR (self-unconnected
+SetRelativeLocation) was introduced and repaired in the same session; final status
+BS_UP_TO_DATE. HEAD 2ba10da (Phase1-fix5).

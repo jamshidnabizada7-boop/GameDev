@@ -265,3 +265,30 @@ Verification after fixes (fresh PIE session): trace hit BP_TestInteractable_C at
 205.4 cm; toggle 1.0->1.25->1.0; volume damage still 25 (HP 100->75). Sprint/crouch/
 jump physical behavior remains as measured in zcode_final_run2.json (700/450 cm/s,
 96-40 capsule, +89.6 cm jump); the new on-screen HUD lets the user confirm live.
+
+
+## CROUCH/RESTART/BLACK-SCREEN RESOLUTION (2026-11-14, second video session)
+
+User's second gameplay video (post-fix4) analyzed frame-by-frame + HUD readouts:
+- **The DisplayAll HUD works** (all 7 values visible): proved the user NEVER took
+  damage (CurrentHealth=100.000 the entire video) -> they never reached the damage
+  volume -> never died -> R correctly did nothing (restart branch is gated on
+  bIsDead by design). R pressed 6+ times while ALIVE in the video.
+- **Ctrl "not working"**: prints show press/release TAPS ~1 s apart. The crouch chain
+  is intact (machine trace: IA_Crouch -> print -> Branch -> Crouch -> Set bIsSprinting
+  -> MWS) and direct Crouch() works (bIsCrouched=True, cap 40). Taps produce ~1 s
+  crouch bursts the HUD samples missed; the template camera had NO crouch animation,
+  so crouching was INVISIBLE. **Fix**: camera SetRelativeLocation z 69.4 -> 28.9 on
+  crouch (wired on the free MWS.then pin of the crouch chain) and back to 69.4 on
+  uncrouch -> crouch is now VISIBLE. Plus diagnostic prints "CROUCH: call executing"
+  and "CROUCH BLOCKED: branch condition false".
+- **Black flicker**: PIE screenshots proved the UPPER WALLS rendered pitch black
+  (dlc_center_north.png) while floor/lower walls were lit -> the SkyLight cubemap was
+  BLACK (a previous recapture ran in a headless -NullRHI session). Recaptured WITH
+  real rendering; mean brightness of a level-gaze screenshot rose 78.7 -> 129.2
+  (pvf_standing.png). The remaining dark band at wall bases is the sun's shadow
+  (normal for pitch -45).
+- **Restart verification (machine)**: ApplyDamage(100) -> dead=True hp=0 -> RestartLevel
+  -> hp=100 dead=False (zcode_pie_verify_final.json). The R physical path uses the same
+  ExecuteConsoleCommand node, now with "RESTARTING LEVEL" / "R ignored: you are still
+  ALIVE" prints so the user can see which branch ran.
