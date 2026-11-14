@@ -91,3 +91,39 @@ After fixes 1–2 are applied (and only then), the following PIE captures:
 6. Level-gaze screenshots at multiple pitches — no body/torso in camera space
 7. Regression: one full damage → death → R → 100 loop (HUD proof) to show gameplay
    was untouched
+
+
+## FIX 1 IMPLEMENTED AND VERIFIED (2026-11-14, approval granted same day)
+
+**Applied**: CharacterMesh0's Anim Class = ABP_Unarmed (Animation Mode = Use Animation
+Blueprint). Compiled BS_UP_TO_DATE, force-saved, assignment verified persisting from a
+fresh editor session (zcode_anim_persist.json: mode=ANIMATION_BLUEPRINT,
+class=ABP_Unarmed_C, mesh=SKM_Manny_Simple).
+
+**Runtime verification (bone-transform evidence, zcode_anim_delta.json):**
+- WALK CYCLE CONFIRMED PLAYING — head bob 53.8 -> 48.9 -> 54.1 across 1 s samples;
+  foot_l lifts through the stride -82.7 -> -63.9 -> -91.4; hand_r swings 6.9 -> -15.8
+  -> -7.0. The mesh is genuinely animated during movement.
+- Idle: subtle 1-3 cm sway (consistent with MM_Idle breathing).
+- The poses captured during movement show a normal standing/walking mannequin
+  (head ~158 cm above the mesh root) — the reference-pose issue is resolved.
+
+**Known cosmetic warning**: ABP_Unarmed's EventGraph logs "Accessed None ... 
+CallFunc_GetPlayerController_ReturnValue" — the Mannequin-sample event graph expects
+a specific controller setup. It does not prevent the AnimGraph from animating (verified
+above). Candidate cleanup for a later pass (point its controller reference at the
+player pawn or remove the unused controller branch).
+
+**Regression after the change (zcode_pie_verify_final.json, fresh PIE):**
+- Crouch: bIsCrouched=True, capsule 40; camera-lower intact
+- Damage 100 -> dead=True hp=0 -> RestartLevel -> hp=100 dead=False
+- Room brightness unchanged (movable-lights setup intact)
+
+**OwnerNoSee**: DEFERRED per approval (Fix 2) — the full body remains visible to the
+player (the pre-existing first-person presentation). Documented option for hiding the
+body while preserving a future arms rig: OwnerNoSee=True on CharacterMesh0 + a small
+arms-only SkeletalMeshComponent (mesh: SKM_Manny_Simple upper-body or a dedicated
+1P arms asset in Phase 2) attached to the capsule at eye height with its own minimal
+AnimBP — the current full-body locomotion keeps animating independently of it.
+
+**Git**: commit 5e00e5f (diagnosis) -> <fix1 commit> on main; pushed to GitHub.
