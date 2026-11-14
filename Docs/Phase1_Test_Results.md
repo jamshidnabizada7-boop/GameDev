@@ -322,3 +322,19 @@ Engine BasicShapes Cube is 100 cm (local bounds +/-50) — scale 3 = 300 cm is c
 two editor instances on one project silently break saves (save_asset/save_current_level
 return False) — close the other instance first; begin_play in single-shot scripts is
 flaky — use slate-post-tick polling harnesses with retry loops.
+
+
+## VOLUME UNREACHABLE ROOT CAUSE + FIX (2026-11-14, fix8)
+
+Walk-in replication test (zcode_walkin_test.json) caught it precisely: a pawn walking
++Y on foot was PHYSICALLY STOPPED at y=416 — the danger marker's collision was still ON
+(the component-level collision_enabled property is NOT python-exposed on
+StaticMeshComponent, so the earlier set silently failed) — and the marker's face sits
+~50 cm before the trigger zone. Teleporting past it worked (machine tests passed),
+walking in did not (user's videos 3/5).
+
+**FIX**: actor-level SetActorEnableCollision(False) on the marker (returns cleanly).
+**Verified by walk-through** (zcode_walkin_test.json): pawn walks y=100 -> 966
+unobstructed; HP drops 100 -> 75 on entry, -> 50 after walk-out/re-entry, -> 25/0 on
+further entries -> bIsDead=True -> RestartLevel -> hp=100 dead=False. The full
+physical-key gameplay loop is now unobstructed end to end.

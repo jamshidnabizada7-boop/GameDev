@@ -206,3 +206,13 @@ Date: 2026-11-14 (input-chain repair session + final autonomous session)
   breaks save_asset/save_current_level (returns False). Close the other editor first.
 - **Rule for the user**: after agent-side fixes, FULLY CLOSE AND REOPEN the editor
   before testing — PIE runs the editor's in-memory assets, not the disk.
+
+
+## RESOLVED (fix8)
+- ~~Volume unreachable on foot~~ — the red marker's collision silently stayed ON
+  (StaticMeshComponent has no python-exposed collision_enabled property; the earlier
+  set was a silent no-op) and blocked the pawn 50 cm short of the trigger. Fixed with
+  actor-level SetActorEnableCollision(False); walk-through + damage verified
+  (y=100->966 clean, HP 100->75->50->25->0->restart->100).
+- **Pitfall**: component-level collision settings are not reliably python-settable —
+  use actor.set_actor_enable_collision(False) and verify by MOVEMENT, not readback.
