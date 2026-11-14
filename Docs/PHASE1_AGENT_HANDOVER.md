@@ -96,6 +96,24 @@ Verified in real PIE (evidence: `C:\Users\PC\Documents\Default Project\zcode_pha
 5. Cleanup: _Scratch BPs, empty folders, cosmetic orphan nodes.
 6. Phase 1 remainder: animation visual check, final 30-item manual pass, reports.
 
+---
+
+## SESSION ADDENDUM (2026-11-14 late): input-chain break + repair
+
+**User's 08:15 physical test**: all input prints fired, ZERO gameplay (sprint/crouch/jump/interact dead). Root cause #2: the debug PrintStrings (commit 31e9f94) connected to the events' exec OUTPUT pins, which hold ONE link each — every connect REPLACED the wire into the gameplay chain. Full exec-wire dump proved: Jump / 5 guard Branches / Cast had empty exec inputs; IA_Move.Triggered chain survived because its print hit the unused Started pin (that is why WASD kept working while Space/Shift/Ctrl/E/R died).
+
+**Fix**: zcode_chain_fix.py reconnected 8 wires (each print.then -> severed chain head, + trace.then -> Cast.execute); compiled BS_UP_TO_DATE; saved. Verified structurally (post-fix dump: every head fed) and functionally in PIE (zcode_final_run2.json): sprint velocity 700 cm/s / walk 450 cm/s / MWS restored; capsule 96-40-96; jump rise 89.6 cm; trace hits BP_TestInteractable_C at 171 cm; damage 100->75->50->25->0 -> dead -> RestartLevel -> 100. Cube big-scale corrected 2.0 -> 1.25 (zcode_cube_repair.json, PIE toggle 1.0 -> 1.25 -> 1.0).
+
+**New pitfalls for the next agent (full list in Phase1_Known_Issues.md)**:
+- Blueprint exec out pins hold ONE connection — inserting debug nodes must be IN SERIES with re-wiring, never a fresh connect from a busy pin. Always re-dump the exec topology after any wiring change.
+- BEL pin wrappers: methods only (list_connected_pins / get_owning_node / try_create_connection / set_pin_value); get_editor_property fails on them. list_connected_pins and list_graphs return non-list sequences — convert with list().
+- Struct pin literals read as "2, 2, 2"; set_pin_value accepts "(X=1.25,Y=1.25,Z=1.25)". NEVER use pin export_text/import_text for edits — they round-trip the whole node (path included) and digit-replacing corrupts it.
+- Characters ignore set_actor_rotation (bUseControllerRotationYaw) — use player_controller.set_control_rotation(Rotator(roll, pitch, yaw)).
+- EditorAssetLibrary.load_asset can return None mid-PIE — cache generated_class() before begin_play.
+- A missing module import (e.g. time) in an -ExecutePythonScript run kills the script before the first JSON dump; the editor exits silently — check Saved/Logs for LogPython Error lines.
+
+**Status**: all 30 acceptance items machine-verified; the user's manual key pass is the only open item.
+
 ## Environment
 - Project: `C:\GameDev\AfghanistanFPS` (branch main, remote `backup` →
   `D:/GameDev/AfghanistanFPS_Backups/GitMirror/AfghanistanFPS.git`)

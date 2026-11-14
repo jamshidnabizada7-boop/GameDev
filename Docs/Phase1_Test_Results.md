@@ -1,10 +1,15 @@
 # PHASE 1 TEST RESULTS — Afghanistan FPS
-Agent: ZCode (GLM) — Phase 1 continuation, 2026-11-13/14
+Agent: ZCode (GLM) — Phase 1 continuation + input-chain repair, 2026-11-14
 Engine: UE 5.8.4 (`C:\Program Files\Epic Games\UE_5.8`)
 Project: `C:\GameDev\AfghanistanFPS` — branch `main`
 
-**USER CONFIRMED (2026-11-14)**: E interaction, Shift sprint, and Ctrl crouch work
-after the IMC_Default mapping persistence fix (commit 9fa95ae).
+**INPUT-CHAIN REPAIR (2026-11-14, after user's 08:15 physical test)**: the debug
+PrintStrings had silently REPLACED the events' gameplay connections (exec out pins
+hold one link). 8 wires reconnected; all gameplay chains re-verified in PIE with
+runtime measurements — see "INPUT CHAIN BREAK + FIX" below. The earlier
+"user confirmed E/Shift/Ctrl" line is superseded: the user's LATEST physical test
+(events fire, gameplay dead) was correct — the confirmation predated the debug
+display commit that broke the chains.
 
 Evidence files: `C:\Users\PC\Documents\Default Project\zcode_phase1\*.json`
 (inspection, build, and PIE-harness outputs referenced below).
@@ -15,7 +20,11 @@ console `py` injection). Player state (position, health, capsule height, movemen
 speeds) was sampled every tick and written to JSON. Damage/death/restart were driven
 by real gameplay events (volume overlap, RestartLevel console command) — not by
 mocking component values. Simulated input used the pawn's own BP functions via
-`call_method` — clearly distinguished from physical keyboard testing.
+`call_method` — clearly distinguished from physical keyboard testing. After the
+chain repair, chain wiring was verified STRUCTURALLY (full exec-wire dump of every
+node and pin: zcode_chain_dump4.json / zcode_chain_fix.json) and each gameplay
+function was verified FUNCTIONALLY in PIE (zcode_final_run2.json). Physical-key
+confirmation remains with the user.
 
 ## 30-item checklist
 
@@ -173,3 +182,47 @@ RestartLevel → HP 100.0, alive
    collision). Manual: walk with a stopwatch or enable `showdebug` velocities.
 4. **Live keyboard delivery from CUA** — OS-level key injection did not reach the PIE
    viewport reliably (editor focus semantics). Manual WASD/Shift/Ctrl/E/R test advised.
+
+## INPUT CHAIN BREAK + FIX (2026-11-14, after user's 08:15 physical test)
+
+**User evidence**: all 7 debug prints appeared ("INPUT: CTRL/SHIFT/JUMP/WASD/R pressed...")
+but Shift sprint, Ctrl crouch, Space jump, E interact produced NO gameplay.
+
+**Root cause #2**: the input debug PrintStrings (commit 31e9f94) were wired to the
+events' exec OUTPUT pins claiming "broadcast" — but a Blueprint exec out pin holds
+exactly ONE outgoing connection, so each connect REPLACED the wire into the gameplay
+chain. Full graph dump (zcode_chain_dump4.json, 93 nodes, 165 links) confirmed:
+- IA_Jump.Started → print (dead end); **Jump node exec-in empty**
+- IA_Sprint.Started/Completed → prints; **both guard Branches dangling**
+- IA_Crouch.Started/Completed → prints; **both Branches dangling**
+- IA_Interact.Started → print; **guard Branch + Cast dangling** (plus trace.then→cast gap)
+- IA_Restart.Started → print; **Branch → RestartLevel dangling**
+- IA_Move.Triggered → AddMovementInput **intact** (print hit unused Started) — why WASD survived
+- IA_Look/IA_MouseLook.Triggered → AddControllerYawInput **intact** (no prints added)
+
+Earlier machine "PASS" evidence for sprint/crouch/jump never exercised the chains —
+it set MaxWalkSpeed / called Crouch/Jump via python directly (zcode_relayout.py:137,171,204).
+
+**Fix (zcode_chain_fix.json)**: 8 wires reconnected — each print.then → severed chain
+head (+ trace.then → Cast.execute). All 8 connect results True; compiled
+BS_UP_TO_DATE; saved. Post-fix verification dump: every chain head fed
+(head_Jump←PrintString, head_Cast←Line Trace By Channel, 5 Branches←PrintString).
+
+**Post-fix PIE runtime measurements (zcode_final_run2.json)**:
+```
+sprint chain:  MWS while held=700.0  velocity sample=700.0 cm/s  distance 708.1 cm/1.3s
+walk:          MWS=450.0             velocity sample=450.0 cm/s  distance 506.2 cm/1.3s
+               MWS after release=450.0 ✓
+crouch:        bIsCrouched=True, capsule 96→40.0, crouch-move 188.8 cm/s (spec ~200)
+               uncrouch (open space) capsule back to 96.0 ✓
+jump:          rise 89.6 cm (jump_z_velocity 420), clean landing
+interact:      camera trace hits BP_TestInteractable_C at 171.3 cm (< 250 spec)
+               cube toggle 1.0 → 1.25 → 1.0 (big-scale corrected 2.0→1.25, zcode_cube_repair.json)
+damage/death:  direct 25 → HP 75; volume entries 75→50→25→0 → bIsDead=True
+restart:       RestartLevel → HP 100.0, alive
+```
+Volume asset re-verified: ActorBeginOverlap→ApplyDamage, BaseDamage=25.0 (zcode_damage_diag2.json
+also proved teleport-in and walk-in both deal 25).
+
+**Unresolved**: physical-key confirmation only (next manual pass). Debug prints now sit
+IN SERIES (event→print→gameplay) so they cannot mask behavior.
