@@ -163,3 +163,20 @@ SKYLIGHT CUBEMAP from a -NullRHI recapture; recaptured with real rendering
 (brightness 78.7 -> 129.2). A mid-session BS_ERROR (self-unconnected
 SetRelativeLocation) was introduced and repaired in the same session; final status
 BS_UP_TO_DATE. HEAD 2ba10da (Phase1-fix5).
+
+
+## SESSION ADDENDUM 4 (final, 2026-11-14): Phase 1 completion + GitHub + restore test
+- GitHub push verified working (remote "github", GCM auth by user); main tip fc7d9b6
+  synced; LFS 739 objects uploaded.
+- Restore test PASSED: fresh clone from GitHub -> complete project (160 content files
+  47.9 MB, real smudged binaries — BP 434 KB, test map present). Non-destructive.
+- Accessed-None root cause finalized: ABP_Copycat on the Lvl_IntroRoom STARTUP map;
+  fixed via startup-map change (EditorStartupMap/GameDefaultMap -> L_Test_PlayerFoundation).
+- Crouch: mechanics verified working by the user (capsule 96->40->96, prints firing);
+  camera-forward + OwnerNoSee resolve the presentation; uncrouch camera restore wired
+  (SetRelativeLocation -13.5,0,69.4 on the uncrouch chain).
+- OwnerNoSee runtime node (SetOwnerNoSee True on BeginPlay chain) — CDO edits do NOT
+  clear BP instance overrides; runtime node is the reliable route (or fix the override
+  in the editor).
+- Final: 30/30 PASS (mixed evidence classes tabled in Test_Results). Phase 1 COMPLETE
+  pending the user's own sign-off. No Phase 2 work started.

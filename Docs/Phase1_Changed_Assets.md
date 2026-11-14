@@ -27,3 +27,13 @@ Date: 2026-11-13/14 · Agent: ZCode continuation · Branch: main
 ## Pre-existing input actions (verified correct, unchanged)
 IA_Sprint/IA_Crouch/IA_Interact/IA_Restart — Boolean, correct keys (created by
 previous agent, phase1_build_01_input evidence).
+
+
+## ANIMATION PHASE CHANGES (2026-11-14 final)
+- BP_PlayerFoundation: AnimClass = ABP_Unarmed (was ABP_FP_Copy — empty); mesh
+  OwnerNoSee runtime SetOwnerNoSee(True) node on BeginPlay chain; crouch/uncrouch
+  camera SetRelativeLocation nodes (28.92 crouch / 69.4 restore); diagnostic prints
+  (series-wired); danger-zone marker + red glow light in L_Test_PlayerFoundation;
+  M_DangerZone material; EditorStartupMap/GameDefaultMap -> L_Test_PlayerFoundation.
+- Unchanged: ABP_Unarmed, ABP_FP_Copy, ABP_Copycat, all input assets, BPC_Health,
+  BP_TestInteractable, BP_TestDamageVolume logic, IMC_Default.

@@ -216,3 +216,22 @@ Date: 2026-11-14 (input-chain repair session + final autonomous session)
   (y=100->966 clean, HP 100->75->50->25->0->restart->100).
 - **Pitfall**: component-level collision settings are not reliably python-settable —
   use actor.set_actor_enable_collision(False) and verify by MOVEMENT, not readback.
+
+
+## FINAL SESSION ADDITIONS (2026-11-14, Phase 1 completion)
+- ~~Crouch camera "shows a side"/body offset~~ — root cause chain: (1) full-body mesh
+  owner-visible (fixed by SetOwnerNoSee runtime node), (2) camera moved forward in
+  fix9 while the body stayed centered (documented trade-off; with OwnerNoSee active the
+  forward camera gives a clean view). Crouch/uncrouch verified working by the user
+  (capsule 96->40->96, prints firing).
+- ~~Accessed None at boot~~ — ABP_Copycat on Lvl_IntroRoom (old startup map); fixed by
+  startup-map change. Lvl_IntroRoom itself still contains that unmodified demo Blueprint
+  — it is unused template content (documented, not repaired).
+- **Debug output management**: all INPUT:/CROUCH:/INTERACT: prints are wired IN SERIES
+  on the gameplay chains (never replacing connections) and can be silenced at any time
+  with the console command 'DisableAllScreenMessages' (the DisplayAll HUD lines honor
+  the same switch). No graph changes needed to toggle diagnostics.
+- **Restore test**: fresh 'git clone' from GitHub into C:\GameDev\RestoreTest_AfghanFPS
+  produced a complete project (160 content files, 47.9 MB; BP_PlayerFoundation.uasset
+  434 KB real binary — LFS smudge OK; test map present; commit fc7d9b6). Non-destructive;
+  the folder can be deleted at will.

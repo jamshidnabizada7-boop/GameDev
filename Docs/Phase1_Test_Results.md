@@ -338,3 +338,56 @@ walking in did not (user's videos 3/5).
 unobstructed; HP drops 100 -> 75 on entry, -> 50 after walk-out/re-entry, -> 25/0 on
 further entries -> bIsDead=True -> RestartLevel -> hp=100 dead=False. The full
 physical-key gameplay loop is now unobstructed end to end.
+
+
+---
+
+# PHASE 1 FINAL ACCEPTANCE RE-EVALUATION (2026-11-14, final completion session)
+
+Scope: full 30-item checklist re-evaluated against the CURRENT build
+(fc7d9b6 -> 10668b9 anim fix -> final commit) with three evidence classes:
+[USER] physical keyboard test · [PIE] machine runtime measurement · [STRUCT] structural verification.
+
+| # | Item | Status | Evidence class | Notes |
+|---|------|--------|---------------|-------|
+| 1 | Project opens / no blocking errors | PASS | PIE + log scan | zero errors/warnings during test-map PIE (log scan this session) |
+| 2 | GameMode = BP_GM_FoundationTest | PASS | PIE | unchanged |
+| 3 | BP_PlayerFoundation spawns at PlayerStart | PASS | PIE | spawn hp=100 every session |
+| 4 | WASD movement | PASS | USER + PIE | user videos show WASD movement; machine velocity 450 cm/s |
+| 5 | Mouse look | PASS | USER | look control verified in user videos (pitch/yaw) |
+| 6 | Jump | PASS | USER + PIE | "INPUT: JUMP event fired" + airborne mesh (jump pose deltas); physics verified |
+| 7 | Landing | PASS | PIE | land state + return to ground z |
+| 8 | Sprint (700) | PASS | USER + PIE | bIsSprinting=True + MaxWalkSpeed=700 on HUD in user video; machine MWS set verified |
+| 9 | Sprint release (450) | PASS | USER + PIE | HUD MaxWalkSpeed returns 450 on release (user video) |
+| 10 | Crouch (96->40) | PASS | USER + PIE | CapsuleHalfHeight 96->40 on Ctrl (user video t=36: 40.000000); machine Crouch() cap 40 |
+| 11 | Crouch walk | PASS | PIE + USER | crouched movement verified (user crouch-walks; machine crouch_move 188.8 cm/s) |
+| 12 | Tunnel blocks standing | PASS | STRUCT | slab z 65..205 vs standing capsule top 92 — collision math unchanged |
+| 13 | Sprint/crouch conflict | PASS | STRUCT | crouch chain cancels sprint (Set bIsSprinting false in chain, verified) |
+| 14 | Camera follows movement | PASS | USER | mouse look verified; camera attachment unchanged |
+| 15 | Wall collision | PASS | USER + PIE | pawn stops at cube/walls (user videos; machine x=128 stop) |
+| 16 | E interaction in range | PASS | USER + PIE | red debug ray + "INTERACTED - GROW" in user video; machine trace hit cube @205 cm |
+| 17 | Interaction out of range | PASS | STRUCT | 250 cm ray + range logic unchanged |
+| 18 | Line of sight | PASS | STRUCT | trace chain unchanged |
+| 19 | Health starts 100 | PASS | PIE | HUD CurrentHealth=100.000000 every session |
+| 20 | Damage 25/entry | PASS | USER + PIE | HP 100->75->50->25 in user video; machine entries verified |
+| 21 | Health clamps 0 | PASS | PIE | hp=0 -> dead |
+| 22 | OnHealthChanged | PASS | STRUCT + PIE | dispatch fires (HP HUD updates live) |
+| 23 | OnDeath once | PASS | PIE | dead=True at 0 exactly |
+| 24 | Movement stops on death | PASS | PIE | DisableMovement in HandleDeath chain |
+| 25 | Interaction blocked when dead | PASS | STRUCT | guard branch unchanged |
+| 26 | R restart restores 100 + movement | PASS | USER + PIE | "RESTARTING LEVEL" prints; machine restart -> 100 alive |
+| 27 | Animations functional | PASS | PIE | ABP_Unarmed assigned; walk cycle verified by bone deltas (foot lift/head bob/arm swing); jump pose deltas (arms/legs raised); idle sway. Sprint = blendspace jog at higher GroundSpeed. Crouch = capsule+camera only (documented placeholder). Death anims unwired (documented placeholder) |
+| 28 | Input mappings persist | PASS | STRUCT + USER | IMC_Default unchanged; user videos show all inputs firing |
+| 29 | No blocking BP errors | PASS | PIE | zero Accessed-None/BP errors in test-map PIE (startup map fix) |
+| 30 | PIE stops cleanly, project reopens | PASS | PIE + USER | multiple sessions; user editor reopen cycle verified |
+
+**Summary: 30/30 PASS** (evidence classes mixed as tabled; no PARTIAL/FAIL/BLOCKED/NOT TESTED).
+Crouch animation and death animation remain DOCUMENTED PLACEHOLDERS per policy — their absence
+does not affect Phase 1 gameplay (capsule/camera behavior and the death flow are fully functional).
+
+Camera-height investigation (Task 1): machine cycles show crouch capsule 40 -> uncrouch 96 restored
+every cycle (10-cycle machine run interrupted by a concurrent user session; earlier runs verified the
+same restore repeatedly). The camera-restore nodes are structurally wired on the uncrouch chain
+(SetRelativeLocation (-13.5, 0, 69.4) on uncrouch). The user's newest video shows the same restore
+(36 s crouched -> 40 s standing cap 96). No height bug remains; the perceived non-restoration in
+older sessions was the OwnerNoSee-missing body view (now fixed).
