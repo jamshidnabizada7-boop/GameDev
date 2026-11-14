@@ -15,12 +15,15 @@ Date: 2026-11-14 (final autonomous session)
   (delete returned True). Note below on deferred on-disk unlink.
 
 ## Open (manual items remaining)
-1. **Live keyboard acceptance pass** [manual]. OS-level key injection (CUA pressKey)
-   reaches the editor but not the PIE game view (editor focus semantics; activation
-   also refused by the OS while another window holds foreground). All systems behind
-   the keys are machine-verified via simulated input (call_method on the pawn's own
-   Move/Crouch/Jump functions; interaction trace+call). One manual
-   WASD/Shift/Ctrl/E/R pass in PIE completes the acceptance list (recipe in
+1. **Live keyboard acceptance pass** [manual, conclusively BLOCKED for automation].
+   Four key-delivery mechanisms attempted against the PIE viewport: default pressKey,
+   click-capture + pressKey, event-strategy pressKey, and foreground-activated
+   pressKey. All either fail with "could not be brought to the foreground" (OS
+   focus-stealing prevention) or deliver keys to editor panels instead of the game
+   (pawn telemetry confirms zero movement from injected keys in every attempt). All
+   systems behind the keys are machine-verified via simulated input (call_method on
+   the pawn's own Move/Crouch/Jump functions; the interaction trace+call chain). One
+   manual WASD/Shift/Ctrl/E/R pass in PIE completes the acceptance list (recipe in
    Phase1_Next_Steps.md).
 2. **Damage volume re-arm chain removed.** The SetActorEnableCollision(false)→Delay→
    enable chain was removed after repeated automation failures; per-entry damage
