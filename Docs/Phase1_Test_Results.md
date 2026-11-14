@@ -78,6 +78,49 @@ hit_actor = BP_TestInteractable (zcode_hit_diag2.json).
 All 8 EnhancedInputAction nodes verified with correct InputAction references
 (zcode_ia_pins2.json: IA_Move/Look/MouseLook/Jump/Sprint/Crouch/Restart/Interact).
 
+## INPUT BUG ROOT CAUSE + FIX (2026-11-14, zcode_diag_imc.json + zcode_imc_fix.json)
+**Root cause**: the 4 Phase 1 key mappings (LeftShift→IA_Sprint, LeftCtrl→IA_Crouch,
+E→IA_Interact, R→IA_Restart) were never persisted to the IMC_Default asset.
+`imc.map_key()` + `EditorAssetLibrary.save_asset()` modifies the in-memory IMC
+(verifiable: 16 rows after map_key) but **silently fails to serialize the added
+mappings** — the .uasset on disk kept only the 12 template mappings. Three separate
+sessions (previous agent's build_01, my build_05/06, my build_07) hit the same
+silent failure; `git status` never showed IMC_Default as modified because the file
+content genuinely never changed.
+
+**Fix**: build the complete 16-entry EnhancedActionKeyMapping list (12 template +
+4 new) and write via `imc.set_editor_property("mappings", full_list)` — this DOES
+serialize. File grew 7787 → 14736 B; git commit 9fa95ae.
+
+**Fresh-session verification** (zcode_final_verify.json, new editor launch):
+IMC loads with **16 mappings** incl. all 4 Phase 1 mappings ✓. All assets exist,
+all BPs BS_UP_TO_DATE ✓.
+
+**Debug display added** (zcode_debug_display.json): 10 PrintString nodes wired to
+all input event exec pins + E-chain diagnostics (cast-fail, Interact-called) in
+BP_PlayerFoundation. During PIE, pressing W/Space/Shift/Ctrl/E/R now prints
+"INPUT: <event> fired" on screen — pinpointing where execution stops if any issue
+remains.
+
+## Scratch cleanup (2026-11-14, zcode_final_pass2.json)
+7 probe assets deleted via EditorAssetLibrary (BP_Probe7, BPI_Probe9, BP_Probe9_Impl,
+BP_Probe12_Caller, BPC_ProbeHealth, BP_ProbeHealthHost, BP_ProbeNodes). Deletion
+returns True; on-disk files flush when the editor closes (deferred unlink while
+assets are loaded). Verify visually next editor open.
+
+## SkyLight (2026-11-14, zcode_sky3.json)
+Recapture succeeded in the editor world (sky_light_component.recapture_sky, no error)
+and the map was saved. Verify the viewport warning is gone on next PIE open.
+
+## Git backup (2026-11-14)
+- Local HEAD: e5366cb — includes the IMC fix (9fa95ae) and debug display (31e9f94).
+- `git push backup main` still rejected by the D: mirror (receive-pack quarantine
+  write denied — environmental). LFS objects upload fine.
+- Verified full-history bundle on D:
+  `D:\GameDev\AfghanistanFPS_Backups\AfghanistanFPS_main_v6.bundle` (3.81 MB,
+  complete history, tip 31e9f94). LFS objects are on the mirror's LFS storage;
+  bundle + LFS objects together restore the project.
+
 ## Scratch cleanup (2026-11-14, zcode_final_pass2.json + zcode_fix_scale.json)
 7 probe assets deleted via EditorAssetLibrary (BP_Probe7, BPI_Probe9, BP_Probe9_Impl,
 BP_Probe12_Caller, BPC_ProbeHealth, BP_ProbeHealthHost, BP_ProbeNodes). Deletion
