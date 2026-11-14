@@ -192,3 +192,17 @@ Date: 2026-11-14 (input-chain repair session + final autonomous session)
   exec-only out_exec helper). Direct call_method("Crouch") does NOT execute the BP
   chain nodes downstream of the Crouch node — camera-lower effects can only be
   verified via the physical chain or full event simulation.
+
+
+## RESOLVED (third video session)
+- ~~Black screen (real root cause)~~ — the BOUNDED PostProcessVolume had AEM_MANUAL
+  with auto_exposure_min_brightness=-10.0 (1/1024 exposure): the non-sunlit part of
+  the room rendered near-black; walking across its boundary = "black then bright".
+  PPV deleted; fill DirectionalLight (yaw 210) added; SkyLight 8.0 MOVABLE real-time
+  capture. Midroom brightness 17.5 -> 116.6 verified by screenshot measurement.
+- ~~Volume invisible/hard to find~~ — red emissive marker box + red PointLight glow
+  now mark the damage zone; no shadow casting; kill chain re-verified with marker.
+- ~~Saves silently failing~~ — a second open editor instance on the same project
+  breaks save_asset/save_current_level (returns False). Close the other editor first.
+- **Rule for the user**: after agent-side fixes, FULLY CLOSE AND REOPEN the editor
+  before testing — PIE runs the editor's in-memory assets, not the disk.

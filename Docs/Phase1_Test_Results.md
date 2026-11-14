@@ -292,3 +292,33 @@ User's second gameplay video (post-fix4) analyzed frame-by-frame + HUD readouts:
   -> hp=100 dead=False (zcode_pie_verify_final.json). The R physical path uses the same
   ExecuteConsoleCommand node, now with "RESTARTING LEVEL" / "R ignored: you are still
   ALIVE" prints so the user can see which branch ran.
+
+
+## TRUE BLACK-SCREEN ROOT CAUSE + VOLUME VISIBILITY (2026-11-14, third video session)
+
+User's third video (post-fix4, stale editor): black windows persisted, HP stayed 100
+(never reached the invisible damage volume -> never died -> R no-op by design),
+crouch works (capsule) but was invisible pre-fix5. THREE root causes resolved:
+
+1. **STALE EDITOR SESSION** — PIE plays the editor's IN-MEMORY assets; disk saves
+   from other sessions are invisible until the editor is fully closed and reopened.
+   The user's editor predates fix5. Rule: **always fully restart the editor after
+   agent-side asset changes.**
+2. **THE BOUNDED POSTPROCESSVOLUME WAS THE BLACK SCREEN** — it had AEM_MANUAL with
+   auto_exposure_min_brightness = -10.0 (EV100 -10 = 1/1024 exposure): everything
+   outside the sunlit strip rendered near-black. Walking in/out of its volume =
+   "black then bright". **PPV deleted** (default auto exposure restored) + a fill
+   DirectionalLight (yaw 210, pitch -25, intensity 1.5) added + SkyLight 8.0 MOVABLE
+   with real_time_capture. Verified: midroom (facing volume) brightness 17.5 -> 116.6;
+   crouched 17.5 -> 114.6; spawn 130. The whole room is uniformly lit.
+3. **THE DAMAGE VOLUME WAS INVISIBLE** — added a visible red marker box (300cm,
+   aligned with the trigger, no collision, no shadow casting, emissive red material)
+   + a red PointLight glow at the zone. Volume kill chain re-verified with the marker
+   present: 100 -> 75 -> 50 -> 25 -> 0 -> dead -> RestartLevel -> 100.
+
+New pitfalls: MaterialEditingLibrary in 5.8 python has create/connect/recompile/
+get_num_material_expressions but NOT get_material_expression/set_material_property;
+Engine BasicShapes Cube is 100 cm (local bounds +/-50) — scale 3 = 300 cm is correct;
+two editor instances on one project silently break saves (save_asset/save_current_level
+return False) — close the other instance first; begin_play in single-shot scripts is
+flaky — use slate-post-tick polling harnesses with retry loops.
