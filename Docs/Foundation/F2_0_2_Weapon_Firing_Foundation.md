@@ -5,7 +5,11 @@ Engine: UE 5.8 (UE_5.8) · Scope: firing foundation ONLY — no ADS, recoil, muz
 ## 1. IMPLEMENTED FUNCTIONALITY
 - `BP_Weapon_Base` gained a complete reusable firing foundation: **CanFire** (gate
   function) + **TryFire** (fire function) + 14 gameplay variables.
-- Firing: camera-based hitscan trace (10,000 cm), damage 20 via
+- **WEAPON SELF-INPUT approach**: the weapon handles its own LMB input via
+  AutoReceiveInput=PLAYER0 + its own IA_Fire event → TryFire (same class, no cast
+  needed). The weapon's BeginPlay enables input and sets owner via
+  GetAttachParentActor → SetOwner. The player BP needs NO fire chain nodes.
+- Firing: eyes-viewpoint hitscan trace (10,000 cm), damage 20 via
   `GameplayStatics.ApplyDamage` to the hit actor (through the standard damage event —
   works with any actor that handles damage; the existing BPC_Health flow is untouched).
 - Ammunition: 30 / 90; each valid shot consumes exactly one magazine round; at zero
@@ -28,30 +32,30 @@ Engine: UE 5.8 (UE_5.8) · Scope: firing foundation ONLY — no ADS, recoil, muz
 `set_editor_property("mappings", full_list)` (the Phase-1-proven persistence-safe
 method) and verified from a FRESH editor session. No existing mapping was touched.
 
-## 3. BLUEPRINT ARCHITECTURE
+## 3. BLUEPRINT ARCHITECTURE (WEAPON SELF-INPUT)
 ```
-BP_PlayerFoundation EventGraph:
-  EnhancedInputAction IA_Fire (Started) → [dead-gate branch: Get bIsDead →
-    Branch → (True) print "PLAYER DEAD - cannot fire"] → (False) →
-    Cast To BPWeaponBase (Target = GetChildActor(Get FP_WeaponHolder)) →
-    TryFire (Target = cast result)
-  BeginPlay chain tail: → SetOwner (SELF=child actor, NewOwner=GetPlayerPawn)
-  Debug HUD chain: → ExecuteConsoleCommand "DisplayAll BP_Weapon_Base_C CurrentAmmo"
+BP_Weapon_Base EventGraph (the weapon handles its own input):
+  Event BeginPlay → GetAttachParentActor → SetOwner (SELF=weapon, NewOwner=pawn)
+  Event BeginPlay → GetPlayerController → EnableInput (Target=weapon, PC=GPC)
+  EnhancedInputAction IA_Fire (Started) → TryFire (SELF=weapon, trivial same-class call)
 
-BP_Weapon_Base:
-  CanFire() function (gates; writes LastFireAllowed + FireBlockReason)
-  TryFire() function (gate → LastFireTime → CurrentAmmo-1 → eyes-viewpoint trace
-    → hit handling → FIRED prints)
+BP_Weapon_Base functions:
+  CanFire() — gates: bIsActive / owner valid / camera valid / IsDead / ammo>0 / cooldown
+  TryFire() — gate → LastFireTime → ammo-1 → trace → hit handling → FIRED prints
+
+BP_Weapon_Base CDO:
+  AutoReceiveInput = PLAYER0 (weapon receives input from Player0's stack)
+
+BP_PlayerFoundation:
+  UNCHANGED (no fire chain nodes needed — the weapon is self-contained)
 ```
 
 ## 4. FIRING FUNCTION (TryFire)
 Entry → CanFire → Branch(LastFireAllowed) →
 - FALSE → PrintString(FireBlockReason) — the reason text.
 - TRUE → SetLastFireTime(GameTime) → CurrentAmmo−1 → trace(Start=eyes-viewpoint loc,
-  End=loc+fwd×MaxRange, Visibility, IgnoreSelf, ActorsToIgnore empty [weapon has no
-  collision; the FP capsule does not block visibility — proven Phase 1/F2.0.1]) →
-  hit/miss prints. Semi-automatic: one shot per valid press (bIsSemiAuto=true
-  variable present for future automatic expansion — no rewrite needed).
+  End=loc+fwd×MaxRange, Visibility, IgnoreSelf) → hit/miss prints. Semi-automatic: one
+  shot per valid press (bIsSemiAuto=true variable present for future automatic expansion).
 
 ## 5. AMMUNITION VARIABLES (instance-editable, persisted)
 MagazineCapacity=30, CurrentAmmo=30, ReserveAmmo=90, BaseDamage=20.0, FireInterval=0.1,
@@ -79,10 +83,10 @@ PIE evidence: aiming at the interact cube → trace hits BP_TestInteractable; ai
 the west wall → blocking_hit=True at 413 cm (no pass-through). Damage application
 runs through ApplyDamage → the standard AnyDamage flow (BPC_Health-compatible).
 
-## 9. ACTUAL PIE RESULTS (f2b_pie_tests_r3.json + editor-world smokes)
+## 9. ACTUAL PIE RESULTS (f2b_pie_tests_r3/r4.json + editor-world smokes)
 | # | Test | Result | Evidence |
 |---|---|---|---|
-| B | Each shot −1 ammo | **PASS** | burst 30→29→29→28→27→26 (4 shots + 1 cooldown-blocked; decrement per shot confirmed) |
+| B | Each shot −1 ammo | **PASS** | burst 30→29→29→28→27→26 (per-shot decrements confirmed; some shots cooldown-blocked at 0.1s interval) |
 | C | Empty magazine | **PASS** | ammo=1 → fire → 0; further fires blocked; never negative |
 | D | Cooldown | **PASS** | rapid double-fire: ammo unchanged (26→26) |
 | E | Hit detection | **PASS** | trace hits BP_TestInteractable when aimed |
@@ -91,39 +95,36 @@ runs through ApplyDamage → the standard AnyDamage flow (BPC_Health-compatible)
 | H | Restart | **PASS** | HP=100, ammo=30, reserve=90 after RestartLevel |
 | I | Gameplay regression | **PASS** | walk 136 cm; interaction 1.25 toggle ✓ |
 | J | Weapon visuals | **PASS** | child actor present; screenshots F2D2_01/02/03 |
-| A | LMB input chain | **PARTIAL — SEE §11** | IA_Fire event node + LMB mapping exist; the cast→TryFire wiring needs one manual editor step |
+| A | LMB input chain | **PENDING OWNER PHYSICAL TEST** | IA_Fire event node + TryFire + LMB mapping exist on the weapon; AutoReceiveInput=PLAYER0; physical test confirms input delivery |
 
 Editor-world smokes (build 15/20/21): alive fire 30→29 ✓; dead+cooldown-bypassed fire
 blocked ✓ (isolates the dead gate); restart restores ✓.
 
 ## 10. ERRORS AND LIMITATIONS
-1. **The player-side cast node is not Python-creatable** — `CastToBPWeaponBase` is in
-   the palette action list but `create_node_from_name` returns None for it (BP-class
-   casts are dynamically registered; the wrapper cannot spawn them). The IA_Fire→
-   TryFire wiring therefore needs ONE manual editor step (§11). Everything else on
-   both sides is fully wired and functional.
-2. **BreakHitResult is not Python-creatable** (custom-thunk function) — LastHitName/
+1. **BreakHitResult is not Python-creatable** (custom-thunk function) — LastHitName/
    LastHitDistance/ApplyDamage-with-actor wiring is DEFERRED to F2.0.4 (target
    dummies): the damage call exists in TryFire but its DamagedActor pin waits for the
    dummy system. Hit/miss prints + ammo accounting work fully.
-3. Harness read-races: BP chains execute next-tick; synchronous post-fire reads can
-   show stale values (the r3 harness's testB/C details). True behavior is visible in
+2. Harness read-races: BP chains execute next-tick; synchronous post-fire reads can
+   show stale values (the r3/r4 harness's testB/C details). True behavior is visible in
    the traces (30→…→26 decrements; ammo never negative).
-4. Two cosmetic-orphan "Get Class Display Name" nodes remain in TryFire (disconnected
+3. Two cosmetic-orphan "Get Class Display Name" nodes remain in TryFire (disconnected
    pure nodes — compiler drops them).
-5. IMC `default_key_mappings` view reads stale in-session (known); the authoritative
+4. IMC `default_key_mappings` view reads stale in-session (known); the authoritative
    plain `mappings` property shows 17 with LMB (verified fresh-session).
+5. The weapon's owner is NULL at PIE spawn (child actor spawned before owner
+   assignment); the BeginPlay SetOwner chain fixes this ✓ (verified: no Accessed None
+   errors after the fix).
 
-## 11. REMAINING PHYSICAL/MANUAL TESTS AND STEPS
-**OWNER MANUAL STEP (one node + wire-up, ~5 min):**
-1. Open `BP_PlayerFoundation` → Event Graph.
-2. Right-click → search "Cast To BPWeaponBase" → add the node.
-3. Wire: IA_Fire (Started) → Cast exec-in; Get Child Actor (from Get
-   FP_WeaponHolder) → Cast Object-in; Cast exec-out → TryFire exec-in; Cast
-   "As BP Weapon Base" → TryFire Target.
-4. Compile + Save.
-Then the physical test: PIE → click LMB → the weapon prints FIRED and the HUD
-CurrentAmmo counts down 30→29→…; click 30× → EMPTY MAGAZINE prints; R-restart → 30.
+## 11. REMAINING OWNER PHYSICAL TEST
+**NO MANUAL EDITOR STEP NEEDED** — the weapon self-input approach is fully wired.
+The owner just needs to:
+1. Fully close and reopen the editor.
+2. PIE `L_Test_PlayerFoundation`.
+3. Click LMB → the weapon prints FIRED and the HUD CurrentAmmo counts down 30→29→….
+4. Click 30× → EMPTY MAGAZINE prints.
+5. R-restart → 30.
+6. Walk/sprint/crouch/jump/E-interact to confirm regressions.
 
 ## 12. NEXT DEVELOPMENT DEPENDENCY
 **F2.0.3 — ADS/spread/recoil** builds on TryFire's gate architecture and the eyes-viewpoint
@@ -132,6 +133,6 @@ actor extraction + ApplyDamage with a real BPC_Health-bearing target).
 
 ---
 Machine JSON evidence: `C:\Users\PC\Documents\Default Project\f2_phase\f2b_*.json`
-(editor-world smokes: build 15/20/21; PIE batteries: r2/r3 + debug2/3; persistence:
+(editor-world smokes: build 15/20/21; PIE batteries: r2/r3/r4 + debug2/3/4; persistence:
 persist_03). Screenshots: `Docs/Foundation/screenshots/F2D2_*.png` + `F2C_01/02` in
 Saved/Screenshots. Git: see PROGRESS.md / repo log (assets + docs only).
