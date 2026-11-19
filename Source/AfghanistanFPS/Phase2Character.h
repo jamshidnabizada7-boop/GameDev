@@ -55,6 +55,7 @@ public:
     bool CanUseContext() const;
     bool UsesCameraMotion() const;
 private:
+    float SprintPoseAlpha=0;
     friend class AFoundationNPC;
     void Bash();
     void GrabOrRelease();

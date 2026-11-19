@@ -1,0 +1,48 @@
+{
+  "samples": [
+    {
+      "pitch": -89,
+      "error_deg": 2.4148365394514667e-06,
+      "left_grip_cm": 5.329070518200751e-15,
+      "right_grip_cm": 7.105427357601002e-15
+    },
+    {
+      "pitch": -60,
+      "error_deg": 2.4148365394514667e-06,
+      "left_grip_cm": 1.9539925233402755e-14,
+      "right_grip_cm": 1.9539925233402755e-14
+    },
+    {
+      "pitch": -30,
+      "error_deg": 8.537736462515939e-07,
+      "left_grip_cm": 2.1316282072803006e-14,
+      "right_grip_cm": 1.9539925233402755e-14
+    },
+    {
+      "pitch": 0,
+      "error_deg": 8.537736462515939e-07,
+      "left_grip_cm": 0.0,
+      "right_grip_cm": 1.5987211554602254e-14
+    },
+    {
+      "pitch": 30,
+      "error_deg": 1.2074182697257333e-06,
+      "left_grip_cm": 5.684341886080802e-14,
+      "right_grip_cm": 3.907985046680551e-14
+    },
+    {
+      "pitch": 60,
+      "error_deg": 2.2588727439225506e-06,
+      "left_grip_cm": 7.105427357601002e-15,
+      "right_grip_cm": 1.9539925233402755e-14
+    },
+    {
+      "pitch": 89,
+      "error_deg": 0.0,
+      "left_grip_cm": 7.105427357601002e-15,
+      "right_grip_cm": 2.842170943040401e-14
+    }
+  ],
+  "muzzle_aligned": true,
+  "both_grips_aligned": true
+}

@@ -1,0 +1,13 @@
+{
+  "Renderer": "d3d12",
+  "RequestedExit": true,
+  "Exited": true,
+  "Log": "D:\\GameDev\\AfghanistanFPS_Archives\\Foundation_Profile_R23_Title1080\\normal-exit.log",
+  "PID": 33656,
+  "ExitCode": 0,
+  "ExitSeconds": 4.536,
+  "NavigationVerified": null,
+  "NavigationLog": null,
+  "MixedSoakLog": null,
+  "TitleFlowLog": "[2026.11.19-12.54.43:212][ 77]LogTemp: Display: FoundationTitleFlow PASS step=11 state=2"
+}

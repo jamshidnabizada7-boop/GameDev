@@ -22,6 +22,10 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
     float Time=0, Clock=0, Speed=0, Crouch=0, Prone=0, Lean=0, Recoil=0, LandTime=1, Surrender=0, Stagger=0;
     bool FP=false, Falling=false, WasFalling=false, Traversing=false,ThirdHands=false;
     FTransform ComponentWorld;
+    bool WeaponGripPose=false;
+    FQuat WristRotation[2]={FQuat::Identity,FQuat::Identity};
+    FVector CurlAxis[2]={FVector::RightVector,-FVector::RightVector};
+    float FingerCurl[2]={55,55};
     FVector FootOffset[2]={FVector::ZeroVector,FVector::ZeroVector};
     FQuat FootTilt[2]={FQuat::Identity,FQuat::Identity};
     FVector RightHand=FVector::ZeroVector, LeftHand=FVector::ZeroVector;
@@ -40,7 +44,7 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
         Falling=C->GetCharacterMovement()->IsFalling();
         if(WasFalling && !Falling) LandTime=0;
         WasFalling=Falling;
-        const int Index=Falling?(C->GetVelocity().Z>50?3:4):LandTime<0.22f?5:Speed>500?2:Speed>5?1:0;
+        const int Index=FP?0:Falling?(C->GetVelocity().Z>50?3:4):LandTime<0.22f?5:Speed>500?2:Speed>5?1:0;
         UAnimSequence* Next=I->Sequences[Index];
         if(Next!=Sequence) { Sequence=Next; Time=0; }
         if(Sequence && Time>Sequence->GetPlayLength()) Time=FMath::Fmod(Time,Sequence->GetPlayLength());
@@ -74,6 +78,21 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
                 FootOffset[Side]=Grounded?FMath::VInterpTo(FootOffset[Side],Offset,Dt,16.f):FVector::ZeroVector;
                 FootTilt[Side]=Grounded?FQuat::Slerp(FootTilt[Side],Tilt,FMath::Clamp(Dt*16.f,0.f,1.f)):FQuat::Identity;
             }
+        }
+        WeaponGripPose=false;
+        if(C->Equipment && C->Equipment->Slots.IsValidIndex(C->Equipment->ActiveSlot))
+        {
+            const auto* D=C->Equipment->Slots[C->Equipment->ActiveSlot].Definition.Get();
+            WeaponGripPose=D && D->UseGripPose && !C->P2Traversing && !C->Equipment->IsHoldingThrowable()
+                && (!C->InteractionManager || C->InteractionManager->ReachAlpha<.01f) && Surrender<.01f;
+            if(WeaponGripPose && C->P2GripLeft && C->P2GripRight)
+            {
+                WristRotation[0]=ComponentWorld.GetRotation().Inverse()*C->P2GripLeft->GetComponentQuat()*D->LeftWristRotation.Quaternion();
+                WristRotation[1]=ComponentWorld.GetRotation().Inverse()*C->P2GripRight->GetComponentQuat()*D->RightWristRotation.Quaternion();
+                CurlAxis[0]=D->LeftCurlAxis.GetSafeNormal();CurlAxis[1]=D->RightCurlAxis.GetSafeNormal();
+                FingerCurl[0]=D->LeftFingerCurl;FingerCurl[1]=D->RightFingerCurl;
+            }
+            else WeaponGripPose=false;
         }
         if(C->P2Camera)
         {
@@ -163,13 +182,15 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
                 const FVector Delta=Target-TA.GetLocation();
                 const double Reach=FVector::Distance(TA.GetLocation(),TB.GetLocation())
                     +FVector::Distance(TB.GetLocation(),TD.GetLocation());
-                const FVector Shift=Delta.GetSafeNormal()*FMath::Clamp(Delta.Size()-Reach+0.05,0.,20.);
+                const double CameraShoulderTravel=WeaponGripPose?44.0:20.0;
+                const FVector Shift=Delta.GetSafeNormal()*FMath::Clamp(Delta.Size()-Reach+0.05,0.,CameraShoulderTravel);
                 TA.AddToTranslation(Shift); TB.AddToTranslation(Shift); TD.AddToTranslation(Shift);
             }
             const FQuat PreviousLower=TB.GetRotation();
             AnimationCore::SolveTwoBoneIK(TA,TB,TD,Pole,Target,false,1.0,1.0);
             if(FStringView(End).StartsWith(TEXT("hand_")))
-                TD.SetRotation((TB.GetRotation()*PreviousLower.Inverse()*TD.GetRotation()).GetNormalized());
+                TD.SetRotation(WeaponGripPose?WristRotation[FStringView(End)==TEXT("hand_l")?0:1].GetNormalized()
+                    :(TB.GetRotation()*PreviousLower.Inverse()*TD.GetRotation()).GetNormalized());
             else
                 TD.SetRotation((FootTilt[FStringView(End)==TEXT("foot_l")?0:1]*TD.GetRotation()).GetNormalized());
             TArray<FBoneTransform> Changes={FBoneTransform(A,TA),FBoneTransform(B,TB),FBoneTransform(D,TD)};
@@ -201,7 +222,7 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
             IK(TEXT("upperarm_r"),TEXT("lowerarm_r"),TEXT("hand_r"),FVector(26,55,140),FVector(60,20,100));
         }
         FCSPose<FCompactPose>::ConvertComponentPosesToLocalPosesSafe(CS,Output.Pose);
-        if(FP)
+        if(FP || (ThirdHands && WeaponGripPose))
         {
             // Curl fingers around the prototype's existing grip markers.
             for(const TCHAR* Side:{TEXT("l"),TEXT("r")})
@@ -209,7 +230,11 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
                     for(int32 Segment=1;Segment<=3;++Segment)
                     {
                         const FString Name=FString::Printf(TEXT("%s_%02d_%s"),Finger,Segment,Side);
-                        Rotate(*Name,FVector::UpVector,Side[0]==TCHAR('l')?45.f:-45.f);
+                        const int32 Hand=Side[0]==TCHAR('l')?0:1;
+                        const bool TriggerFinger=Hand==1 && FStringView(Finger)==TEXT("index");
+                        const float Curl=TriggerFinger?FingerCurl[Hand]*.35f:FingerCurl[Hand];
+                        Rotate(*Name,WeaponGripPose?CurlAxis[Hand]:FVector::UpVector,
+                            WeaponGripPose?Curl:(Hand==0?45.f:-45.f));
                     }
         }
         Output.Pose.NormalizeRotations();

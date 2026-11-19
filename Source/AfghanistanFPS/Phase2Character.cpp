@@ -81,6 +81,7 @@ void APhase2Character::BeginPlay()
         EyeHeight = StandHalf + NeutralCameraOffset.Z;
         EyeFrom = EyeTo = VisualEye = EyeHeight;
         NeutralViewCorrection = GetControlRotation().Quaternion().Inverse() * P2Camera->GetComponentQuat();
+        P2Camera->AttachToComponent(GetRootComponent(),FAttachmentTransformRules::KeepWorldTransform);
         P2Camera->bUsePawnControlRotation = false;
     }
     TArray<USceneComponent*> Components;
@@ -111,8 +112,7 @@ void APhase2Character::BeginPlay()
     GetMesh()->VisibilityBasedAnimTickOption = EVisibilityBasedAnimTickOption::AlwaysTickPoseAndRefreshBones;
     if (P2Arms)
     {
-        // Keep the verified head-socket hierarchy. The animation proxy places hands
-        // around the camera-mounted weapon using component-space two-bone IK.
+        P2Arms->AttachToComponent(GetRootComponent(),FAttachmentTransformRules::KeepWorldTransform);
         P2Arms->SetLeaderPoseComponent(nullptr);
         P2Arms->SetAnimInstanceClass(UPhase2AnimInstance::StaticClass());
         P2Arms->SetVisibility(true);
@@ -396,7 +396,7 @@ void APhase2Character::UpdateCamera(float Dt)
     P2Lean=Desired;
     if(P2Arms)
     {
-        const FVector ArmOrigin=Neutral+Right*(P2Lean*32)-Yaw.Vector()*12-FVector(0,0,150);
+        const FVector ArmOrigin=Neutral+Right*(P2Lean*32)-Yaw.Vector()*12-FVector(0,0,170);
         P2Arms->SetWorldLocationAndRotation(ArmOrigin,FRotator(0,View.Yaw-90,0));
     }
     P2Camera->SetWorldLocation(Neutral+Right*(P2Lean*32));
@@ -406,6 +406,7 @@ void APhase2Character::UpdateCamera(float Dt)
     P2Camera->SetWorldRotation(View.Quaternion()*NeutralViewCorrection*CameraMotion);
     if(WeaponMount)
     {
+        SprintPoseAlpha=FMath::FInterpTo(SprintPoseAlpha,P2Sprinting?1.f:0.f,Dt,9.f);
         FTransform T=WeaponNeutral;
         const float Speed=GetVelocity().Size2D();
         const float Bob=CosmeticMotion?FMath::Sin(MotionClock*(P2Sprinting?13.f:9.f))*FMath::Clamp(Speed/450.f,0.f,1.f):0.f;
@@ -418,9 +419,9 @@ void APhase2Character::UpdateCamera(float Dt)
             ?FMath::Clamp(GetVelocity().Z/500.f,-1.f,1.f)*HipWeight:0.f;
         const float Tuck=(P2PoseCrouch+1.5f*P2PoseProne)*HipWeight;
         T.AddToTranslation(FVector(-Kick-2.f*Tuck,Breath*.28f,
-            Bob*.5f+Breath*.35f-Air*1.8f-LandingDip*.35f-Tuck-(P2Sprinting?3.f:0.f)));
-        T.SetRotation(WeaponNeutral.GetRotation()*FRotator(Kick+Breath*.32f-Air*3.f,
-            0,(P2Sprinting?-12.f:0.f)-Tuck*4.f).Quaternion());
+            Bob*.5f+Breath*.35f-Air*1.8f-LandingDip*.35f-Tuck-SprintPoseAlpha*8.f));
+        T.SetRotation(WeaponNeutral.GetRotation()*FRotator(Kick+Breath*.32f-Air*3.f-SprintPoseAlpha*17.f,
+            0,-SprintPoseAlpha*12.f-Tuck*4.f).Quaternion());
         WeaponMount->SetRelativeTransform(T);
     }
 }
@@ -456,10 +457,11 @@ void APhase2Character::Tick(float Dt)
         if(FootstepDistance>(P2Sprinting?180.f:P2Stance==2?100.f:140.f))
         {
             FootstepDistance=0;++P2Footsteps;
-            const float Loud=P2Stance==2?.04f:P2Stance==1?.08f:bSlowHeld?.12f:P2Sprinting?1.f:.45f;
+            const bool Silent=P2Stance==1 && bSlowHeld;
+            const float Loud=Silent?0.f:P2Stance==2?.04f:P2Stance==1?.08f:bSlowHeld?.12f:P2Sprinting?1.f:.45f;
             const float Range=P2Stance==2?120.f:P2Stance==1?250.f:bSlowHeld?350.f:P2Sprinting?1400.f:800.f;
-            UAISense_Hearing::ReportNoiseEvent(GetWorld(),GetActorLocation(),Loud,this,Range,TEXT("Footstep"));
-            if(auto* S=LoadObject<USoundBase>(nullptr,TEXT("/Game/AfghanFPS/Audio/Foundation/FoundationUse.FoundationUse")))UGameplayStatics::PlaySoundAtLocation(this,S,GetActorLocation()-FVector(0,0,90),Loud*.35f,.5f);
+            if(!Silent)UAISense_Hearing::ReportNoiseEvent(GetWorld(),GetActorLocation(),Loud,this,Range,TEXT("Footstep"));
+            if(!Silent)if(auto* S=LoadObject<USoundBase>(nullptr,TEXT("/Game/AfghanFPS/Audio/Foundation/FoundationUse.FoundationUse")))UGameplayStatics::PlaySoundAtLocation(this,S,GetActorLocation()-FVector(0,0,90),Loud*.35f,.5f);
         }
     }
     if(!Dead && P2Stance==1 && !bCrouchHeld) P2SetStance(0);

@@ -27,6 +27,15 @@ public:
     UPROPERTY(EditAnywhere,BlueprintReadWrite) int32 InitialReserve=90;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) float ShotInterval=.13f;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) float ReloadSeconds=1.5f;
+    // Height above barrel of the model-specific sight line, in weapon local units.
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) float SightHeight=0;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) bool UseGripPose=false;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) FRotator LeftWristRotation=FRotator::ZeroRotator;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) FRotator RightWristRotation=FRotator::ZeroRotator;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) FVector LeftCurlAxis=FVector::RightVector;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) FVector RightCurlAxis=-FVector::RightVector;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) float LeftFingerCurl=55;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) float RightFingerCurl=55;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) float BaseDamage=20;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) EFoundationFireMode DefaultMode=EFoundationFireMode::Semi;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) bool AllowPenetration=false;
@@ -132,6 +141,7 @@ private:
     TArray<TWeakObjectPtr<AActor>> ShellActors;
     bool Initialized=false,FireHeld=false,AimHeld=false;
     int32 BurstRemaining=0;
+    int32 PendingSlot=INDEX_NONE;
     float NextShot=0,StateEnds=0,StateStarted=0,FlashEnds=0;
     float AdsRestore=0;
 };

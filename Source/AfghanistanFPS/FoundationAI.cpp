@@ -70,6 +70,55 @@ AFoundationNPC::AFoundationNPC(const FObjectInitializer& Initializer):Super(Init
     DragHandle=CreateDefaultSubobject<UPhysicsHandleComponent>(TEXT("BodyDrag"));
     GunFlash=CreateDefaultSubobject<UPointLightComponent>(TEXT("GunFlash"));GunFlash->SetupAttachment(AIWeaponMount);GunFlash->SetRelativeLocation(FVector(59,0,2.5));GunFlash->SetIntensity(1000);GunFlash->SetAttenuationRadius(120);GunFlash->SetCastShadows(false);GunFlash->SetVisibility(false);
 }
+bool AFoundationNPC::AvoidGrenade(float Now)
+{
+    if(Now>=NextGrenadeScan && !GrenadeThreat.IsValid())
+    {
+        NextGrenadeScan=Now+.15f;
+        FVector Eye;FRotator View;GetActorEyesViewPoint(Eye,View);
+        for(TActorIterator<AFoundationThrowable> It(GetWorld());It;++It)
+        {
+            if(It->Kind!=EFoundationThrowableKind::Frag || !It->Launched || It->RemainingFuse<=0 || It->Detonated)continue;
+            const FVector Delta=It->GetActorLocation()-Eye;
+            if(Delta.SizeSquared()>FMath::Square(900.f) || FVector::DotProduct(View.Vector(),Delta.GetSafeNormal())<-.2f)continue;
+            FHitResult Hit;FCollisionQueryParams Q(SCENE_QUERY_STAT(FoundationGrenadeSight),false,this);Q.AddIgnoredActor(*It);
+            if(GetWorld()->LineTraceSingleByChannel(Hit,Eye,It->GetActorLocation(),ECC_Visibility,Q))continue;
+            GrenadeThreat=*It;NextGrenadePath=0;break;
+        }
+    }
+    auto* Threat=GrenadeThreat.Get();
+    if(!Threat || Threat->Detonated || Threat->RemainingFuse<=0)
+    {
+        GrenadeThreat.Reset();
+        if(EvadingGrenade){EvadingGrenade=false;GetCharacterMovement()->MaxWalkSpeed=210;NextMove=0;}
+        return false;
+    }
+    EvadingGrenade=true;GetCharacterMovement()->MaxWalkSpeed=600;
+    if(auto* AI=Cast<AAIController>(GetController()))AI->ClearFocus(EAIFocusPriority::Gameplay);
+    if(Now>=NextGrenadePath)
+    {
+        NextGrenadePath=Now+.45f;
+        auto* Nav=FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+        FVector Best=FVector::ZeroVector;float Score=-1;
+        const FVector Away=(GetActorLocation()-Threat->GetActorLocation()).GetSafeNormal2D();
+        for(int32 Index=0;Nav && Index<12;++Index)
+        {
+            const FVector Candidate=GetActorLocation()+FRotator(0,Index*30.f,0).RotateVector(Away)*750;
+            FNavLocation Point;
+            if(!Nav->ProjectPointToNavigation(Candidate,Point,FVector(140,140,250)))continue;
+            const float Safety=FVector::Dist2D(Point.Location,Threat->GetActorLocation());
+            if(Safety<650)continue;
+            const auto* Path=UNavigationSystemV1::FindPathToLocationSynchronously(this,GetActorLocation(),Point.Location,this);
+            if(!Path || !Path->IsValid() || Path->IsPartial())continue;
+            const float Value=Safety-.5f*Path->GetPathLength();
+            if(Value>Score){Score=Value;Best=Point.Location;}
+        }
+        if(Score>=0 && MoveToPoint(Best)){++GrenadeEscapes;LastDecision=TEXT("Escaping visible live grenade along complete navigation path");}
+        else LastDecision=TEXT("Live grenade seen; no safe reachable destination");
+    }
+    return true;
+}
+
 void AFoundationNPC::BeginPlay()
 {
     Super::BeginPlay();
@@ -305,6 +354,7 @@ void AFoundationNPC::Tick(float Dt)
     for(TActorIterator<AFoundationThrowable> It(GetWorld());It;++It)if(It->Kind==EFoundationThrowableKind::Flash && It->Detonated && Now-It->DetonatedAt<.25f && FVector::DistSquared(It->GetActorLocation(),GetActorLocation())<FMath::Square(700.f))
     {FHitResult H;FCollisionQueryParams Q(SCENE_QUERY_STAT(FoundationAIFlash),false,this);Q.AddIgnoredActor(*It);FVector E;FRotator R;GetActorEyesViewPoint(E,R);if(!GetWorld()->LineTraceSingleByChannel(H,E,It->GetActorLocation(),ECC_Visibility,Q))Enter(EFoundationAIState::Stunned,2.5f);}
     if(State==EFoundationAIState::Stagger || State==EFoundationAIState::Stunned){const bool HitStagger=State==EFoundationAIState::Stagger;if(auto* C=Cast<AAIController>(GetController()))C->StopMovement();if(Now<Until)return;if(!HitStagger || HealthValue()>=StartingHealth*.8f || !ChooseCover())Enter(EFoundationAIState::Search,5);}
+    if(AvoidGrenade(Now))return;
     SeesTarget=HasSightCandidate && IsThreat(Target) && CanSee(Target);
     if(SeesTarget)
     {LastKnownLocation=Target->GetActorLocation();LastSeen=Now;float Factor=1;if(auto* P=Cast<APhase2Character>(Target.Get()))Factor=P->P2Stance==2?.4f:P->P2Stance==1?.65f:1;Awareness=FMath::Clamp(Awareness+Dt*Factor/FMath::Max(.2f,DetectionSeconds),0.f,1.f);if(Awareness>=1 && State!=EFoundationAIState::Cover)Enter(EFoundationAIState::Combat);}

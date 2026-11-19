@@ -36,6 +36,8 @@ class AFGHANISTANFPS_API AFoundationNPC:public APhase2Character,public IGenericT
 public:
     AFoundationNPC(const FObjectInitializer& Initializer);
     virtual void BeginPlay() override;
+    UPROPERTY(BlueprintReadOnly) bool EvadingGrenade=false;
+    UPROPERTY(BlueprintReadOnly) int32 GrenadeEscapes=0;
     virtual void Tick(float Dt) override;
     virtual void GetActorEyesViewPoint(FVector& Location,FRotator& Rotation) const override;
     virtual float TakeDamage(float Damage,const FDamageEvent& Event,AController* Instigator,AActor* Causer) override;
@@ -94,6 +96,9 @@ public:
     UPROPERTY(BlueprintReadOnly) TObjectPtr<UActorComponent> HealthComponent;
 private:
     bool bOccupiesPopulationSlot=false;
+    bool AvoidGrenade(float Now);
+    float NextGrenadeScan=0,NextGrenadePath=0;
+    TWeakObjectPtr<class AFoundationThrowable> GrenadeThreat;
     bool IsThreat(AActor* Actor) const;
     void Enter(EFoundationAIState NewState,float Seconds=0);
     void FireAtTarget();void Die();void StepSound();void DropAIWeapon();

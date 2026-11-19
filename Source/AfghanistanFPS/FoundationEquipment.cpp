@@ -73,6 +73,11 @@ bool UFoundationEquipment::Initialize()
     DrySound=LoadObject<USoundBase>(nullptr,TEXT("/Game/AfghanFPS/Audio/Foundation/Dry.Dry"));
     ReloadSound=LoadObject<USoundBase>(nullptr,TEXT("/Game/AfghanFPS/Audio/Foundation/Reload.Reload"));
     ApplySlot();Initialized=true;
+    // Character Tick establishes the neutral camera/mount transform. Equipment
+    // adds its current action pose after that, then arms solve to those grips.
+    AddTickPrerequisiteActor(Player.Get());
+    AddTickPrerequisiteComponent(Player->GetMesh());
+    if(Player->P2Arms)Player->P2Arms->AddTickPrerequisiteComponent(this);
     Crosshair=Cast<UWidget>(FoundationBridge::Object(FoundationBridge::Object(Player.Get(),TEXT("AmmoHUD")),TEXT("CrosshairText")));
     if(auto* PC=Cast<APlayerController>(Player->GetController()))
     {auto* W=CreateWidget<UFoundationEquipmentWidget>(PC,UFoundationEquipmentWidget::StaticClass());W->Source=this;StatusWidget=W;W->SetVisibility(ESlateVisibility::HitTestInvisible);W->AddToViewport(12);}
@@ -161,8 +166,8 @@ bool UFoundationEquipment::CanAcceptWeapon(FName Id) const
 bool UFoundationEquipment::SelectSlot(int32 Index)
 {
     if(!Player.IsValid() || Player->P2IsDead() || Player->TacticalTarget || !Slots.IsValidIndex(Index) || Index==ActiveSlot || Equipping || Player->P2Traversing || Player->InteractionManager->Using || Player->InteractionManager->MirrorActive)return false;
-    SyncAmmo();Reloading=Inspecting=false;BurstRemaining=0;FireHeld=false;AimHeld=false;ActiveSlot=Index;Holstered=false;
-    StateStarted=GetWorld()->GetTimeSeconds();StateEnds=StateStarted+.4f;Equipping=true;ApplySlot();LastAction=TEXT("Switching weapon");return true;
+    SyncAmmo();Reloading=Inspecting=false;BurstRemaining=0;FireHeld=false;AimHeld=false;PendingSlot=Index;Holstered=false;
+    StateStarted=GetWorld()->GetTimeSeconds();StateEnds=StateStarted+.65f;Equipping=true;LastAction=TEXT("Lowering weapon");return true;
 }
 void UFoundationEquipment::SlotOne(){SelectSlot(0);}void UFoundationEquipment::SlotTwo(){SelectSlot(1);}
 void UFoundationEquipment::NextSlot(){if(Slots.Num()>1)SelectSlot((ActiveSlot+1)%Slots.Num());}
@@ -354,8 +359,18 @@ void UFoundationEquipment::TickComponent(float Dt,ELevelTick Type,FActorComponen
     if(HeldThrowable && (HeldThrowable->Detonated || Player->P2IsDead()))
     {if(!HeldThrowable->Detonated)HeldThrowable->Launch(FVector::ZeroVector);HeldThrowable=nullptr;HidePreview();SetWeaponVisible(!Holstered);}
     if(HeldThrowable && Now>=NextPreview){NextPreview=Now+.05f;UpdatePreview();}
-    if(Player->P2IsDead() || Player->P2Traversing){Reloading=Inspecting=Equipping=false;AimHeld=FireHeld=false;BurstRemaining=0;}
+    if(Player->P2IsDead() || Player->P2Traversing){PendingSlot=INDEX_NONE;Reloading=Inspecting=Equipping=false;AimHeld=FireHeld=false;BurstRemaining=0;}
     if(Player->P2Sprinting)BurstRemaining=0;
+    if(Equipping && PendingSlot!=INDEX_NONE && Now>=StateStarted+(StateEnds-StateStarted)*.5f)
+    {
+        if(Slots.IsValidIndex(PendingSlot))
+        {
+            ActiveSlot=PendingSlot;
+            ApplySlot();
+            LastAction=TEXT("Raising weapon");
+        }
+        PendingSlot=INDEX_NONE;
+    }
     if((Reloading || Equipping || Inspecting) && Now>=StateEnds)
     {
         if(Reloading && Slots.IsValidIndex(ActiveSlot))
@@ -386,14 +401,21 @@ void UFoundationEquipment::TickComponent(float Dt,ELevelTick Type,FActorComponen
     {FHitResult Hit;FCollisionQueryParams Q(SCENE_QUERY_STAT(FoundationMuzzle),false,Player.Get());Q.AddIgnoredActor(Holder->GetChildActor());const FVector Start=Player->P2Camera->GetComponentLocation();MuzzleBlocked=GetWorld()->SweepSingleByChannel(Hit,Start,Muzzle->GetComponentLocation()+Player->P2Camera->GetForwardVector()*12,FQuat::Identity,ECC_Visibility,FCollisionShape::MakeSphere(3),Q);}
     if(Mount)
     {
-        const float State=(Reloading || Inspecting || Equipping)?FMath::Sin(FMath::Clamp((Now-StateStarted)/FMath::Max(.1f,StateEnds-StateStarted),0.f,1.f)*PI):0;
+        const float Progress=FMath::Clamp((Now-StateStarted)/FMath::Max(.1f,StateEnds-StateStarted),0.f,1.f);
+        const float Lower=Equipping?FMath::SmoothStep(0.f,1.f,1.f-FMath::Abs(2.f*Progress-1.f)):0.f;
+        const float State=(Reloading || Inspecting)?FMath::Sin(Progress*PI):0.f;
+        Mount->AddLocalOffset(FVector(-Lower*8,0,-Lower*22));
+        Mount->AddLocalRotation(FRotator(-Lower*22,0,Lower*8));
         Mount->AddLocalOffset(FVector(-AdsAlpha*5,-AdsAlpha*10,AdsAlpha*4-State*12));
         Mount->AddLocalRotation(FRotator(Reloading?-State*30:0,Inspecting?State*55:0,Inspecting?State*25:0));
         if(AdsAlpha>.01f && Muzzle)
         {
             const FVector Eye=Player->P2Camera->GetComponentLocation(),Forward=Player->P2Camera->GetForwardVector();
             const FVector Desired=Eye+Forward*FMath::Max(25.f,float(FVector::DotProduct(Muzzle->GetComponentLocation()-Eye,Forward)))-Player->P2Camera->GetUpVector()*.8f;
-            Mount->AddWorldOffset((Desired-Muzzle->GetComponentLocation()).GetClampedToMaxSize(20)*AdsAlpha);
+            const float Height=Slots.IsValidIndex(ActiveSlot) && Slots[ActiveSlot].Definition
+                ?Slots[ActiveSlot].Definition->SightHeight:0.f;
+            const FVector Sight=Muzzle->GetComponentLocation()+Muzzle->GetUpVector()*Height*Muzzle->GetComponentScale().Z;
+            Mount->AddWorldOffset((Desired-Sight).GetClampedToMaxSize(25)*AdsAlpha);
         }
     }
     if(CanAct() && Slots.IsValidIndex(ActiveSlot) && ((FireHeld && Slots[ActiveSlot].Mode==EFoundationFireMode::Auto) || BurstRemaining>0))FireOne();
