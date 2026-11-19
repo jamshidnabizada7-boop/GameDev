@@ -23,6 +23,9 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
     bool FP=false, Falling=false, WasFalling=false, Traversing=false,ThirdHands=false;
     FTransform ComponentWorld;
     bool WeaponGripPose=false;
+    enum { DigitCount = 10 };
+    bool FitDigits=false;
+    FVector Contacts[DigitCount], Bends[DigitCount];
     FQuat WristRotation[2]={FQuat::Identity,FQuat::Identity};
     FVector CurlAxis[2]={FVector::RightVector,-FVector::RightVector};
     float FingerCurl[2]={55,55};
@@ -80,6 +83,7 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
             }
         }
         WeaponGripPose=false;
+        FitDigits=false;
         if(C->Equipment && C->Equipment->Slots.IsValidIndex(C->Equipment->ActiveSlot))
         {
             const auto* D=C->Equipment->Slots[C->Equipment->ActiveSlot].Definition.Get();
@@ -91,6 +95,16 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
                 WristRotation[1]=ComponentWorld.GetRotation().Inverse()*C->P2GripRight->GetComponentQuat()*D->RightWristRotation.Quaternion();
                 CurlAxis[0]=D->LeftCurlAxis.GetSafeNormal();CurlAxis[1]=D->RightCurlAxis.GetSafeNormal();
                 FingerCurl[0]=D->LeftFingerCurl;FingerCurl[1]=D->RightFingerCurl;
+                FitDigits=FP && D->GripFingerContacts.Num()==DigitCount && D->GripFingerBends.Num()==DigitCount;
+                if(FitDigits)
+                {
+                    const FTransform Weapon=C->P2GripRight->GetOwner()->GetActorTransform();
+                    for(int Digit=0;Digit<DigitCount;++Digit)
+                    {
+                        Contacts[Digit]=ComponentWorld.InverseTransformPosition(Weapon.TransformPosition(D->GripFingerContacts[Digit]));
+                        Bends[Digit]=ComponentWorld.InverseTransformPosition(Weapon.TransformPosition(D->GripFingerBends[Digit]));
+                    }
+                }
             }
             else WeaponGripPose=false;
         }
@@ -236,6 +250,28 @@ struct FPhase2AnimProxy : FAnimInstanceProxy
                         Rotate(*Name,WeaponGripPose?CurlAxis[Hand]:FVector::UpVector,
                             WeaponGripPose?Curl:(Hand==0?45.f:-45.f));
                     }
+        }
+        if(FitDigits)
+        {
+            FCSPose<FCompactPose> Fingers;
+            Fingers.InitPose(Output.Pose);
+            static const TCHAR* Digits[]={TEXT("thumb"),TEXT("index"),TEXT("middle"),TEXT("ring"),TEXT("pinky")};
+            for(int Digit=0;Digit<DigitCount;++Digit)
+            {
+                const TCHAR* Side=Digit<5?TEXT("l"):TEXT("r");
+                auto Joint=[&](int Segment){return Id(*FString::Printf(TEXT("%s_%02d_%s"),Digits[Digit%5],Segment,Side));};
+                const auto Base=Joint(1), Mid=Joint(2), Tip=Joint(3);
+                if(!Base.IsValid() || !Mid.IsValid() || !Tip.IsValid())continue;
+                FTransform Proximal=Fingers.GetComponentSpaceTransform(Base);
+                FTransform Middle=Fingers.GetComponentSpaceTransform(Mid);
+                FTransform Distal=Fingers.GetComponentSpaceTransform(Tip);
+                const FQuat RelativeTip=Middle.GetRotation().Inverse()*Distal.GetRotation();
+                AnimationCore::SolveTwoBoneIK(Proximal,Middle,Distal,Bends[Digit],Contacts[Digit],false,1,1);
+                Distal.SetRotation((Middle.GetRotation()*RelativeTip).GetNormalized());
+                TArray<FBoneTransform> Chain={{Base,Proximal},{Mid,Middle},{Tip,Distal}};
+                Fingers.SafeSetCSBoneTransforms(Chain);
+            }
+            FCSPose<FCompactPose>::ConvertComponentPosesToLocalPosesSafe(Fingers,Output.Pose);
         }
         Output.Pose.NormalizeRotations();
         return true;

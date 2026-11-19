@@ -1,0 +1,111 @@
+{
+  "passed": true,
+  "actions": {
+    "walk": {
+      "projection": true,
+      "contact_cm": 4.263256414560601e-14,
+      "observed": true
+    },
+    "sprint": {
+      "projection": true,
+      "contact_cm": 1.139086659085919e-13,
+      "observed": true
+    },
+    "crouch": {
+      "projection": true,
+      "contact_cm": 4.263256414560601e-14,
+      "observed": true
+    },
+    "aim": {
+      "projection": true,
+      "contact_cm": 1.1457157353758233e-13,
+      "observed": true
+    },
+    "fire": {
+      "projection": true,
+      "contact_cm": 1.4210854715202004e-14,
+      "observed": true
+    },
+    "reload": {
+      "projection": true,
+      "contact_cm": 1.4210854715202004e-14,
+      "observed": true
+    },
+    "switch": {
+      "projection": true,
+      "contact_cm": 4.263256414560601e-14,
+      "observed": true
+    },
+    "return": {
+      "projection": true,
+      "contact_cm": 3.552713678800501e-14,
+      "observed": true
+    }
+  },
+  "wrists": {
+    "walk": {
+      "frames": 5,
+      "max_cm": 2.1316282072803006e-14,
+      "speed": 450.0,
+      "reload": false,
+      "slot": 0,
+      "correct_owner": true
+    },
+    "sprint": {
+      "frames": 4,
+      "max_cm": 1.1718571004216928e-13,
+      "speed": 700.0,
+      "reload": false,
+      "slot": 0,
+      "correct_owner": true
+    },
+    "crouch": {
+      "frames": 4,
+      "max_cm": 1.1718571004216928e-13,
+      "speed": 0.0,
+      "reload": false,
+      "slot": 0,
+      "correct_owner": true
+    },
+    "aim": {
+      "frames": 9,
+      "max_cm": 1.1457157353758233e-13,
+      "speed": 0.0,
+      "reload": false,
+      "slot": 0,
+      "correct_owner": true
+    },
+    "fire": {
+      "frames": 6,
+      "max_cm": 2.274846706538671e-13,
+      "speed": 0.0,
+      "reload": false,
+      "slot": 0,
+      "correct_owner": true
+    },
+    "reload": {
+      "frames": 6,
+      "max_cm": 1.1368683772161603e-13,
+      "speed": 0.0,
+      "reload": true,
+      "slot": 0,
+      "correct_owner": true
+    },
+    "switch": {
+      "frames": 5,
+      "max_cm": 1.156679772130055e-13,
+      "speed": 0.0,
+      "reload": false,
+      "slot": 1,
+      "correct_owner": true
+    },
+    "return": {
+      "frames": 3,
+      "max_cm": 4.263256414560601e-14,
+      "speed": 0.0,
+      "reload": false,
+      "slot": 0,
+      "correct_owner": true
+    }
+  }
+}

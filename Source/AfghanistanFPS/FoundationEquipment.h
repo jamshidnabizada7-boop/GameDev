@@ -30,6 +30,8 @@ public:
     // Height above barrel of the model-specific sight line, in weapon local units.
     UPROPERTY(EditAnywhere,BlueprintReadWrite) float SightHeight=0;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) bool UseGripPose=false;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) TArray<FVector> GripFingerContacts;
+    UPROPERTY(EditAnywhere,BlueprintReadWrite) TArray<FVector> GripFingerBends;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) FRotator LeftWristRotation=FRotator::ZeroRotator;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) FRotator RightWristRotation=FRotator::ZeroRotator;
     UPROPERTY(EditAnywhere,BlueprintReadWrite) FVector LeftCurlAxis=FVector::RightVector;

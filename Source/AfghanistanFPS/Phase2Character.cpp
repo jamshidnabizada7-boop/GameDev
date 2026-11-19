@@ -119,6 +119,7 @@ void APhase2Character::BeginPlay()
         P2Arms->SetHiddenInGame(false);
         P2Arms->SetOwnerNoSee(false);
         P2Arms->SetOnlyOwnerSee(true);
+        P2Arms->SetFirstPersonPrimitiveType(EFirstPersonPrimitiveType::None);
         P2Arms->SetCastShadow(false);
         P2Arms->HideBoneByName(TEXT("neck_01"), EPhysBodyOp::PBO_None);
         P2Arms->HideBoneByName(TEXT("thigh_l"), EPhysBodyOp::PBO_None);
