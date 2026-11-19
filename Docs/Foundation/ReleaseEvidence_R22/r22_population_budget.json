@@ -1,0 +1,35 @@
+{
+  "budget_ms": 12.0,
+  "warmup_frames": 120,
+  "passed": true,
+  "captures": [
+    {
+      "width": 1280,
+      "height": 720,
+      "frames": 600,
+      "median_ms": 7.8454,
+      "p95_ms": 8.7943,
+      "worst_ms": 9.8982,
+      "frames_over_budget": 0,
+      "peak_working_set_mib": 1312.0,
+      "minimum_reported_free_ram_mb": 6705.3672,
+      "minimum_sampled_free_vram_mib": 9027.0,
+      "p95_within_budget": true,
+      "source": "D:\\GameDev\\AfghanistanFPS_Archives\\Foundation_Profile_R22_FullPopulation\\profile-720p\\Saved\\Profiling\\CSV\\Profile(20261119_071407).csv"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "frames": 600,
+      "median_ms": 9.01175,
+      "p95_ms": 10.008,
+      "worst_ms": 10.9831,
+      "frames_over_budget": 0,
+      "peak_working_set_mib": 1317.0,
+      "minimum_reported_free_ram_mb": 6672.7383,
+      "minimum_sampled_free_vram_mib": 8920.0,
+      "p95_within_budget": true,
+      "source": "D:\\GameDev\\AfghanistanFPS_Archives\\Foundation_Profile_R22_FullPopulation\\profile-1080p\\Saved\\Profiling\\CSV\\Profile(20261119_071418).csv"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+ M AfghanistanFPS.uproject
+ M Config/DefaultEngine.ini
+ M Content/AfghanFPS/Characters/Player/Blueprints/BP_PlayerFoundation.uasset
+ M Content/AfghanFPS/Interaction/BP_TestInteractable.uasset
+ M Content/AfghanFPS/TestMaps/L_Test_PlayerFoundation.umap
+ M Content/AfghanFPS/Weapons/BP_Weapon_Base.uasset
+ M Content/Input/Actions/IA_Look.uasset
+ M Content/Input/Actions/IA_MouseLook.uasset
+ M Content/Input/IMC_Default.uasset
+ M Docs/PROGRESS.md
+?? Content/AfghanFPS/Audio/
+?? Content/AfghanFPS/Blueprints/
+?? Content/AfghanFPS/Characters/Player/FirstPerson/
+?? Content/AfghanFPS/Core/Enums/
+?? Content/AfghanFPS/Interaction/Foundation/
+?? Content/AfghanFPS/UI/
+?? Content/AfghanFPS/Weapons/BPI_Weapon.uasset
+?? Content/AfghanFPS/Weapons/Foundation/
+?? Content/F2Test/
+?? Content/Input/Actions/IA_ADS.uasset
+?? Content/Input/Actions/IA_DropWeapon.uasset
+?? Content/Input/Actions/IA_FireMode.uasset
+?? Content/Input/Actions/IA_Holster.uasset
+?? Content/Input/Actions/IA_Inspect.uasset
+?? Content/Input/Actions/IA_InteractionAdjust.uasset
+?? Content/Input/Actions/IA_LeanLeft.uasset
+?? Content/Input/Actions/IA_LeanRight.uasset
+?? Content/Input/Actions/IA_Prone.uasset
+?? Content/Input/Actions/IA_Reload.uasset
+?? Content/Input/Actions/IA_SelectKnife.uasset
+?? Content/Input/Actions/IA_SelectStone.uasset
+?? Content/Input/Actions/IA_SlowWalk.uasset
+?? Content/Input/Actions/IA_Throw.uasset
+?? Content/Input/Actions/IA_ThrowableCycle.uasset
+?? Content/Input/Actions/IA_Traversal.uasset
+?? Content/Input/Actions/IA_WeaponNext.uasset
+?? Content/Input/Actions/IA_WeaponOne.uasset
+?? Content/Input/Actions/IA_WeaponTwo.uasset
+?? Content/Variant_Shooter_Probe/
+?? Docs/Characters/GROM_01/ConceptArt/
+?? Docs/Foundation/BATCH2R_FINAL_REPORT.md
+?? Docs/Foundation/BATCH2R_IMPLEMENTATION_REPORT.md
+?? Docs/Foundation/BATCH2S_REPORT.md
+?? Docs/Foundation/BATCH2V_REPORT.md
+?? Docs/Foundation/BATCH2W_MANUAL_STEPS.md
+?? Docs/Foundation/F2_0_3_Tactical_Ammunition_HUD.md
+?? Docs/Foundation/F2_0_4_Batch1B_Core_Combat_HUD.md
+?? Docs/Foundation/F2_0_5_Batch2_Movement_Animation_Report.md
+?? Docs/Foundation/LEAN_FIX_STEPS.md
+?? Docs/Foundation/PHASE2_DELIVERY_2026-11-17.md
+?? Docs/Foundation/PHASE3_DELIVERY_2026-11-18.md
+?? Docs/Foundation/PHASE4_DELIVERY_2026-11-18.md
+?? Docs/Foundation/Phase2Evidence/
+?? Docs/Foundation/Phase3Evidence/
+?? Docs/Foundation/Phase4Evidence/
+?? Docs/Foundation/TRAVERSAL_FIX_STEPS.md
+?? Docs/Foundation/__pycache__/
+?? Docs/Foundation/batch1b_pie_results.json
+?? Docs/Foundation/batch2_pie_results.json
+?? Docs/Foundation/hud_pie_results.json
+?? Docs/Foundation/scratch/
+?? Docs/Foundation/screenshots/B1B_01_Spawn.png
+?? Docs/Foundation/screenshots/B1B_02_TargetHit.png
+?? Docs/Foundation/screenshots/B1B_03_DummyDeath.png
+?? Docs/Foundation/screenshots/B1B_04_EmptyWarning.png
+?? Docs/Foundation/screenshots/B1B_05_PlayerDeath.png
+?? Docs/Foundation/screenshots/B1B_06_RestartClean.png
+?? Docs/Foundation/screenshots/B1B_07_720p_Layout.png
+?? Docs/Foundation/screenshots/B1B_08_1080p_Layout.png
+?? Docs/Foundation/screenshots/B2R_00_Baseline_Desktop.png
+?? Docs/Foundation/screenshots/B2R_Final_State.png
+?? Docs/Foundation/screenshots/B2_01_Player_Stance_Setup.png
+?? Docs/Foundation/screenshots/B2_02_Viewport_720p.png
+?? Docs/Foundation/screenshots/B2_03_Viewport_1080p.png
+?? Docs/Foundation/screenshots/B2_AutoStep_Complete.png
+?? Docs/Foundation/verify_batch1b_pie.py
+?? Docs/Foundation/verify_batch2_pie.py
+?? Docs/Foundation/verify_hud_pie.py
+?? Source/
+?? SourceAssets/
+?? ThirdPartyNotices/
+?? Tools/

@@ -1,0 +1,10 @@
+{
+  "rejected": true,
+  "feedback": "This checkpoint is missing, damaged, or from another version.",
+  "unchanged": true,
+  "error_feedback": true,
+  "checksum_rejected": true,
+  "legacy_load": true,
+  "restored_load": true,
+  "passed": true
+}

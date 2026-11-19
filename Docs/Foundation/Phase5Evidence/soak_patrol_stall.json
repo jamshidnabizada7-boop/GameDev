@@ -1,0 +1,194 @@
+{
+  "complete": false,
+  "samples": [
+    {
+      "wall_seconds": 0.32800000000861473,
+      "game_seconds": 0.3333370089530945,
+      "delta_seconds": 0.3333370089530945,
+      "actors": [
+        {
+          "name": "P5_Enemy_Patrol",
+          "arrivals": 1,
+          "steps": 0,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        },
+        {
+          "name": "P5_Enemy_Room",
+          "arrivals": 1,
+          "steps": 1,
+          "health": 100.0,
+          "state": "<FoundationAIState.IDLE: 0>"
+        }
+      ]
+    },
+    {
+      "wall_seconds": 30.328000000008615,
+      "game_seconds": 30.33336979150772,
+      "delta_seconds": 0.33333340287208557,
+      "actors": [
+        {
+          "name": "P5_Enemy_Patrol",
+          "arrivals": 2,
+          "steps": 5,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        },
+        {
+          "name": "P5_Enemy_Room",
+          "arrivals": 1,
+          "steps": 1,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        }
+      ]
+    },
+    {
+      "wall_seconds": 60.328000000008615,
+      "game_seconds": 60.33339524269104,
+      "delta_seconds": 0.33333349227905273,
+      "actors": [
+        {
+          "name": "P5_Enemy_Patrol",
+          "arrivals": 2,
+          "steps": 5,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        },
+        {
+          "name": "P5_Enemy_Room",
+          "arrivals": 1,
+          "steps": 1,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        }
+      ]
+    },
+    {
+      "wall_seconds": 90.32800000000861,
+      "game_seconds": 90.3334124982357,
+      "delta_seconds": 0.33333340287208557,
+      "actors": [
+        {
+          "name": "P5_Enemy_Patrol",
+          "arrivals": 2,
+          "steps": 5,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        },
+        {
+          "name": "P5_Enemy_Room",
+          "arrivals": 1,
+          "steps": 1,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        }
+      ]
+    },
+    {
+      "wall_seconds": 120.32800000000861,
+      "game_seconds": 120.33342924714088,
+      "delta_seconds": 0.33333340287208557,
+      "actors": [
+        {
+          "name": "P5_Enemy_Patrol",
+          "arrivals": 2,
+          "steps": 5,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        },
+        {
+          "name": "P5_Enemy_Room",
+          "arrivals": 1,
+          "steps": 1,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        }
+      ]
+    },
+    {
+      "wall_seconds": 150.32800000000861,
+      "game_seconds": 150.33346289396286,
+      "delta_seconds": 0.33333340287208557,
+      "actors": [
+        {
+          "name": "P5_Enemy_Patrol",
+          "arrivals": 2,
+          "steps": 5,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        },
+        {
+          "name": "P5_Enemy_Room",
+          "arrivals": 1,
+          "steps": 1,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        }
+      ]
+    },
+    {
+      "wall_seconds": 180.32800000000861,
+      "game_seconds": 180.33348554372787,
+      "delta_seconds": 0.33333340287208557,
+      "actors": [
+        {
+          "name": "P5_Enemy_Patrol",
+          "arrivals": 2,
+          "steps": 5,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        },
+        {
+          "name": "P5_Enemy_Room",
+          "arrivals": 1,
+          "steps": 1,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        }
+      ]
+    },
+    {
+      "wall_seconds": 210.32800000000861,
+      "game_seconds": 210.3335040807724,
+      "delta_seconds": 0.33333349227905273,
+      "actors": [
+        {
+          "name": "P5_Enemy_Patrol",
+          "arrivals": 2,
+          "steps": 5,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        },
+        {
+          "name": "P5_Enemy_Room",
+          "arrivals": 1,
+          "steps": 1,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        }
+      ]
+    },
+    {
+      "wall_seconds": 240.32800000000861,
+      "game_seconds": 240.33352294564247,
+      "delta_seconds": 0.3333336114883423,
+      "actors": [
+        {
+          "name": "P5_Enemy_Patrol",
+          "arrivals": 2,
+          "steps": 5,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        },
+        {
+          "name": "P5_Enemy_Room",
+          "arrivals": 1,
+          "steps": 1,
+          "health": 100.0,
+          "state": "<FoundationAIState.PATROL: 1>"
+        }
+      ]
+    }
+  ]
+}

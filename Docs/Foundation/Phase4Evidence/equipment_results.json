@@ -1,0 +1,3492 @@
+{
+  "method": "possessed PIE; generated keys through IMC; ammo setters only arrange independent edge scenarios",
+  "samples": [
+    {
+      "name": "initial",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 30,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 0,
+      "dry": 0,
+      "last": "Equipment ready",
+      "ammo": 30,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.694801479578018,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "30 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "semi_hold",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 29,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 1,
+      "dry": 0,
+      "last": "Shot fired",
+      "ammo": 29,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.10291299223899841,
+      "frame_ms": 8.53949785232544,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "29 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "semi_release",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 29,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 1,
+      "dry": 0,
+      "last": "Shot fired",
+      "ammo": 29,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.10291299223899841,
+      "frame_ms": 8.942797780036926,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "29 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "second_semi_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 28,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Shot fired",
+      "ammo": 28,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.501000702381134,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "28 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "second_semi",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 28,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Shot fired",
+      "ammo": 28,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 9.439200162887573,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "28 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "reload_start",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 28,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": true,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reloading",
+      "ammo": 28,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  RELOADING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.57819989323616,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "28 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "reload_fire_rejected",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 28,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": true,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reloading",
+      "ammo": 28,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  RELOADING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 10.250799357891083,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "28 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "reload_complete",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 30,
+          "reserve": 88,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reload completed",
+      "ammo": 30,
+      "reserve": 88,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.333500474691391,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "30 / 88",
+      "look_metrics": {}
+    },
+    {
+      "name": "full_reload_rejected_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 30,
+          "reserve": 88,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reload rejected: full or no reserve",
+      "ammo": 30,
+      "reserve": 88,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.959401398897171,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "30 / 88",
+      "look_metrics": {}
+    },
+    {
+      "name": "full_reload_rejected",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 30,
+          "reserve": 88,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reload rejected: full or no reserve",
+      "ammo": 30,
+      "reserve": 88,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.333403617143631,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "30 / 88",
+      "look_metrics": {}
+    },
+    {
+      "name": "no_reserve_arrange",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 27,
+          "reserve": 0,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reload rejected: full or no reserve",
+      "ammo": 27,
+      "reserve": 0,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.333597332239151,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "30 / 88",
+      "look_metrics": {}
+    },
+    {
+      "name": "no_reserve_reload_rejected_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 27,
+          "reserve": 0,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reload rejected: full or no reserve",
+      "ammo": 27,
+      "reserve": 0,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.333500474691391,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "30 / 88",
+      "look_metrics": {}
+    },
+    {
+      "name": "no_reserve_reload_rejected",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 27,
+          "reserve": 0,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reload rejected: full or no reserve",
+      "ammo": 27,
+      "reserve": 0,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.393500000238419,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "30 / 88",
+      "look_metrics": {}
+    },
+    {
+      "name": "limited_arrange",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 3,
+          "reserve": 4,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reload rejected: full or no reserve",
+      "ammo": 3,
+      "reserve": 4,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.333399891853333,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "30 / 88",
+      "look_metrics": {}
+    },
+    {
+      "name": "limited_reload_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 3,
+          "reserve": 4,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": true,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reloading",
+      "ammo": 3,
+      "reserve": 4,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  RELOADING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 10.031700134277344,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "30 / 88",
+      "look_metrics": {}
+    },
+    {
+      "name": "limited_reload",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 7,
+          "reserve": 0,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reload completed",
+      "ammo": 7,
+      "reserve": 0,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.333399891853333,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "7 / 0",
+      "look_metrics": {}
+    },
+    {
+      "name": "empty_arrange",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 0,
+          "reserve": 0,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 0,
+      "last": "Reload completed",
+      "ammo": 0,
+      "reserve": 0,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.333496749401093,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "7 / 0",
+      "look_metrics": {}
+    },
+    {
+      "name": "dry_click_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 0,
+          "reserve": 0,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 1,
+      "last": "Empty magazine",
+      "ammo": 0,
+      "reserve": 0,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 9.253501892089844,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "7 / 0",
+      "look_metrics": {}
+    },
+    {
+      "name": "dry_click",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 0,
+          "reserve": 0,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 1,
+      "last": "Empty magazine",
+      "ammo": 0,
+      "reserve": 0,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.333399891853333,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "7 / 0",
+      "look_metrics": {}
+    },
+    {
+      "name": "mode_arrange",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 30,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 1,
+      "last": "Empty magazine",
+      "ammo": 30,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.333500474691391,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "7 / 0",
+      "look_metrics": {}
+    },
+    {
+      "name": "auto_mode_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 30,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.AUTO: 1>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 1,
+      "last": "Fire mode changed",
+      "ammo": 30,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [AUTO]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.33360105752945,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "7 / 0",
+      "look_metrics": {}
+    },
+    {
+      "name": "auto_mode",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 30,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.AUTO: 1>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 2,
+      "dry": 1,
+      "last": "Fire mode changed",
+      "ammo": 30,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [AUTO]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.049403369426727295,
+      "frame_ms": 8.744698017835617,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "7 / 0",
+      "look_metrics": {}
+    },
+    {
+      "name": "auto_hold",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 23,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.AUTO: 1>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 9,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 23,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [AUTO]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.05326244980096817,
+      "frame_ms": 9.14900004863739,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "23 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "auto_release_applied",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 23,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.AUTO: 1>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 9,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 23,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [AUTO]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.05326244980096817,
+      "frame_ms": 9.520299732685089,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "23 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "auto_release",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 23,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.AUTO: 1>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 9,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 23,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [AUTO]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.05326244980096817,
+      "frame_ms": 8.739601820707321,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "23 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "burst_mode_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 23,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.BURST: 2>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 9,
+      "dry": 1,
+      "last": "Fire mode changed",
+      "ammo": 23,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [BURST]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.05326244980096817,
+      "frame_ms": 8.443400263786316,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "23 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "burst_mode",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 23,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.BURST: 2>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 9,
+      "dry": 1,
+      "last": "Fire mode changed",
+      "ammo": 23,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [BURST]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.05326244980096817,
+      "frame_ms": 8.55020061135292,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "23 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "burst_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 22,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.BURST: 2>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 10,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 22,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [BURST]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.030652768909931183,
+      "frame_ms": 9.097900241613388,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "22 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "burst_release",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 20,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.BURST: 2>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 12,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 20,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [BURST]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.12096314877271652,
+      "frame_ms": 8.639000356197357,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "semi_mode_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 20,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 12,
+      "dry": 1,
+      "last": "Fire mode changed",
+      "ammo": 20,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.12096314877271652,
+      "frame_ms": 8.904501795768738,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "semi_mode",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 20,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 12,
+      "dry": 1,
+      "last": "Fire mode changed",
+      "ammo": 20,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.12096314877271652,
+      "frame_ms": 8.831501007080078,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_initial",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 20,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 12,
+      "dry": 1,
+      "last": "Fire mode changed",
+      "ammo": 20,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.12096314877271652,
+      "frame_ms": 8.563600480556488,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_press_0",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 19,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 13,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 19,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.14530319720506668,
+      "frame_ms": 9.974800050258636,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "19 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_release_0",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 19,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 13,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 19,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.14530319720506668,
+      "frame_ms": 9.17060300707817,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "19 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_press_1",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 19,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 13,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 19,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.14530319720506668,
+      "frame_ms": 9.0068019926548,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "19 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_release_1",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 19,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 13,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 19,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.14530319720506668,
+      "frame_ms": 8.566100150346756,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "19 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_press_2",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 19,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 13,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 19,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.14530319720506668,
+      "frame_ms": 10.246098041534424,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "19 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_release_2",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 19,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 13,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 19,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.14530319720506668,
+      "frame_ms": 8.950602263212204,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "19 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_press_3",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 10.212801396846771,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_release_3",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 8.333399891853333,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_press_4",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 8.869700133800507,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_release_4",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 8.990701287984848,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_press_5",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 8.986998349428177,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_release_5",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 9.062200784683228,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "rapid_complete",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 10.070599615573883,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "ads_hold",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 1.0,
+      "fov": 65.0,
+      "spread": 0.20000004768371582,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 8.81120190024376,
+      "crosshair": "<SlateVisibility.HIDDEN: 2>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "ads_image",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 1.0,
+      "fov": 65.0,
+      "spread": 0.20000004768371582,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 9.631801396608353,
+      "crosshair": "<SlateVisibility.HIDDEN: 2>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "ads_release",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.021900072693824768,
+      "frame_ms": 8.437901735305786,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {}
+    },
+    {
+      "name": "hip_look_prepare",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.22119989991188,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 0
+      }
+    },
+    {
+      "name": "hip_look",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 1.8200000077486038,
+      "frame_ms": 8.333500474691391,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53
+      }
+    },
+    {
+      "name": "hip_look_end",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 1.8550000078976154,
+      "frame_ms": 10.259103029966354,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154
+      }
+    },
+    {
+      "name": "ads_look_prepare",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 1.0,
+      "fov": 65.0,
+      "spread": 0.20000004768371582,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 10.235700756311417,
+      "crosshair": "<SlateVisibility.HIDDEN: 2>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 0
+      }
+    },
+    {
+      "name": "ads_look",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 1.0,
+      "fov": 65.0,
+      "spread": 0.20000004768371582,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 1.1550000868737698,
+      "frame_ms": 9.484898298978806,
+      "crosshair": "<SlateVisibility.HIDDEN: 2>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56
+      }
+    },
+    {
+      "name": "ads_look_end",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 1.0,
+      "fov": 65.0,
+      "spread": 0.20000004768371582,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 1.1760000884532928,
+      "frame_ms": 9.302601218223572,
+      "crosshair": "<SlateVisibility.HIDDEN: 2>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "look_release",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0001261842844542116,
+      "fov": 89.9968490600586,
+      "spread": 1.7997980117797852,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 1.1760000884532928,
+      "frame_ms": 8.588701486587524,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "pickup_focus",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.048700332641602,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "pickup_hold",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Weapon added to free slot",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.579902350902557,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "pickup_release",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 18,
+          "reserve": 90,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Weapon added to free slot",
+      "ammo": 18,
+      "reserve": 90,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.608600288629532,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "save_base_ammo",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Weapon added to free slot",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.694402873516083,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "18 / 90",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "switch_alt_press",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": true,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Switching weapon",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  EQUIPPING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.333597332239151,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "switch_alt",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Switching weapon",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.207498282194138,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "alt_image",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Switching weapon",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.333399891853333,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "switch_base_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": true,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Switching weapon",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  EQUIPPING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.335299789905548,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "switch_base",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Switching weapon",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.333500474691391,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "alt_again_press",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": true,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Switching weapon",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  EQUIPPING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.124398231506348,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "alt_again",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Switching weapon",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.333500474691391,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "drop_alt_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": true,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  EQUIPPING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.333500474691391,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "drop_alt",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.795898407697678,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "dropped_focus",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 10.054800659418106,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "reclaim_hold",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Weapon added to free slot",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.333399891853333,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "reclaim_release",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Weapon added to free slot",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.823499083518982,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "reclaimed_alt_press",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": true,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Switching weapon",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  EQUIPPING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 10.652400553226471,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "reclaimed_alt",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Switching weapon",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.798601269721985,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "holster_press",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": true,
+      "inspect": false,
+      "holstered": true,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Holstered",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  EQUIPPING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.238701313734055,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "holster",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": true,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Holstered",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  HOLSTERED\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.33360105752945,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "holster_fire_rejected_press",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": true,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Holstered",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  HOLSTERED\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.503502398729324,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "holster_fire_rejected",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": true,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Holstered",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  HOLSTERED\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.295601397752762,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "draw_press",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": true,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Drawn",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  EQUIPPING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.333500474691391,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "draw",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Drawn",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.898900985717773,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "inspect_begin",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": true,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Inspecting",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  INSPECTING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.747600018978119,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "inspect_fire_rejected",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": true,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Inspecting",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  INSPECTING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 9.084098041057587,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "inspect_end",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 14,
+      "dry": 1,
+      "last": "Inspecting",
+      "ammo": 20,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.627500385046005,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "alternate_fire_press",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 19,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 19,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 11.929597705602646,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "19 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "alternate_fire",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 19,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Shot fired",
+      "ammo": 19,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 9.257201105356216,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "19 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "alternate_reload_press",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 19,
+          "reserve": 60,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": true,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Reloading",
+      "ammo": 19,
+      "reserve": 60,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  RELOADING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 9.06369835138321,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "19 / 60",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "alternate_reload",
+      "active": 1,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        },
+        {
+          "id": "weapon_rifle_alt",
+          "mag": 20,
+          "reserve": 59,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Reload completed",
+      "ammo": 20,
+      "reserve": 59,
+      "weapon_class": "BP_Weapon_AlternateTest_C",
+      "summary": "Compact test firearm  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 9.165901690721512,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "20 / 59",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "drop_all_alt_press",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": true,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  EQUIPPING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 8.359599858522415,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "drop_all_alt",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 9.936898946762085,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "drop_all_base_press",
+      "active": -1,
+      "slots": [],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": null,
+      "reserve": null,
+      "weapon_class": null,
+      "summary": "No firearm | E: pick up",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 8.33360105752945,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "EMPTY MAGAZINE",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "drop_all_base",
+      "active": -1,
+      "slots": [],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": null,
+      "reserve": null,
+      "weapon_class": null,
+      "summary": "No firearm | E: pick up",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 9.420998394489288,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "EMPTY MAGAZINE",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "unarmed_ads_rejected",
+      "active": -1,
+      "slots": [],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": null,
+      "reserve": null,
+      "weapon_class": null,
+      "summary": "No firearm | E: pick up",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 9.001098573207855,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "EMPTY MAGAZINE",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "unarmed_release",
+      "active": -1,
+      "slots": [],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": null,
+      "reserve": null,
+      "weapon_class": null,
+      "summary": "No firearm | E: pick up",
+      "dead": false,
+      "yaw": -0.08677175641059875,
+      "frame_ms": 9.144298732280731,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "EMPTY MAGAZINE",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "base_recover_focus",
+      "active": -1,
+      "slots": [],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Dropped weapon with its ammunition",
+      "ammo": null,
+      "reserve": null,
+      "weapon_class": null,
+      "summary": "No firearm | E: pick up",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.985999971628189,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "EMPTY MAGAZINE",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "base_recover_hold",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": true,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Weapon added to free slot",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  EQUIPPING\nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.817698806524277,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    },
+    {
+      "name": "base_recovered",
+      "active": 0,
+      "slots": [
+        {
+          "id": "weapon_rifle_base",
+          "mag": 12,
+          "reserve": 34,
+          "mode": "<FoundationFireMode.SEMI: 0>"
+        }
+      ],
+      "reload": false,
+      "equipping": false,
+      "inspect": false,
+      "holstered": false,
+      "ads": 0.0,
+      "fov": 90.0,
+      "spread": 1.7999999523162842,
+      "muzzle_blocked": false,
+      "shots": 15,
+      "dry": 1,
+      "last": "Weapon added to free slot",
+      "ammo": 12,
+      "reserve": 34,
+      "weapon_class": "BP_Weapon_Base_C",
+      "summary": "Foundation rifle  [SEMI]  \nHold T cooks frag (2) | V: cycle",
+      "dead": false,
+      "yaw": 0.0,
+      "frame_ms": 8.535400032997131,
+      "crosshair": "<SlateVisibility.HIT_TEST_INVISIBLE: 3>",
+      "ammo_text": "12 / 34",
+      "look_metrics": {
+        "hip_frames": 53,
+        "hip_delta": 1.8550000078976154,
+        "ads_frames": 56,
+        "ads_delta": 1.1760000884532928
+      }
+    }
+  ]
+}

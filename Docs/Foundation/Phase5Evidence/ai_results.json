@@ -1,0 +1,354 @@
+{
+  "nav_path": [
+    [
+      2700.0,
+      -850.0,
+      -90.0
+    ],
+    [
+      2945.0,
+      -798.0,
+      -90.0
+    ],
+    [
+      3002.0,
+      -779.0,
+      -90.0
+    ],
+    [
+      3300.0,
+      -500.0,
+      -90.0
+    ]
+  ],
+  "patrol_before": {
+    "state": "<FoundationAIState.PATROL: 1>",
+    "awareness": 0.0,
+    "sight": false,
+    "health": 100.0,
+    "player_health": 100.0,
+    "shots": 0,
+    "blocked": 0,
+    "footsteps": 0,
+    "arrivals": 1,
+    "npc": [
+      2700.0,
+      -850.0,
+      -1.6000027656555176
+    ],
+    "known": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 0,
+    "ragdoll": false,
+    "armed": true
+  },
+  "patrol_after": {
+    "state": "<FoundationAIState.PATROL: 1>",
+    "awareness": 0.0,
+    "sight": false,
+    "health": 100.0,
+    "player_health": 100.0,
+    "shots": 0,
+    "blocked": 0,
+    "footsteps": 5,
+    "arrivals": 2,
+    "npc": [
+      3290.777553972517,
+      -575.0669229730909,
+      -1.6000027656555176
+    ],
+    "known": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 0,
+    "ragdoll": false,
+    "armed": true
+  },
+  "outside_cone": {
+    "state": "<FoundationAIState.PATROL: 1>",
+    "awareness": 0.0,
+    "sight": false,
+    "health": 100.0,
+    "player_health": 100.0,
+    "shots": 0,
+    "blocked": 0,
+    "footsteps": 5,
+    "arrivals": 2,
+    "npc": [
+      2600.0,
+      180.0,
+      -1.850004291534424
+    ],
+    "known": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 0,
+    "ragdoll": false,
+    "armed": true
+  },
+  "acquiring": {
+    "state": "<FoundationAIState.PATROL: 1>",
+    "awareness": 0.3333336114883423,
+    "sight": true,
+    "health": 100.0,
+    "player_health": 100.0,
+    "shots": 0,
+    "blocked": 0,
+    "footsteps": 5,
+    "arrivals": 2,
+    "npc": [
+      2600.0,
+      180.0,
+      -1.850004291534424
+    ],
+    "known": [
+      3100.0,
+      180.0,
+      -1.8500038146972657
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 0,
+    "ragdoll": false,
+    "armed": true
+  },
+  "combat": {
+    "state": "<FoundationAIState.COMBAT: 3>",
+    "awareness": 1.0,
+    "sight": true,
+    "health": 100.0,
+    "player_health": 80.0,
+    "shots": 1,
+    "blocked": 0,
+    "footsteps": 5,
+    "arrivals": 2,
+    "npc": [
+      2600.0,
+      180.0,
+      -1.850004291534424
+    ],
+    "known": [
+      3100.0,
+      180.0,
+      -1.8500038146972657
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 0,
+    "ragdoll": false,
+    "armed": true
+  },
+  "occluded": {
+    "state": "<FoundationAIState.SEARCH: 5>",
+    "awareness": 0.9466665983200073,
+    "sight": false,
+    "health": 100.0,
+    "player_health": 60.0,
+    "shots": 2,
+    "blocked": 0,
+    "footsteps": 5,
+    "arrivals": 2,
+    "npc": [
+      2600.0,
+      180.0,
+      -1.850004291534424
+    ],
+    "known": [
+      3100.0,
+      180.0,
+      -1.8500038146972657
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 0,
+    "ragdoll": false,
+    "armed": true
+  },
+  "occluded_later": {
+    "state": "<FoundationAIState.SEARCH: 5>",
+    "awareness": 0.8399955034255981,
+    "sight": false,
+    "health": 100.0,
+    "player_health": 60.0,
+    "shots": 2,
+    "blocked": 0,
+    "footsteps": 7,
+    "arrivals": 2,
+    "npc": [
+      2743.4032010978244,
+      610.9526250608149,
+      -1.850004291534424
+    ],
+    "known": [
+      3100.0,
+      180.0,
+      -1.8500038146972657
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 0,
+    "ragdoll": false,
+    "armed": true
+  },
+  "stagger": {
+    "state": "<FoundationAIState.STAGGER: 6>",
+    "awareness": 0.8133288025856018,
+    "sight": false,
+    "health": 77.0,
+    "player_health": 60.0,
+    "shots": 2,
+    "blocked": 0,
+    "footsteps": 8,
+    "arrivals": 2,
+    "npc": [
+      2817.0751800450853,
+      832.3502820007748,
+      -1.850004291534424
+    ],
+    "known": [
+      3110.0,
+      280.0,
+      -1.8500038146972657
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 0,
+    "ragdoll": false,
+    "armed": true
+  },
+  "after_stagger": {
+    "state": "<FoundationAIState.COVER: 4>",
+    "awareness": 0.9466665983200073,
+    "sight": false,
+    "health": 77.0,
+    "player_health": 60.0,
+    "shots": 2,
+    "blocked": 0,
+    "footsteps": 9,
+    "arrivals": 2,
+    "npc": [
+      2761.1755209281096,
+      619.1370272755039,
+      -1.850004291534424
+    ],
+    "known": [
+      3110.0,
+      280.0,
+      -1.8500038146972657
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 1,
+    "ragdoll": false,
+    "armed": true
+  },
+  "dead": {
+    "state": "<FoundationAIState.DEAD: 8>",
+    "awareness": 0.9199999570846558,
+    "sight": false,
+    "health": 0.0,
+    "player_health": 60.0,
+    "shots": 2,
+    "blocked": 0,
+    "footsteps": 9,
+    "arrivals": 2,
+    "npc": [
+      2738.1651454757425,
+      504.7620362346105,
+      -1.850004291534424
+    ],
+    "known": [
+      3110.0,
+      280.0,
+      -1.8500038146972657
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 1,
+    "ragdoll": true,
+    "armed": true
+  },
+  "respawn": {
+    "state": "<FoundationAIState.IDLE: 0>",
+    "awareness": 0.0,
+    "sight": false,
+    "health": 100.0,
+    "player_health": 60.0,
+    "shots": 2,
+    "blocked": 0,
+    "footsteps": 9,
+    "arrivals": 2,
+    "npc": [
+      2700.0,
+      -850.0000000000001,
+      -1.6000027656555176
+    ],
+    "known": [
+      3110.0,
+      280.0,
+      -1.8500038146972657
+    ],
+    "heard": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "hearing_tag": "None",
+    "cover": 1,
+    "ragdoll": false,
+    "armed": true
+  }
+}

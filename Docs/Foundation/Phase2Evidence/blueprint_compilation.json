@@ -1,0 +1,7 @@
+{
+  "/Game/AfghanFPS/Characters/Player/Blueprints/BP_PlayerFoundation": true,
+  "/Game/AfghanFPS/Weapons/BP_Weapon_Base": true,
+  "/Game/AfghanFPS/Blueprints/BP_TargetDummy": true,
+  "/Game/AfghanFPS/UI/UI_AmmoCounter": true,
+  "/Game/AfghanFPS/Interaction/BP_TestInteractable": true
+}

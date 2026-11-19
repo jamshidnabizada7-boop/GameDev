@@ -30,3 +30,7 @@ Desktop.ini
 # Per-project plugin build output
 Plugins/*/Binaries/
 Plugins/*/Intermediate/
+
+# Python generated caches
+__pycache__/
+*.py[cod]

@@ -1,0 +1,11 @@
+{
+  "death": true,
+  "death_overlay": "<SlateVisibility.VISIBLE: 0>",
+  "restarted": true,
+  "movement_speed": 450.0,
+  "health_text": "HP: 100",
+  "legacy_hud_count": 1,
+  "dead": false,
+  "slots": 1,
+  "passed": true
+}

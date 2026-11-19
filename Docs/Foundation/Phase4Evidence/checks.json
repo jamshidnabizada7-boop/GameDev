@@ -1,0 +1,218 @@
+{
+  "passed": 51,
+  "total": 51,
+  "checks": [
+    {
+      "check": "initial existing firearm and ammunition",
+      "passed": true
+    },
+    {
+      "check": "semi hold fires once",
+      "passed": true
+    },
+    {
+      "check": "second trigger fires once",
+      "passed": true
+    },
+    {
+      "check": "reload blocks firing",
+      "passed": true
+    },
+    {
+      "check": "reload conserves magazine and reserve",
+      "passed": true
+    },
+    {
+      "check": "full reload rejected",
+      "passed": true
+    },
+    {
+      "check": "zero reserve rejects reload",
+      "passed": true
+    },
+    {
+      "check": "limited reserve transfers minimum",
+      "passed": true
+    },
+    {
+      "check": "dry click consumes no ammunition and fires no shot",
+      "passed": true
+    },
+    {
+      "check": "automatic hold fires repeatedly within rate",
+      "passed": true
+    },
+    {
+      "check": "automatic release stops firing after input is processed",
+      "passed": true
+    },
+    {
+      "check": "burst completes exactly three shots after short press",
+      "passed": true
+    },
+    {
+      "check": "rapid triggers respect cooldown",
+      "passed": true
+    },
+    {
+      "check": "ADS narrows FOV and spread",
+      "passed": true
+    },
+    {
+      "check": "ADS hides existing crosshair",
+      "passed": true
+    },
+    {
+      "check": "ADS release restores FOV and crosshair",
+      "passed": true
+    },
+    {
+      "check": "actual look input scales to sixty percent in ADS",
+      "passed": true
+    },
+    {
+      "check": "pickup creates second unique slot",
+      "passed": true
+    },
+    {
+      "check": "alternate inherits weapon and starts with its capacity",
+      "passed": true
+    },
+    {
+      "check": "switch preserves base ammunition",
+      "passed": true
+    },
+    {
+      "check": "switch preserves alternate ammunition",
+      "passed": true
+    },
+    {
+      "check": "drop removes one inventory copy",
+      "passed": true
+    },
+    {
+      "check": "reclaim preserves dropped magazine and reserve",
+      "passed": true
+    },
+    {
+      "check": "holster blocks firing",
+      "passed": true
+    },
+    {
+      "check": "inspection blocks firing",
+      "passed": true
+    },
+    {
+      "check": "alternate actually fires and reloads with its own capacity",
+      "passed": true
+    },
+    {
+      "check": "dropping both firearms leaves an empty loadout",
+      "passed": true
+    },
+    {
+      "check": "unarmed ADS is rejected",
+      "passed": true
+    },
+    {
+      "check": "pickup restores equipment from an empty loadout",
+      "passed": true
+    },
+    {
+      "check": "normal cover blocks hitscan",
+      "passed": true
+    },
+    {
+      "check": "tagged thin cover passes reduced damage",
+      "passed": true
+    },
+    {
+      "check": "thick cover rejects penetration",
+      "passed": true
+    },
+    {
+      "check": "untagged cover rejects penetration",
+      "passed": true
+    },
+    {
+      "check": "projectile collision applies actual damage",
+      "passed": true
+    },
+    {
+      "check": "head multiplier applies forty damage",
+      "passed": true
+    },
+    {
+      "check": "limb multiplier applies thirteen damage",
+      "passed": true
+    },
+    {
+      "check": "distance falloff reduces damage",
+      "passed": true
+    },
+    {
+      "check": "bounded physical shell ejection",
+      "passed": true
+    },
+    {
+      "check": "stone preparation spends a finite item and draws trajectory",
+      "passed": true
+    },
+    {
+      "check": "stone actually simulates physics and emits bounded impact events",
+      "passed": true
+    },
+    {
+      "check": "released trajectory disappears",
+      "passed": true
+    },
+    {
+      "check": "stone can be retrieved once",
+      "passed": true
+    },
+    {
+      "check": "knife embeds and leaves finite inventory",
+      "passed": true
+    },
+    {
+      "check": "knife retrieval removes world copy and restores one item",
+      "passed": true
+    },
+    {
+      "check": "world grenade pickups grant once",
+      "passed": true
+    },
+    {
+      "check": "frag harms target after real fuse",
+      "passed": true
+    },
+    {
+      "check": "wall blocks radial damage",
+      "passed": true
+    },
+    {
+      "check": "removing same wall permits radial damage",
+      "passed": true
+    },
+    {
+      "check": "smoke activates after fuse",
+      "passed": true
+    },
+    {
+      "check": "held flash actually affects view and fades",
+      "passed": true
+    },
+    {
+      "check": "cooking frag in hand kills owner and spends last item",
+      "passed": true
+    }
+  ],
+  "ads_sensitivity_ratio": 0.600000042574746,
+  "owner_approved": false,
+  "limits": [
+    "Generated input, not owner hardware acceptance.",
+    "Procedural equipment/hand poses and original placeholder cues require visual/audio review.",
+    "Stone hearing must still be exercised against phase-5 AI.",
+    "Knives against live NPCs and final death/restart regression remain separate checks."
+  ]
+}

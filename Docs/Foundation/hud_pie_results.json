@@ -1,0 +1,104 @@
+{
+  "started_at": "2026-11-16 01:51:10",
+  "events": [
+    "[0.00] HUD PIE verification harness registered",
+    "[0.03] Requesting PIE session...",
+    "[0.46] PIE world active, finding player setup...",
+    "[0.09] Setup found: Ammo=30/90, HUD Text='30 / 90'",
+    "[2.43] test1_spawn_ammo => PASS (ammo=30/90)",
+    "[2.43] test1_spawn_hud_text => PASS (HUD='30 / 90')",
+    "[3.83] Requested screenshot: HUD_01_Spawn_30_90 (1280x720)",
+    "[5.06] Executing 1st shot via BP_Fire...",
+    "[0.66] test2_shot1_ammo => PASS (ammo=29)",
+    "[0.67] test2_shot1_hud_text => PASS (HUD='29 / 90')",
+    "[0.98] Requested screenshot: HUD_02_Shot1_29_90 (1280x720)",
+    "[5.11] Executing 2nd shot via BP_Fire...",
+    "[0.86] test3_shot2_ammo => PASS (ammo=28)",
+    "[0.87] test3_shot2_hud_text => PASS (HUD='28 / 90')",
+    "[2.08] Requested screenshot: HUD_03_Shot2_28_90 (1280x720)",
+    "[5.18] Setting CurrentAmmo to 1 to test empty transition...",
+    "[0.67] test4_empty_ammo_zero => PASS (ammo=0)",
+    "[0.67] test4_empty_hud_text => PASS (HUD='EMPTY MAGAZINE')",
+    "[1.75] Requested screenshot: HUD_04_Empty_Magazine (1280x720)",
+    "[5.63] test4_empty_fire_blocked => PASS (ammo=0, HUD='EMPTY MAGAZINE')",
+    "[0.67] Resetting ammo to 30 and applying lethal damage (100 HP)...",
+    "[0.68] Death state: comp.bIsDead=True, pawn.bIsDead=True",
+    "[0.68] test5_player_dead => PASS (comp=True, pawn=True)",
+    "[0.70] test5_dead_cannot_fire => PASS (ammo 30->30)",
+    "[2.12] Requested screenshot: HUD_05_Dead_Cannot_Fire (1280x720)",
+    "[5.57] Executing RestartLevel console command...",
+    "[4.65] Post-restart setup: HP=100.0, Ammo=30/90, HUD='30 / 90'",
+    "[4.66] test6_restart_health_ammo => PASS (HP=100.0, Ammo=30/90)",
+    "[4.67] test6_restart_hud_text => PASS (HUD='30 / 90')",
+    "[5.04] Requested screenshot: HUD_06_Restart_Clean (1280x720)",
+    "[4.64] Taking 1920x1080 layout verification screenshot...",
+    "[5.54] Requested screenshot: HUD_07_1080p_Layout (1920x1080)",
+    "[4.93] Ending PIE session...",
+    "[1.38] All HUD PIE tests complete!"
+  ],
+  "tests": {
+    "test1_spawn_ammo": {
+      "pass": true,
+      "detail": "ammo=30/90"
+    },
+    "test1_spawn_hud_text": {
+      "pass": true,
+      "detail": "HUD='30 / 90'"
+    },
+    "test2_shot1_ammo": {
+      "pass": true,
+      "detail": "ammo=29"
+    },
+    "test2_shot1_hud_text": {
+      "pass": true,
+      "detail": "HUD='29 / 90'"
+    },
+    "test3_shot2_ammo": {
+      "pass": true,
+      "detail": "ammo=28"
+    },
+    "test3_shot2_hud_text": {
+      "pass": true,
+      "detail": "HUD='28 / 90'"
+    },
+    "test4_empty_ammo_zero": {
+      "pass": true,
+      "detail": "ammo=0"
+    },
+    "test4_empty_hud_text": {
+      "pass": true,
+      "detail": "HUD='EMPTY MAGAZINE'"
+    },
+    "test4_empty_fire_blocked": {
+      "pass": true,
+      "detail": "ammo=0, HUD='EMPTY MAGAZINE'"
+    },
+    "test5_player_dead": {
+      "pass": true,
+      "detail": "comp=True, pawn=True"
+    },
+    "test5_dead_cannot_fire": {
+      "pass": true,
+      "detail": "ammo 30->30"
+    },
+    "test6_restart_health_ammo": {
+      "pass": true,
+      "detail": "HP=100.0, Ammo=30/90"
+    },
+    "test6_restart_hud_text": {
+      "pass": true,
+      "detail": "HUD='30 / 90'"
+    }
+  },
+  "shots": [
+    "HUD_01_Spawn_30_90",
+    "HUD_02_Shot1_29_90",
+    "HUD_03_Shot2_28_90",
+    "HUD_04_Empty_Magazine",
+    "HUD_05_Dead_Cannot_Fire",
+    "HUD_06_Restart_Clean",
+    "HUD_07_1080p_Layout"
+  ],
+  "_finished": true,
+  "finished_at": "2026-11-16 01:51:58"
+}

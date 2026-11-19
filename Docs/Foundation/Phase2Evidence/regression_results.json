@@ -1,0 +1,665 @@
+{
+  "test_type": "PIE simulated keys through existing mappings; real health, physics and HUD",
+  "samples": [
+    {
+      "name": "aim",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 30,
+      "reserve": 90,
+      "ammo_text": "30 / 90",
+      "hud_instances_in_viewport": 1,
+      "target_health": 100.0,
+      "target_physics": [
+        false
+      ],
+      "hit": false,
+      "lethal": false,
+      "speed": 0.0,
+      "position": [
+        200.0,
+        -600.0,
+        -1.8
+      ],
+      "camera": [
+        186.66939586437275,
+        -598.1661332587323,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C645B0) {pitch: -8.131276, yaw: -7.832910, roll: -0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "target_shot_1",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 29,
+      "reserve": 90,
+      "ammo_text": "29 / 90",
+      "hud_instances_in_viewport": 1,
+      "target_health": 80.0,
+      "target_physics": [
+        false
+      ],
+      "hit": true,
+      "lethal": false,
+      "speed": 0.0,
+      "position": [
+        200.0,
+        -600.0,
+        -1.8
+      ],
+      "camera": [
+        186.66939586437275,
+        -598.1661332587323,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C67210) {pitch: -8.131276, yaw: -7.832910, roll: -0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "target_shot_2",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 28,
+      "reserve": 90,
+      "ammo_text": "28 / 90",
+      "hud_instances_in_viewport": 1,
+      "target_health": 60.0,
+      "target_physics": [
+        false
+      ],
+      "hit": true,
+      "lethal": false,
+      "speed": 0.0,
+      "position": [
+        200.0,
+        -600.0,
+        -1.8
+      ],
+      "camera": [
+        186.66939586437275,
+        -598.1661332587323,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C67120) {pitch: -8.131276, yaw: -7.832910, roll: -0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "target_shot_3",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 27,
+      "reserve": 90,
+      "ammo_text": "27 / 90",
+      "hud_instances_in_viewport": 1,
+      "target_health": 40.0,
+      "target_physics": [
+        false
+      ],
+      "hit": true,
+      "lethal": false,
+      "speed": 0.0,
+      "position": [
+        200.0,
+        -600.0,
+        -1.8
+      ],
+      "camera": [
+        186.66939586437275,
+        -598.1661332587323,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66FE0) {pitch: -8.131276, yaw: -7.832910, roll: -0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "target_shot_4",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 26,
+      "reserve": 90,
+      "ammo_text": "26 / 90",
+      "hud_instances_in_viewport": 1,
+      "target_health": 20.0,
+      "target_physics": [
+        false
+      ],
+      "hit": true,
+      "lethal": false,
+      "speed": 0.0,
+      "position": [
+        200.0,
+        -600.0,
+        -1.8
+      ],
+      "camera": [
+        186.66939586437275,
+        -598.1661332587323,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66F40) {pitch: -8.131276, yaw: -7.832910, roll: -0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "empty_setup",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 1,
+      "reserve": 90,
+      "ammo_text": "26 / 90",
+      "hud_instances_in_viewport": 1,
+      "target_health": 20.0,
+      "target_physics": [
+        false
+      ],
+      "hit": true,
+      "lethal": false,
+      "speed": 0.0,
+      "position": [
+        200.0,
+        -600.0,
+        -1.8
+      ],
+      "camera": [
+        186.66939586437275,
+        -598.1661332587323,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66E00) {pitch: -8.131276, yaw: -7.832910, roll: -0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "last_round",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        200.0,
+        -600.0,
+        -1.8
+      ],
+      "camera": [
+        186.66939586437275,
+        -598.1661332587323,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66D10) {pitch: -8.131276, yaw: -7.832910, roll: -0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "empty_fire_rejected",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        200.0,
+        -600.0,
+        -1.8
+      ],
+      "camera": [
+        186.66939586437275,
+        -598.1661332587323,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66C20) {pitch: -8.131276, yaw: -7.832910, roll: -0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "blocked_landing_setup",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        100.0,
+        -800.0,
+        -1.8
+      ],
+      "camera": [
+        86.54384624621396,
+        -800.0000001295998,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66B80) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "blocked_landing_rejected",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        100.0,
+        -800.0,
+        -1.8
+      ],
+      "camera": [
+        86.54384624621397,
+        -800.0000001295998,
+        67.56898803710934
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C669F0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "traversal": "Rejected: landing",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "unblock",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        100.0,
+        -800.0,
+        -1.8
+      ],
+      "camera": [
+        86.54384624621397,
+        -800.0000001295998,
+        67.56898803710934
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C669A0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "traversal": "Rejected: landing",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "wall_lean_stand",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        -300.0,
+        -965.0,
+        -1.8
+      ],
+      "camera": [
+        -313.45615375378605,
+        -990.0400010451272,
+        67.56898803710938
+      ],
+      "lean": -0.7825000286102295,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C65730) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "traversal": "Rejected: landing",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "wall_lean_crouch",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        -300.0,
+        -965.0,
+        -37.8
+      ],
+      "camera": [
+        -313.45615375378605,
+        -990.0400010451272,
+        7.199999999999974
+      ],
+      "lean": -0.7825000286102295,
+      "stance": 1,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66810) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "traversal": "Rejected: landing",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "mouse_look",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 78.0,
+      "dead": false,
+      "hud_health": "HP: 78",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        -500.0,
+        0.0,
+        -1.8
+      ],
+      "camera": [
+        -513.4310553070458,
+        -0.8214786574276458,
+        67.56898803710934
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C64A60) {pitch: 0.000000, yaw: 3.500000, roll: 0.000000}>",
+      "traversal": "Rejected: landing",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "death",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 0.0,
+      "dead": true,
+      "hud_health": "HP: 0",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        -500.0,
+        0.0,
+        -1.8
+      ],
+      "camera": [
+        -513.3997042032378,
+        -1.231259969000087,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C672B0) {pitch: 0.000000, yaw: 5.250000, roll: 0.000000}>",
+      "traversal": "Rejected: landing",
+      "death_overlay": "<SlateVisibility.VISIBLE: 0>"
+    },
+    {
+      "name": "dead_movement_rejected",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 0.0,
+      "dead": true,
+      "hud_health": "HP: 0",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        -500.0,
+        0.0,
+        -1.8
+      ],
+      "camera": [
+        -513.3997042032378,
+        -1.2312599690000878,
+        67.56898803710936
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C665E0) {pitch: 0.000000, yaw: 5.250000, roll: 0.000000}>",
+      "traversal": "Rejected: landing",
+      "death_overlay": "<SlateVisibility.VISIBLE: 0>"
+    },
+    {
+      "name": "death_screenshot",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 0.0,
+      "dead": true,
+      "hud_health": "HP: 0",
+      "ammo": 0,
+      "reserve": 90,
+      "ammo_text": "EMPTY MAGAZINE",
+      "hud_instances_in_viewport": 1,
+      "target_health": 0.0,
+      "target_physics": [
+        true
+      ],
+      "hit": true,
+      "lethal": true,
+      "speed": 0.0,
+      "position": [
+        -500.0,
+        0.0,
+        -1.8
+      ],
+      "camera": [
+        -513.3997042032378,
+        -1.2312599690000914,
+        67.56898803710936
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66310) {pitch: 0.000000, yaw: 5.250000, roll: 0.000000}>",
+      "traversal": "Rejected: landing",
+      "death_overlay": "<SlateVisibility.VISIBLE: 0>"
+    },
+    {
+      "name": "restart",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 100.0,
+      "dead": false,
+      "hud_health": "HP: 100",
+      "ammo": 30,
+      "reserve": 90,
+      "ammo_text": "30 / 90",
+      "hud_instances_in_viewport": 1,
+      "target_health": 100.0,
+      "target_physics": [
+        false
+      ],
+      "hit": false,
+      "lethal": false,
+      "speed": 0.0,
+      "position": [
+        0.0,
+        -800.0,
+        -2.0
+      ],
+      "camera": [
+        -13.456153753786026,
+        -800.0000001295998,
+        67.36898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C663B0) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "restart_sprint",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 100.0,
+      "dead": false,
+      "hud_health": "HP: 100",
+      "ammo": 30,
+      "reserve": 90,
+      "ammo_text": "30 / 90",
+      "hud_instances_in_viewport": 1,
+      "target_health": 100.0,
+      "target_physics": [
+        false
+      ],
+      "hit": false,
+      "lethal": false,
+      "speed": 700.0,
+      "position": [
+        -164.99978377640252,
+        0.0,
+        -1.8
+      ],
+      "camera": [
+        -178.45593753018858,
+        -1.2959980644211555e-07,
+        67.56898803710938
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66270) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    },
+    {
+      "name": "post_restart",
+      "pawn": "BP_PlayerFoundation_C_0",
+      "health": 100.0,
+      "dead": false,
+      "hud_health": "HP: 100",
+      "ammo": 30,
+      "reserve": 90,
+      "ammo_text": "30 / 90",
+      "hud_instances_in_viewport": 1,
+      "target_health": 100.0,
+      "target_physics": [
+        false
+      ],
+      "hit": false,
+      "lethal": false,
+      "speed": 0.0,
+      "position": [
+        74.93366320759053,
+        0.0,
+        -1.8
+      ],
+      "camera": [
+        61.477509453804515,
+        -1.295998131034537e-07,
+        67.56898803710934
+      ],
+      "lean": 0.0,
+      "stance": 0,
+      "control_rotation": "<Struct 'Rotator' (0x00000201A1C66130) {pitch: 0.000000, yaw: 0.000000, roll: 0.000000}>",
+      "traversal": "",
+      "death_overlay": "<SlateVisibility.COLLAPSED: 1>"
+    }
+  ]
+}

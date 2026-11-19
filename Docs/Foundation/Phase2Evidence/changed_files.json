@@ -1,0 +1,194 @@
+[
+  {
+    "path": "AfghanistanFPS.uproject",
+    "before_sha256": "a409d066ddde6eff12e4f2682f9c72eefa06a6a60caaa66a346c08aab17339ec",
+    "after_sha256": "4c29cd06929997bf9ec6e86bc3dd4e173fed80d872949191e7ad70b575c0efc3",
+    "change": "modified"
+  },
+  {
+    "path": "Content/AfghanFPS/Characters/Player/Blueprints/BP_PlayerFoundation.uasset",
+    "before_sha256": "e46e76e01b4da2ed23a7e3b41105aaa8a0618fd0de03f719905cc1db6c9f6d09",
+    "after_sha256": "a36c4de0a5d7947f2d4254758fd51d746ed9957630e0fb2257e3a3955cd16cc9",
+    "change": "modified"
+  },
+  {
+    "path": "Content/AfghanFPS/Weapons/BP_Weapon_Base.uasset",
+    "before_sha256": "5ef367dd034a97dc357ec85bb3a5c6eff4262671022de4549fae5f038606bedd",
+    "after_sha256": "0cfb35e61c8cf49806c2188bff393cac96056f1b076169492ea2169b27619f92",
+    "change": "modified"
+  },
+  {
+    "path": "Content/AfghanFPS/Blueprints/BP_TargetDummy.uasset",
+    "before_sha256": "b1b8549fa6ba960794b4fd2015f4b103511e0739f49d4f9139433dc0ea1b74cc",
+    "after_sha256": "c27353cd0ce8149b539e58c0267db6ecf81c696b7bdf47e3d8343579b6bce724",
+    "change": "modified"
+  },
+  {
+    "path": "Content/AfghanFPS/UI/UI_AmmoCounter.uasset",
+    "before_sha256": "7ecd99fbda08b40d1a749fc35b29c13f2b8e6885e8bca2dadca0ed8c084be3f2",
+    "after_sha256": "a64099e48300bca89698b5d3c7c7dd0fb1fed8b0c1b1d9178c0bd67ab20f2202",
+    "change": "modified"
+  },
+  {
+    "path": "Content/AfghanFPS/Interaction/BP_TestInteractable.uasset",
+    "before_sha256": "b25e6fc679720fbc261025b27cd3a56c7e3fd0718e49a22e999993587af1d5ad",
+    "after_sha256": "49fccf481d946c95a24a3b7096ff90e4411ea6ca7ec5db87e082b826e72c18be",
+    "change": "modified"
+  },
+  {
+    "path": "Content/AfghanFPS/TestMaps/L_Test_PlayerFoundation.umap",
+    "before_sha256": "03418b77469aba1a20e8686d8f34227a55b0eedfb2e6adc3c0653f389735d519",
+    "after_sha256": "127137bdd5fb753288b08538f95cdebacfe9e1e5e433239a5aa4cdf54d2f2cc1",
+    "change": "modified"
+  },
+  {
+    "path": "Source/AfghanistanFPS.Target.cs",
+    "before_sha256": null,
+    "after_sha256": "e98e3765766a02b5ac5240c243dd73aa4a43c2f48838a373c28f3dd49e7be019",
+    "change": "added"
+  },
+  {
+    "path": "Source/AfghanistanFPSEditor.Target.cs",
+    "before_sha256": null,
+    "after_sha256": "123ae95bd0b0139183b64f2e1e15f7427d5a3ba871fed5240ddfeaea85278037",
+    "change": "added"
+  },
+  {
+    "path": "Source/AfghanistanFPS/AfghanistanFPS.Build.cs",
+    "before_sha256": null,
+    "after_sha256": "053a849c062ee1a1b763d62dcf69f0cc44ddeac630c31a9b983a5c136716139d",
+    "change": "added"
+  },
+  {
+    "path": "Source/AfghanistanFPS/AfghanistanFPS.cpp",
+    "before_sha256": null,
+    "after_sha256": "66b29713352c0fa3cc97f7470420ed4d122b2ccce3c9c79a1d23a008f3c61832",
+    "change": "added"
+  },
+  {
+    "path": "Source/AfghanistanFPS/Phase2AnimInstance.cpp",
+    "before_sha256": null,
+    "after_sha256": "28bf4bab83cba87684406a91cc3e6bf2082374386eb750b468d3065603e6d486",
+    "change": "added"
+  },
+  {
+    "path": "Source/AfghanistanFPS/Phase2AnimInstance.h",
+    "before_sha256": null,
+    "after_sha256": "a8268376cf0243fc5a5ee977f53bb6e9cf49d6d99e1bff79a7aacba0b0413575",
+    "change": "added"
+  },
+  {
+    "path": "Source/AfghanistanFPS/Phase2Character.cpp",
+    "before_sha256": null,
+    "after_sha256": "446a247286ee90c80de2d5144c5056947fcdf409fd3f278a9c4143d20b623df9",
+    "change": "added"
+  },
+  {
+    "path": "Source/AfghanistanFPS/Phase2Character.h",
+    "before_sha256": null,
+    "after_sha256": "3e0b0b17a9877e6d72ae5bf662a185dcc4a31e242c8c35d5e748a4d616109cf0",
+    "change": "added"
+  },
+  {
+    "path": "Source/AfghanistanFPS/ThirdPartyMovement.h",
+    "before_sha256": null,
+    "after_sha256": "5bd56cf671ee067ad6f3c4b7e89fd70b0b0c7597ebf3a56e3a57ad6e44b67e94",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/additional_checks.py",
+    "before_sha256": null,
+    "after_sha256": "6f2581b186216ff1d00b20b03bf828fc10c8f496ced3e7ef386f710c4cc7a071",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/arms_material.py",
+    "before_sha256": null,
+    "after_sha256": "3b587009fdc5fcac5b73a7722e3f0e952108340bb31c22cef33fcf4bcb9fcf22",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/capture_fp_stances.py",
+    "before_sha256": null,
+    "after_sha256": "0580b720112c8f6876af62a9c9b89a80cc6ed0313fb63f89c83f97649174aab5",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/capture_poses.py",
+    "before_sha256": null,
+    "after_sha256": "0e11fb4b0490ba15a0df99b1a9759bf3144f524da7dddc1e3410a8ea628421ba",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/final_compile.py",
+    "before_sha256": null,
+    "after_sha256": "8baea6927b3f2bc3bf764aa387c1c2863b1831add6b9e59ebe1ed76fe6210906",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/integrate.py",
+    "before_sha256": null,
+    "after_sha256": "f6df762348ee9b4d7659f275269584c6174fd6e37c9adb0f7ec3afe142277d55",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/presentation.py",
+    "before_sha256": null,
+    "after_sha256": "f5598efc5b9c7f0f515a34b60b312dc74a82df9d52b21d246d97527bf2d617dc",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/regression_checks.py",
+    "before_sha256": null,
+    "after_sha256": "c416ca5ef5d3ee0ebd6e5a25493ed8858b6521258a02ecc41a14165e18de4925",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/repair_test_map.py",
+    "before_sha256": null,
+    "after_sha256": "ece08a28406ff45675daa20c66c17a9ae394d8a2e8d02374a5dcc2f901449932",
+    "change": "added"
+  },
+  {
+    "path": "Tools/Phase2/runtime_checks.py",
+    "before_sha256": null,
+    "after_sha256": "c5a605fde60818dc504906d0709fb8910b36bc80983b1ddec31fe26738c95b61",
+    "change": "added"
+  },
+  {
+    "path": "ThirdPartyNotices/ALS-Refactored-LICENSE.txt",
+    "before_sha256": null,
+    "after_sha256": "24caa87067fc9d95cead9066e4412765a87edde2acc8351ac3fd56a1b8e2bcbc",
+    "change": "added"
+  },
+  {
+    "path": "ThirdPartyNotices/PBCharacterMovement-LICENSE.txt",
+    "before_sha256": null,
+    "after_sha256": "436c766367ebcf17233156de93806025eb6b0a41b19533853196fb70861e5fe6",
+    "change": "added"
+  },
+  {
+    "path": "ThirdPartyNotices/REUSE.md",
+    "before_sha256": null,
+    "after_sha256": "5a7a244729843945b5ecb05baafc74357ede069d23b8155ad104cc63b33075f5",
+    "change": "added"
+  },
+  {
+    "path": "Content/AfghanFPS/Characters/Player/FirstPerson/MI_Manny_01_New_P2Arms.uasset",
+    "before_sha256": null,
+    "after_sha256": "1fc0b6dc6d828166e0b4f1822e8f6ecbcec62aee0ed49be277c6cf88cb2e35cd",
+    "change": "added"
+  },
+  {
+    "path": "Content/AfghanFPS/Characters/Player/FirstPerson/MI_Manny_02_New_P2Arms.uasset",
+    "before_sha256": null,
+    "after_sha256": "46e0c5115e0857453488c6adcc0f91b0a913a4f438ae8ca9d1269700da53df3f",
+    "change": "added"
+  },
+  {
+    "path": "Content/AfghanFPS/Characters/Player/FirstPerson/M_Mannequin_P2Arms.uasset",
+    "before_sha256": null,
+    "after_sha256": "0388eb22548d74638a93caec5428b6737a53db77f6f4facab64ca003263ca086",
+    "change": "added"
+  }
+]

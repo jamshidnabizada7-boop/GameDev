@@ -1,0 +1,109 @@
+{
+  "checks": [
+    {
+      "check": "locked door denies entry",
+      "passed": true
+    },
+    {
+      "check": "key granted once",
+      "passed": true
+    },
+    {
+      "check": "key unlocks and opens to 90",
+      "passed": true
+    },
+    {
+      "check": "two wheel notches hold ten degrees",
+      "passed": true
+    },
+    {
+      "check": "peek enters and restores FOV",
+      "passed": true
+    },
+    {
+      "check": "fifteen-degree peek shifts camera without moving capsule",
+      "passed": true
+    },
+    {
+      "check": "listen enters and releases",
+      "passed": true
+    },
+    {
+      "check": "ammo adds reserve only",
+      "passed": true
+    },
+    {
+      "check": "full health rejects without consuming",
+      "passed": true
+    },
+    {
+      "check": "health heals and updates existing HUD",
+      "passed": true
+    },
+    {
+      "check": "weapon ownership token granted once",
+      "passed": true
+    },
+    {
+      "check": "early release cancels loot",
+      "passed": true
+    },
+    {
+      "check": "loot grants designed reserve once",
+      "passed": true
+    },
+    {
+      "check": "drawer opens",
+      "passed": true
+    },
+    {
+      "check": "actual light toggles off",
+      "passed": true
+    },
+    {
+      "check": "linked external lamp toggles off",
+      "passed": true
+    },
+    {
+      "check": "breakable reaches broken state",
+      "passed": true
+    },
+    {
+      "check": "legacy cube still toggles through E",
+      "passed": true
+    },
+    {
+      "check": "mirror survives opening E release",
+      "passed": true
+    },
+    {
+      "check": "mirror exits to pawn and walking",
+      "passed": true
+    },
+    {
+      "check": "range and LOS cancel hold without reward",
+      "passed": true
+    },
+    {
+      "check": "unaligned pick fails, aligned pick unlocks",
+      "passed": true
+    },
+    {
+      "check": "swept door stops against obstruction",
+      "passed": true
+    },
+    {
+      "check": "existing weapon damages and breaks native prop",
+      "passed": true
+    }
+  ],
+  "passed": 24,
+  "total": 24,
+  "owner_approved": false,
+  "limits": [
+    "Generated key events, not owner acceptance.",
+    "Mirror timings are sampled world/frame time, not isolated GPU cost.",
+    "Original placeholder room audio; subjective audibility and polished animations require review.",
+    "Walking NPC audio awaits later AI integration."
+  ]
+}

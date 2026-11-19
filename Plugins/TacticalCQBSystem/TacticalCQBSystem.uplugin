@@ -1,0 +1,34 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0.0",
+	"FriendlyName": "Tactical CQB Action System",
+	"Description": "Complete first-person tactical CQB gameplay plugin: wall-brace IK, combat slide, Max Payne supine dive-shoot, vaulting, human shield, grenade plant + Spartan kick, door breach, bullet-time slow-motion, procedural weapon handling, physical shell ejection, active ragdoll & blood decals.",
+	"Category": "Gameplay",
+	"CreatedBy": "TacticalCQB",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "TacticalCQBSystem",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
+		},
+		{
+			"Name": "Niagara",
+			"Enabled": true
+		}
+	]
+}

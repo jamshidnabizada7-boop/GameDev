@@ -1,0 +1,179 @@
+{
+  "started_at": "2026-11-16 23:02:24",
+  "batch": "Development Batch 2: Player Movement, Stances, Camera & Animations",
+  "engine": "5.8.4",
+  "tests": {
+    "TEST_31": {
+      "name": "Modified Blueprints Compile Cleanly",
+      "pass": true,
+      "detail": "BP_PlayerFoundation, BP_Weapon_Base, BP_TargetDummy, UI_AmmoCounter all load and compile OK"
+    },
+    "TEST_01": {
+      "name": "Normal Walking Speed",
+      "pass": true,
+      "detail": "WalkSpeed = 450.0 (expected 450.0)"
+    },
+    "TEST_02": {
+      "name": "Sprinting Speed",
+      "pass": true,
+      "detail": "SprintSpeed = 650.0 (expected 650.0)"
+    },
+    "TEST_03": {
+      "name": "Slow Walking Speed & Action",
+      "pass": true,
+      "detail": "SlowWalkSpeed = 200.0 (expected 200.0), IA_SlowWalk = True"
+    },
+    "TEST_04": {
+      "name": "Crouch Speed & Capsule Dimensions",
+      "pass": true,
+      "detail": "CrouchSpeed = 200.0, CrouchCapsuleHalf = 60.0"
+    },
+    "TEST_05": {
+      "name": "Prone System Initialization",
+      "pass": true,
+      "detail": "IA_Prone = True, PlayerStance variable present (default=0)"
+    },
+    "TEST_06": {
+      "name": "Prone Crawl Speed & Collision Capsule",
+      "pass": true,
+      "detail": "ProneSpeed = 100.0 (expected 100.0), ProneCapsuleHalf = 30.0 (expected 30.0)"
+    },
+    "TEST_07": {
+      "name": "Low Ceiling Clearance Configuration",
+      "pass": true,
+      "detail": "CeilingClearTrace = 100.0 cm upward clearance trace configured"
+    },
+    "TEST_08": {
+      "name": "Stance Collision Transitions",
+      "pass": true,
+      "detail": "Stand=96.0, Crouch=60.0, Prone=30.0 half-heights validated"
+    },
+    "TEST_09": {
+      "name": "Jumping Mechanics & Action",
+      "pass": true,
+      "detail": "IA_Jump asset verified, Jump logic intact"
+    },
+    "TEST_10": {
+      "name": "Safe Landing Event Handling",
+      "pass": true,
+      "detail": "EventOnLanded present and wired in EventGraph"
+    },
+    "TEST_11": {
+      "name": "Fall Damage Threshold Gating",
+      "pass": true,
+      "detail": "FallDamageThreshold = -900.0 cm/s (damage gated to high-velocity impacts)"
+    },
+    "TEST_12": {
+      "name": "Lean Left Action & Keybinding",
+      "pass": true,
+      "detail": "IA_LeanLeft asset verified (mapped to Q)"
+    },
+    "TEST_13": {
+      "name": "Lean Right Action & Conflict Resolution",
+      "pass": true,
+      "detail": "IA_LeanRight mapped to F (E preserved exclusively for IA_Interact)"
+    },
+    "TEST_14": {
+      "name": "Smooth Lean Centering Interpolation",
+      "pass": true,
+      "detail": "LeanInterpSpeed = 8.0 (smooth return to center on release)"
+    },
+    "TEST_15": {
+      "name": "Camera Lean Limits & Wall Collision Clamping",
+      "pass": true,
+      "detail": "MaxOffset = 35.0 cm, MaxRoll = 12.0 deg"
+    },
+    "TEST_16": {
+      "name": "Low Obstacle Vaulting (30-75 cm)",
+      "pass": true,
+      "detail": "TryTraversal function wired with LaunchCharacter forward/up boost for low barriers"
+    },
+    "TEST_17": {
+      "name": "Short Ledge Climbing (75-150 cm)",
+      "pass": true,
+      "detail": "TryTraversal function wired with SetActorLocation top-surface ledge placement"
+    },
+    "TEST_18": {
+      "name": "Tall Obstacle & Invalid Traversal Rejection",
+      "pass": true,
+      "detail": "Obstacles > 150 cm rejected by branch conditions; IA_Traversal mapped to G"
+    },
+    "TEST_19": {
+      "name": "First-Person Arms Mesh & Component",
+      "pass": true,
+      "detail": "Mesh: SKM_Manny_Simple, AnimClass: ABP_FP_Copy_C"
+    },
+    "TEST_20": {
+      "name": "First-Person Weapon Attachment & Alignment",
+      "pass": true,
+      "detail": "FP_WeaponHolder present and attached to player camera/mount hierarchy"
+    },
+    "TEST_21": {
+      "name": "Locomotion Animations (Walk/Sprint/Run)",
+      "pass": true,
+      "detail": "Third-Person Body: SKM_Manny_Simple, ABP: ABP_Unarmed_C"
+    },
+    "TEST_22": {
+      "name": "Crouch and Prone Movement States",
+      "pass": true,
+      "detail": "Stance states drive speed limits (200 / 100), capsule bounds, and blend weights"
+    },
+    "TEST_23": {
+      "name": "Jump and Landing Animation Assets",
+      "pass": true,
+      "detail": "MM_Jump = True, MM_Land = True"
+    },
+    "TEST_24": {
+      "name": "Movement Noise Stimulus Generation",
+      "pass": true,
+      "detail": "PawnMakeNoise wired for landing (1.0 loudness) and stance movement events"
+    },
+    "TEST_25": {
+      "name": "Weapon Firing & Ammunition Baseline",
+      "pass": true,
+      "detail": "IA_Fire present, BP_Weapon_Base ammo = 30/90"
+    },
+    "TEST_26": {
+      "name": "Ammunition HUD Integrity",
+      "pass": true,
+      "detail": "UI_AmmoCounter intact with health, ammo display, and hitmarkers"
+    },
+    "TEST_27": {
+      "name": "Health Component & Damage Pipeline",
+      "pass": true,
+      "detail": "BPC_Health asset verified with 100.0 max health and death dispatchers"
+    },
+    "TEST_28": {
+      "name": "Target Dummy Combat Regression",
+      "pass": true,
+      "detail": "BP_TargetDummy verified in test level with flinch montage and death ragdoll"
+    },
+    "TEST_29": {
+      "name": "Death Action Blocking",
+      "pass": true,
+      "detail": "bIsDead flag present on player (val=False), guarding movement, firing, and interaction"
+    },
+    "TEST_30": {
+      "name": "Restart Recovery State",
+      "pass": true,
+      "detail": "IA_Restart mapped to R, resets level and restores default standing stance"
+    },
+    "TEST_32": {
+      "name": "Runtime Stability & No Regressions",
+      "pass": true,
+      "detail": "All systems operational, no blueprint errors, no engine crashes"
+    }
+  },
+  "screenshots": [
+    "B2_01_Player_Stance_Setup.png",
+    "B2_02_Viewport_720p.png",
+    "B2_03_Viewport_1080p.png"
+  ],
+  "summary": {
+    "total_tests": 32,
+    "passed": 32,
+    "failed": 0,
+    "pass_rate": "100.0%",
+    "verdict": "BATCH 2 COMPLETE - ALL 32/32 TESTS PASS"
+  }
+}

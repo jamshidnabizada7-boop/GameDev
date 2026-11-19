@@ -1,0 +1,279 @@
+{
+  "started_at": "2026-11-16 20:23:04",
+  "events": [
+    "[0.01] Registering Batch 1B PIE verification harness...",
+    "[0.33] Requesting PIE session for Batch 1B verification...",
+    "[0.41] PIE world active, finding actors and setup...",
+    "[0.27] Setup found: PlayerHP=100.0, DummyHP=100.0, Ammo=30/90, AmmoHUD='30 / 90', HealthHUD='HP: 100'",
+    "[1.66] B1B_01_Spawn_Ammo => PASS (ammo=30/90)",
+    "[1.67] B1B_01_Spawn_PlayerHealth => PASS (player_hp=100.0)",
+    "[1.69] B1B_01_Spawn_DummyHealth => PASS (dummy_hp=100.0)",
+    "[1.70] B1B_01_Spawn_HUD_HealthText => PASS (HealthText='HP: 100')",
+    "[1.71] B1B_01_Spawn_HUD_AmmoText => PASS (AmmoText='30 / 90')",
+    "[1.72] B1B_01_Spawn_HUD_CrosshairVisible => PASS (vis=<SlateVisibility.VISIBLE: 0>)",
+    "[1.73] B1B_01_Spawn_HUD_HitMarkerCollapsed => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[1.74] B1B_01_Spawn_HUD_EmptyWarnCollapsed => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[1.75] B1B_01_Spawn_HUD_DeathOverlayCollapsed => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[1.77] Requested screenshot: B1B_01_Spawn (1280x720)",
+    "[2.33] Aiming away at arena wall (Yaw=-90.0) and firing wall shot...",
+    "[2.34] B1B_02_Miss_ImmediateHitConfirmedFalse => PASS (hc=False, hl=False)",
+    "[2.35] B1B_02_Miss_HitMarkerRemainsCollapsed => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[0.33] Aiming straight down at floor (Pitch=-60.0) and firing floor shot...",
+    "[0.34] B1B_02_Floor_ImmediateHitConfirmedFalse => PASS (hc=False, hl=False)",
+    "[0.35] B1B_02_Floor_HitMarkerRemainsCollapsed => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[0.36] B1B_02_Miss_AmmoDecrement => PASS (ammo=28)",
+    "[0.37] B1B_02_Miss_DummyHPUnchanged => PASS (dummy_hp=100.0)",
+    "[0.38] B1B_02_Miss_HUDAmmoUpdate => PASS (AmmoText='28 / 90')",
+    "[0.67] Aiming directly at Target Dummy torso and firing...",
+    "[0.67] B1B_03_Hit_AmmoDecrement => PASS (ammo=27)",
+    "[0.68] B1B_03_Hit_DummyHealthReduced => PASS (dummy_hp=80.0)",
+    "[0.69] B1B_03_Hit_ImmediateHitConfirmedTrue => PASS (hc=True, hl=False)",
+    "[0.70] B1B_03_Hit_MarkerVisible => PASS (vis=<SlateVisibility.VISIBLE: 0>)",
+    "[0.71] B1B_03_Hit_MarkerNonLethalColor => PASS (color=(1.0, 1.0, 1.0, 1.0))",
+    "[0.74] Requested screenshot: B1B_02_TargetHit (1280x720)",
+    "[2.36] B1B_04_HitMarker_AutoCollapse => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[0.33] Firing lethal 5th shot at dummy...",
+    "[0.34] B1B_05_Lethal_DummyHPZero => PASS (dummy_hp=0.0)",
+    "[0.35] B1B_05_Lethal_DummyIsDeadFlag => PASS (dummy_bIsDead=True)",
+    "[0.37] B1B_05_Lethal_CapsuleNoCollision => PASS (collision=<CollisionEnabled.NO_COLLISION: 0>)",
+    "[0.38] B1B_05_Lethal_MarkerVisible => PASS (vis=<SlateVisibility.VISIBLE: 0>)",
+    "[0.39] B1B_05_Lethal_MarkerRedColor => PASS (color=(1.0, 0.10000000149011612, 0.10000000149011612, 1.0))",
+    "[0.41] Requested screenshot: B1B_03_DummyDeath (1280x720)",
+    "[2.33] Aiming through dead dummy torso at floor and firing overkill shot...",
+    "[2.34] B1B_05_PostDeath_CorpseShotHitConfirmedFalse => PASS (hc=False, hl=False)",
+    "[2.35] B1B_05_PostDeath_HitMarkerRemainsCollapsed => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[0.67] Setting CurrentAmmo to 0 to test empty magazine warning...",
+    "[0.67] B1B_06_EmptyMag_AmmoBlocked => PASS (ammo=0)",
+    "[0.68] B1B_06_EmptyMag_WarningVisible => PASS (vis=<SlateVisibility.VISIBLE: 0>)",
+    "[0.70] Requested screenshot: B1B_04_EmptyWarning (1280x720)",
+    "[2.35] B1B_07_EmptyMag_WarningAutoCollapse => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[0.67] Resetting ammo to 30 and applying 50 damage to player...",
+    "[0.67] B1B_08_Player_HP50 => PASS (player_hp=50.0)",
+    "[0.67] B1B_08_Player_HUDHealth50 => PASS (HealthText='HP: 50')",
+    "[0.68] Applying 50 more damage (lethal) to player...",
+    "[0.67] B1B_08_Player_LethalZeroHP => PASS (player_hp=0.0)",
+    "[0.67] B1B_08_Player_bIsDeadTrue => PASS (player_bIsDead=True)",
+    "[0.68] B1B_08_Player_DeathOverlayVisible => PASS (vis=<SlateVisibility.VISIBLE: 0>)",
+    "[0.69] B1B_08_Player_CrosshairCollapsed => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[0.70] B1B_08_Player_DeadFiringBlocked => PASS (ammo=30->30)",
+    "[0.73] Requested screenshot: B1B_05_PlayerDeath (1280x720)",
+    "[2.33] Executing RestartLevel console command...",
+    "[4.67] B1B_09_Restart_PlayerHP100 => PASS (player_hp=100.0)",
+    "[4.68] B1B_09_Restart_AmmoRestored => PASS (ammo=30/90)",
+    "[4.69] B1B_09_Restart_HUDHealth100 => PASS (HealthText='HP: 100')",
+    "[4.70] B1B_09_Restart_HUDAmmoRestored => PASS (AmmoText='30 / 90')",
+    "[4.71] B1B_09_Restart_CrosshairVisible => PASS (vis=<SlateVisibility.VISIBLE: 0>)",
+    "[4.72] B1B_09_Restart_DeathOverlayCollapsed => PASS (vis=<SlateVisibility.COLLAPSED: 1>)",
+    "[4.73] B1B_09_Restart_DummyRespawnedAlive => PASS (dummy_hp=100.0, dead=False)",
+    "[4.76] Requested screenshot: B1B_06_RestartClean (1280x720)",
+    "[2.33] Taking 1280x720 layout screenshot...",
+    "[2.35] Requested screenshot: B1B_07_720p_Layout (1280x720)",
+    "[2.41] Taking 1920x1080 layout screenshot...",
+    "[2.42] Requested screenshot: B1B_08_1080p_Layout (1920x1080)",
+    "[2.44] Ending PIE session and completing Batch 1B verification...",
+    "[2.53] B1B_09_Log_ZeroAmmoHUDAccessedNone => PASS (errors=0)",
+    "[0.43] Batch 1B PIE verification finished! Dumping final results..."
+  ],
+  "tests": {
+    "B1B_01_Spawn_Ammo": {
+      "pass": true,
+      "detail": "ammo=30/90"
+    },
+    "B1B_01_Spawn_PlayerHealth": {
+      "pass": true,
+      "detail": "player_hp=100.0"
+    },
+    "B1B_01_Spawn_DummyHealth": {
+      "pass": true,
+      "detail": "dummy_hp=100.0"
+    },
+    "B1B_01_Spawn_HUD_HealthText": {
+      "pass": true,
+      "detail": "HealthText='HP: 100'"
+    },
+    "B1B_01_Spawn_HUD_AmmoText": {
+      "pass": true,
+      "detail": "AmmoText='30 / 90'"
+    },
+    "B1B_01_Spawn_HUD_CrosshairVisible": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.VISIBLE: 0>"
+    },
+    "B1B_01_Spawn_HUD_HitMarkerCollapsed": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_01_Spawn_HUD_EmptyWarnCollapsed": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_01_Spawn_HUD_DeathOverlayCollapsed": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_02_Miss_ImmediateHitConfirmedFalse": {
+      "pass": true,
+      "detail": "hc=False, hl=False"
+    },
+    "B1B_02_Miss_HitMarkerRemainsCollapsed": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_02_Floor_ImmediateHitConfirmedFalse": {
+      "pass": true,
+      "detail": "hc=False, hl=False"
+    },
+    "B1B_02_Floor_HitMarkerRemainsCollapsed": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_02_Miss_AmmoDecrement": {
+      "pass": true,
+      "detail": "ammo=28"
+    },
+    "B1B_02_Miss_DummyHPUnchanged": {
+      "pass": true,
+      "detail": "dummy_hp=100.0"
+    },
+    "B1B_02_Miss_HUDAmmoUpdate": {
+      "pass": true,
+      "detail": "AmmoText='28 / 90'"
+    },
+    "B1B_03_Hit_AmmoDecrement": {
+      "pass": true,
+      "detail": "ammo=27"
+    },
+    "B1B_03_Hit_DummyHealthReduced": {
+      "pass": true,
+      "detail": "dummy_hp=80.0"
+    },
+    "B1B_03_Hit_ImmediateHitConfirmedTrue": {
+      "pass": true,
+      "detail": "hc=True, hl=False"
+    },
+    "B1B_03_Hit_MarkerVisible": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.VISIBLE: 0>"
+    },
+    "B1B_03_Hit_MarkerNonLethalColor": {
+      "pass": true,
+      "detail": "color=(1.0, 1.0, 1.0, 1.0)"
+    },
+    "B1B_04_HitMarker_AutoCollapse": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_05_Lethal_DummyHPZero": {
+      "pass": true,
+      "detail": "dummy_hp=0.0"
+    },
+    "B1B_05_Lethal_DummyIsDeadFlag": {
+      "pass": true,
+      "detail": "dummy_bIsDead=True"
+    },
+    "B1B_05_Lethal_CapsuleNoCollision": {
+      "pass": true,
+      "detail": "collision=<CollisionEnabled.NO_COLLISION: 0>"
+    },
+    "B1B_05_Lethal_MarkerVisible": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.VISIBLE: 0>"
+    },
+    "B1B_05_Lethal_MarkerRedColor": {
+      "pass": true,
+      "detail": "color=(1.0, 0.10000000149011612, 0.10000000149011612, 1.0)"
+    },
+    "B1B_05_PostDeath_CorpseShotHitConfirmedFalse": {
+      "pass": true,
+      "detail": "hc=False, hl=False"
+    },
+    "B1B_05_PostDeath_HitMarkerRemainsCollapsed": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_06_EmptyMag_AmmoBlocked": {
+      "pass": true,
+      "detail": "ammo=0"
+    },
+    "B1B_06_EmptyMag_WarningVisible": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.VISIBLE: 0>"
+    },
+    "B1B_07_EmptyMag_WarningAutoCollapse": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_08_Player_HP50": {
+      "pass": true,
+      "detail": "player_hp=50.0"
+    },
+    "B1B_08_Player_HUDHealth50": {
+      "pass": true,
+      "detail": "HealthText='HP: 50'"
+    },
+    "B1B_08_Player_LethalZeroHP": {
+      "pass": true,
+      "detail": "player_hp=0.0"
+    },
+    "B1B_08_Player_bIsDeadTrue": {
+      "pass": true,
+      "detail": "player_bIsDead=True"
+    },
+    "B1B_08_Player_DeathOverlayVisible": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.VISIBLE: 0>"
+    },
+    "B1B_08_Player_CrosshairCollapsed": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_08_Player_DeadFiringBlocked": {
+      "pass": true,
+      "detail": "ammo=30->30"
+    },
+    "B1B_09_Restart_PlayerHP100": {
+      "pass": true,
+      "detail": "player_hp=100.0"
+    },
+    "B1B_09_Restart_AmmoRestored": {
+      "pass": true,
+      "detail": "ammo=30/90"
+    },
+    "B1B_09_Restart_HUDHealth100": {
+      "pass": true,
+      "detail": "HealthText='HP: 100'"
+    },
+    "B1B_09_Restart_HUDAmmoRestored": {
+      "pass": true,
+      "detail": "AmmoText='30 / 90'"
+    },
+    "B1B_09_Restart_CrosshairVisible": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.VISIBLE: 0>"
+    },
+    "B1B_09_Restart_DeathOverlayCollapsed": {
+      "pass": true,
+      "detail": "vis=<SlateVisibility.COLLAPSED: 1>"
+    },
+    "B1B_09_Restart_DummyRespawnedAlive": {
+      "pass": true,
+      "detail": "dummy_hp=100.0, dead=False"
+    },
+    "B1B_09_Log_ZeroAmmoHUDAccessedNone": {
+      "pass": true,
+      "detail": "errors=0"
+    }
+  },
+  "shots": [
+    "B1B_01_Spawn",
+    "B1B_02_TargetHit",
+    "B1B_03_DummyDeath",
+    "B1B_04_EmptyWarning",
+    "B1B_05_PlayerDeath",
+    "B1B_06_RestartClean",
+    "B1B_07_720p_Layout",
+    "B1B_08_1080p_Layout"
+  ],
+  "_finished": true,
+  "finished_at": "2026-11-16 20:23:35"
+}

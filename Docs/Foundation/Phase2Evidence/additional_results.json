@@ -1,0 +1,184 @@
+[
+  {
+    "name": "standing_passage",
+    "position": [
+      -272.49978770315647,
+      -800.0,
+      -1.8
+    ],
+    "speed": 450.0,
+    "stance": 0,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50A0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 96.0
+  },
+  {
+    "name": "interact_aim",
+    "position": [
+      70.0,
+      -400.0,
+      -1.8
+    ],
+    "speed": 0.0,
+    "stance": 0,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 96.0
+  },
+  {
+    "name": "interact_grow",
+    "position": [
+      70.0,
+      -400.0,
+      -1.8
+    ],
+    "speed": 0.0,
+    "stance": 0,
+    "sprint": false,
+    "interactable_big": true,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.250000, y: 1.250000, z: 1.250000}>",
+    "half_height": 96.0
+  },
+  {
+    "name": "interact_shrink",
+    "position": [
+      70.0,
+      -400.0,
+      -1.8
+    ],
+    "speed": 0.0,
+    "stance": 0,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 96.0
+  },
+  {
+    "name": "prone_prepare",
+    "position": [
+      -850.0,
+      350.0,
+      -67.8
+    ],
+    "speed": 0.0,
+    "stance": 2,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 30.0
+  },
+  {
+    "name": "prone_under_roof",
+    "position": [
+      -616.666528955102,
+      350.0,
+      -67.8
+    ],
+    "speed": 100.0,
+    "stance": 2,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 30.0
+  },
+  {
+    "name": "prone_stand_blocked",
+    "position": [
+      -583.3331882953644,
+      350.0,
+      -67.8
+    ],
+    "speed": 0.0,
+    "stance": 2,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 30.0
+  },
+  {
+    "name": "prone_shift_stays_100",
+    "position": [
+      -483.33313651382923,
+      350.0,
+      -67.8
+    ],
+    "speed": 100.0,
+    "stance": 2,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 30.0
+  },
+  {
+    "name": "left",
+    "position": [
+      -600.0,
+      -75.5235069638213,
+      -1.8499965880069311
+    ],
+    "speed": 0.0,
+    "stance": 0,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 96.0
+  },
+  {
+    "name": "right",
+    "position": [
+      -600.0,
+      175.16823129509726,
+      -1.8500007292259824
+    ],
+    "speed": 0.0,
+    "stance": 0,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 96.0
+  },
+  {
+    "name": "backwards",
+    "position": [
+      -877.50010612607,
+      175.2510163795759,
+      -1.8499977536505838
+    ],
+    "speed": 450.0,
+    "stance": 0,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 96.0
+  },
+  {
+    "name": "final_camera_settle",
+    "position": [
+      -500.0,
+      0.0,
+      -1.8
+    ],
+    "speed": 0.0,
+    "stance": 0,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 96.0
+  },
+  {
+    "name": "final_screenshot",
+    "position": [
+      -500.0,
+      0.0,
+      -1.8
+    ],
+    "speed": 0.0,
+    "stance": 0,
+    "sprint": false,
+    "interactable_big": false,
+    "interactable_scale": "<Struct 'Vector' (0x000001FA91CC50F0) {x: 1.000000, y: 1.000000, z: 1.000000}>",
+    "half_height": 96.0
+  }
+]

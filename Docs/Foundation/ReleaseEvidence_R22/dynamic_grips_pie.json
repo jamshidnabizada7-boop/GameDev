@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "samples": {
+    "walk": {
+      "frames": 61,
+      "max_cm": 0.23557081032755184,
+      "speed": 450.00000000000006,
+      "reload": false,
+      "slot": 0,
+      "correct_owner": true
+    },
+    "reload": {
+      "frames": 112,
+      "max_cm": 0.41585008638895105,
+      "speed": 0.0,
+      "reload": true,
+      "slot": 0,
+      "correct_owner": true
+    },
+    "alt": {
+      "frames": 67,
+      "max_cm": 0.017164353852718126,
+      "speed": 0.0,
+      "reload": false,
+      "slot": 1,
+      "correct_owner": true
+    },
+    "base": {
+      "frames": 68,
+      "max_cm": 0.006682073856980392,
+      "speed": 0.0,
+      "reload": false,
+      "slot": 0,
+      "correct_owner": true
+    }
+  }
+}

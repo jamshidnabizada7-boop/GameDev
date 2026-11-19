@@ -1,0 +1,16 @@
+{
+  "/Game/AfghanFPS/Characters/Player/Blueprints/BP_PlayerFoundation": true,
+  "/Game/AfghanFPS/Weapons/BP_Weapon_Base": true,
+  "/Game/AfghanFPS/Blueprints/BP_TargetDummy": true,
+  "/Game/AfghanFPS/UI/UI_AmmoCounter": true,
+  "/Game/AfghanFPS/Interaction/BP_TestInteractable": true,
+  "/Game/AfghanFPS/Interaction/Foundation/BP_AmmoPickup.BP_AmmoPickup": true,
+  "/Game/AfghanFPS/Interaction/Foundation/BP_BreakableCrate.BP_BreakableCrate": true,
+  "/Game/AfghanFPS/Interaction/Foundation/BP_HealthPickup.BP_HealthPickup": true,
+  "/Game/AfghanFPS/Interaction/Foundation/BP_InteractableDoor.BP_InteractableDoor": true,
+  "/Game/AfghanFPS/Interaction/Foundation/BP_InteractableDrawer.BP_InteractableDrawer": true,
+  "/Game/AfghanFPS/Interaction/Foundation/BP_InteractableSwitch.BP_InteractableSwitch": true,
+  "/Game/AfghanFPS/Interaction/Foundation/BP_KeyPickup.BP_KeyPickup": true,
+  "/Game/AfghanFPS/Interaction/Foundation/BP_LootContainer.BP_LootContainer": true,
+  "/Game/AfghanFPS/Interaction/Foundation/BP_WorldWeaponPickup.BP_WorldWeaponPickup": true
+}

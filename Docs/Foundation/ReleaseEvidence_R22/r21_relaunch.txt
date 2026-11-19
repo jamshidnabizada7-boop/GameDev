@@ -1,0 +1,6 @@
+
+Operation ExitSeconds ExitCode Log
+--------- ----------- -------- ---
+Write            0.90        0 D:\GameDev\AfghanistanFPS_Archives\Foundation_Profile_R21_Relaunch\Write.log
+Read             1.17        0 D:\GameDev\AfghanistanFPS_Archives\Foundation_Profile_R21_Relaunch\Read.log
+

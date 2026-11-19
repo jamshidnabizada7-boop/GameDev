@@ -1,0 +1,54 @@
+[
+  {
+    "path": "Source\\AfghanistanFPS\\FoundationBridge.cpp",
+    "sha256": "52817ba45fb7ef1f0dcf7608da1836a67ef77987b8ae9bf0797a10ce3488672d"
+  },
+  {
+    "path": "Source\\AfghanistanFPS\\FoundationBridge.h",
+    "sha256": "705dddd70956bb2e62dcf133dc7e88250a8c7c346e5547f6393da190d451acc0"
+  },
+  {
+    "path": "Source\\AfghanistanFPS\\FoundationInteraction.cpp",
+    "sha256": "b9a996d4c5317e94d3946fd2ba19a6bbb0bb33e3db8ab398c1062600dbb2e2a0"
+  },
+  {
+    "path": "Source\\AfghanistanFPS\\FoundationInteraction.h",
+    "sha256": "f81eff55b3c82220e276b4802637002babb109b10bfe6550ce3b47ef8ba9deea"
+  },
+  {
+    "path": "Content\\AfghanFPS\\Interaction\\Foundation\\BP_AmmoPickup.uasset",
+    "sha256": "1a00b518d6d7c6ba8eef33f0d25624bbd13fc137ea27ac67a8d61f4f4e1bd395"
+  },
+  {
+    "path": "Content\\AfghanFPS\\Interaction\\Foundation\\BP_BreakableCrate.uasset",
+    "sha256": "fed5b95ee0cdad2cfe2617ee7f67a0a5fcaaa60ef78a88edffdfb1ff667b913e"
+  },
+  {
+    "path": "Content\\AfghanFPS\\Interaction\\Foundation\\BP_HealthPickup.uasset",
+    "sha256": "2ed2f347cf03ec386f15e1a6a36c7a4258628effea586054dd5a3fed13a3d353"
+  },
+  {
+    "path": "Content\\AfghanFPS\\Interaction\\Foundation\\BP_InteractableDoor.uasset",
+    "sha256": "e9a1fbc2eb24ad2273815d9320bc16e5a95319515d81d5e6bbc51a3f94795a27"
+  },
+  {
+    "path": "Content\\AfghanFPS\\Interaction\\Foundation\\BP_InteractableDrawer.uasset",
+    "sha256": "757041228578ce47a273a4922ca376ea19d5dfa514a0f618605417cf54018901"
+  },
+  {
+    "path": "Content\\AfghanFPS\\Interaction\\Foundation\\BP_InteractableSwitch.uasset",
+    "sha256": "14a1b68c817cf1aad62b5edb6f98a7998769d791692bdf6d0abf5ec203131bb4"
+  },
+  {
+    "path": "Content\\AfghanFPS\\Interaction\\Foundation\\BP_KeyPickup.uasset",
+    "sha256": "7a73acdc40b6dbf9fc7c67b5ee044c8f0a2704bc64307193bf66a9023bd4bc60"
+  },
+  {
+    "path": "Content\\AfghanFPS\\Interaction\\Foundation\\BP_LootContainer.uasset",
+    "sha256": "9b3267c9372b44217cfb594f223632497d35836b7d0b3d07d8a17f90fe61523a"
+  },
+  {
+    "path": "Content\\AfghanFPS\\Interaction\\Foundation\\BP_WorldWeaponPickup.uasset",
+    "sha256": "472b4be9e2d8d67c52e779b887b226c59667802e435d7ecb24cfc7a65c36e5e7"
+  }
+]
